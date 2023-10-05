@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random RGB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./randrgb.css">
+</head>
+
+<body lang="en">
+    <div class="backbutton" id="back">back</div>
+    <section>
+        <h2>Random RGB Colour</h2>
+        <p>Random RGB: <span id="rgbdisp"></span></p>
+        <button id="button">New Colour</button>
+    </section>
+    <script>
+        const randomNum = () => {
+            let ran = Math.floor(Math.random() * 255)
+            return ran;
+        }
+
+        let rgb = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+        let btn = document.getElementById("button");
+        let rgbdisp = document.getElementById("rgbdisp");
+        btn.addEventListener("click", () => {
+            rgb = `rgb(${randomNum()},${randomNum()},${randomNum()})`
+            console.log(rgb);
+            document.body.style.background = rgb;
+            rgbdisp.innerHTML = rgb
+        });
+
+    </script>
+    <script>
+        let button = document.getElementById("back");
+        button.addEventListener("click", () => {
+            window.history.back()
+        })
+    </script>
+</body>
+
+</html>

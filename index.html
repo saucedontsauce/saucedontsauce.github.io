@@ -1,50 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HBIMT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Londrina Solid';
-            padding: 0;
-            margin:0;
-        }
-        body {
-            width: 100dvw;
-            height: 100dvh;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            background: #F4F5F6;
-            line-height: 1.4;
-            letter-spacing: 0.1rem;
-        }
-        section {
-           padding: 1.75rem ;
-           background: white;
-           border-radius: 8px;
-           border: 2px solid grey;
-        }
-        section h2 {
-            padding: 1.25rem;        }
-        section p {
-            text-align: center;
-            text-decoration: underline;
-        }
-    </style>
+    <title>Adam</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="icon" href="./images/icon.gif">
 </head>
-<body lang="en"> 
+
+<body>
+    <div class="content">
+
+        <!-- title banner-->
+        <div class="banner">
+            <div class="title">
+                <h1>Adam Auckland-Blaydes</h1>
+                <p>my online portfolio</p>
+            </div>
+
+            <div class="banner-links">
+                <a href="/">
+                    <p>Homepage</p><span>you are here</span>
+                </a>
+                <a href="/">
+                    <p>Contact</p><span>get in touch</span>
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <section>
+            <!-- intro section -->
+            <div class="intro">
+                <article>
+                    <h2>Welcome to my portfolio!</h2>
+                    <hr>
+                    <p>This website is intended to be a hub for my website development projects.
+                        <br>
+                        As a web developer I am passionate about creating dynamic and interactive websites to bring
+                        projects
+                        to life.
+                        With a strong foundation in HTML, CSS and JS I aim to create digital experiences that inspire
+                        and
+                        engage.
+                        Whether its building static webpages, custom dynamic web applications, designing user interfaces
+                        or
+                        building
+                        APIs for pages to interact with, I take pride in providing great solutions that meet the unique
+                        needs of each
+                        project. Please take a look at the examples of my work in this digital portfolio and feel free
+                        to
+                        get in touch
+                        to discuss how I can make your idea a reality.
+                        <br>
+                        This site will constantly change and be updated.
+                        <br>
+                    </p>
+                </article>
+                <article>
+                    <h3>What can i do for you?</h3>
+                    <hr>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>node.js</li>
+                        <li>express.js</li>
+                        <li>mongoDB</li>
+                        <li>Logo Creation</li>
+                        <li>Website Design</li>
+                        <li>Sound Effect Creation</li>
+                        <li>API Creation & Maintenance</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>My Technical Know-How<hr></h2>
+            
+            <div class="knowhow">
+                <article>
+                    <h4>HTML</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel ratione quo accusantium minus.
+                    Nostrum porro aliquam modi sapiente soluta dolore repellendus numquam, provident facere pariatur
+                    eligendi nihil nobis magnam.</p>
+                </article>
+                <article>
+                    <h4>JS</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel ratione quo accusantium minus.
+                    Nostrum porro aliquam modi sapiente soluta dolore repellendus numquam, provident facere pariatur
+                    eligendi nihil nobis magnam.</p>
+                </article>
+                <article>
+                    <h4>CSS</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel ratione quo accusantium minus.
+                    Nostrum porro aliquam modi sapiente soluta dolore repellendus numquam, provident facere pariatur
+                    eligendi nihil nobis magnam.</p>
+                </article>
+                <article>
+                    <h4>Node.js</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel ratione quo accusantium minus.
+                    Nostrum porro aliquam modi sapiente soluta dolore repellendus numquam, provident facere pariatur
+                    eligendi nihil nobis magnam.</p>
+                </article>
+                <article>
+                    <h4>MongoDB</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel ratione quo accusantium minus.
+                    Nostrum porro aliquam modi sapiente soluta dolore repellendus numquam, provident facere pariatur
+                    eligendi nihil nobis magnam.</p>
+                </article>
     
-    <section>
-        <h2>How Big Is My Thing</h2>
-        <p id="display">0x0</p>
-    </section>
-    <script>
-        let disp = document.getElementById("display")
-        let newstring = window.screen.availWidth + " x " + window.screen.availHeight
-        disp.innerHTML = newstring
-    </script>
+            </div>
+        </section>
+
+
+        <div class="project-banner">
+            My Projects
+        </div>
+
+        <section>
+            <div class="project-display">
+                <div class="project">
+                    <img src="./images/projects/this.png">
+                    <h4>This Website Itself</h4>
+                    <p>This Website is a project that i am using to display other projects. In a way you could call it
+                        projectception!</p>
+
+                    <a href="" class="project-link">Link to me!</a>
+                </div>
+                <div class="project">
+                    <img src="./images/projects/HBIMT.png">
+
+                    <h4>How Big Is My Thing?</h4>
+                    <p>This is a simple webpage that displays how big your thing is. It is a very simple
+                        but useful tool.</p>
+                    <a href="pages/hbimt/hbimt.html" class="project-link">Link to me!</a>
+
+                </div>
+                <div class="project">
+                    <img src="./images/projects/WIMT.png">
+                    <h4>What Is My Thing?</h4>
+                    <p>This is similar to 'How Big Am I?', but it shows information about your current device and
+                        browser.</p>
+
+                    <a href="pages/wimt/wimt.html" class="project-link">Link to me!</a>
+
+                </div>
+                <div class="project">
+                    <h4>Snake Game</h4>
+                    <p>The classic snake game recreated using HTML, CSS and JS. I have been spending an unnecessary
+                        amount of time getting
+                        distracted playing while making this. </p>
+
+                    <a href="" class="project-link">Link to me!</a>
+
+                </div>
+                <div class="project">
+                    <img src="./images/projects/randrgb.png">
+                    <h4>Random RGB colour generator</h4>
+                    <p>This Website is simple in essence, click a button and receive a random RGB colour value.</p>
+
+                    <a href="pages/randrgb/randrgb.html" class="project-link">Link to me!</a>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer>
+
+            <div class="something-about-me">
+                <p>Something about me!</p>
+                <hr>
+                <p><img src="./images/adam.png" alt="pic of me">Hi, I'm Adam! I enjoy web development and i have
+                    been learning a lot from youtube
+                    tutorials, online guides and free courses although I don't currently actually have any
+                    qualifications I have worked on numerous projects and I will hopefully soon be able to change that
+                    as I am currently taking freecodecamps Responsive Web Development course.
+                </p>
+            </div>
+
+            <div>
+                <p>My contact details</p>
+                <hr>
+                <ul>
+                    <li>Discord: </li>
+                    <li>LinkedIn: </li>
+                    <li>E-mail: </li>
+                </ul>
+            </div>
+
+        </footer>
+
+
+
+    </div>
+
 </body>
+
 </html>
