@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 7 px;
     height: 64px;
     width: 100%;
     background: #222;
@@ -13,6 +12,7 @@ padding: 4px;
 width: 350px;
 display: flex;
 flex-direction: column;
+justify-content: space-evenly;
 }
 .branding p {
 text-transform: capitalize;
