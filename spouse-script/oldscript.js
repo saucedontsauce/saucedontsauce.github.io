@@ -7,7 +7,6 @@
 // @match        https://www.torn.com/travelagency.php
 // @match        https://www.torn.com/page.php?sid=travel
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @require ./overides.js
 // @grant    GM.getValue
 // @grant    GM.setValue
 // @grant    GM.deleteValue

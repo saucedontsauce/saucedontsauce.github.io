@@ -1,3 +1,8 @@
-console.log("signupform module loaded");
 
-// code here
+
+
+
+
+
+//leave this here
+log("%SignUpForm.module.js loaded", logStyle);
