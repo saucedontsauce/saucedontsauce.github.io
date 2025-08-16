@@ -32,14 +32,6 @@
     GMDelete("local_user");
     GMDelete("local_spouse");
     log("%cAll data reset", logStyle)
-
-
-    log("%cData: %o", logStyle, data); // CHECK STATE
-    log("%cUser: %o", logStyle, user); // CHECK STATE
-    log("%cSpouse: %o", logStyle, spouse); // CHECK STATE
-    log("%cJoined: %o", logStyle, mergedDisplay); // CHECK STATE
-    log("%cFilters: %o", logStyle, filters); // CHECK STATE
-    log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
     /**/
 
     log("%cSpouse Travel script loaded", logStyle);
@@ -48,9 +40,18 @@
         let data = await GMGet("local_data"); if (data) data = await JSON.parse(data);
         let user = await GMGet("user_data"); if (user) user = await JSON.parse(user);
         let spouse = await GMGet("spouse_data"); if (spouse) spouse = await JSON.parse(spouse);
-        const mergedDisplay = mergeUTIL(user, spouse);
+        const mergedDisplay = data ? mergeUTIL(user, spouse, data) : [];
         let filteredItems = [];
         let filters = [];
+
+        /* Remove for production */
+        log("%cData: %o", logStyle, data); // CHECK STATE
+        log("%cUser: %o", logStyle, user); // CHECK STATE
+        log("%cSpouse: %o", logStyle, spouse); // CHECK STATE
+        log("%cJoined: %o", logStyle, mergedDisplay); // CHECK STATE
+        log("%cFilters: %o", logStyle, filters); // CHECK STATE
+        log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
+        /**/
 
         await checkData();
         //const abroad indicator = $get("#skip-to-content");
