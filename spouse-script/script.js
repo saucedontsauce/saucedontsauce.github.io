@@ -109,22 +109,68 @@
     } else {
         log("%cNO KEY PRESENT", logStyle);
         switch ($get("h4").textContent) {
-            case "Traveling": {
-                log("%cFlying", logStyle);
-                renderSignInForm("div.content-wrapper.travelling")
+            case "Mexico": {
+                log("%cMexico", logStyle);
+                renderToolDisp("");
                 break;
-            }
+            };
+            case "Canada": {
+                log("%cCanada", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Cayman Islands": {
+                log("%cCayman Islands", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Hawaii": {
+                log("%cHawaii", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "UK": {
+                log("%cUK", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Argentina": {
+                log("%cSArgentina", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Switzerland": {
+                log("%cSwitzerland", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Japan": {
+                log("%cJapan", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "China": {
+                log("%cChina", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "UAE": {
+                log("%cUAE", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "South Africa": {
+                log("%cSouth Africa", logStyle);
+                renderToolDisp("");
+                break;
+            };
+            case "Traveling": { log("%cFlying", logStyle); renderSignInForm("div.content-wrapper.travelling"); break; };
             case "Travel Agency": {
                 log("%cTravel Agency", logStyle);
                 renderSignInForm("div.wrapper")
                 break;
-            }
-            default: {
-
-                log("%cShit the bed", logStyle);
-
-                break;
-            }
+            };
+            default: { log("%cShit the bed", logStyle); break; };
         }
     };
 })();
