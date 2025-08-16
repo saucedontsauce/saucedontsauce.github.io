@@ -1,4 +1,4 @@
-log("loading Util.module.js")
+log("%cloading Util.module.js", logStyle);
 
 function mergeUTIL(user, spouse, data) {
     let merged = {};
@@ -69,4 +69,4 @@ async function fetchSpouseUTIL(key, id) {
 };
 
 //leave this here
-log("%Util.module.js loaded", logStyle);
+log("%cUtil.module.js loaded", logStyle);
