@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Spouse Display
 // @namespace    http://tampermonkey.net/
-// @version      2025-08-13
-// @description  try to take over the world!
-// @author       You
+// @version      16-08-2025
+// @description  Script for sharing spouse display for saving purposes
+// @author       D00dleD
 // @match        https://www.torn.com/travelagency.php
 // @match        https://www.torn.com/page.php?sid=travel
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
