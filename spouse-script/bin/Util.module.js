@@ -35,6 +35,9 @@ async function fetchUserUTIL(key) {
         log(data);
         const json = await data.json();
         log(json);
+        if (json.error) {
+            localStorage.removeItem("TornApiKey");
+        };
         if (!json.error) return json;
     } catch (err) {
         GMDelete("localkey");
