@@ -1,6 +1,4 @@
 import { log, logStyle, $create } from './Overides.module';
-log("%BuildingBlocks module loaded", logStyle);
-
 
 function hr() {
     const hr0 = $create("hr");
