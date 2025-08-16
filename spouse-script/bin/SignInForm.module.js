@@ -55,14 +55,14 @@ function createSignInForm() {
     return formObject;
 };
 
-function renderSignInForm() {
+function renderSignInForm(target) {
     log("%cKey absent", logStyle);
-    let travelAgentTargetDiv = $get("div.wrapper")//travel agent target
-    if (travelAgentTargetDiv) { //only if in travel agent
+    let targetDiv = $get(target)//travel agent target
+    if (targetDiv) { //only if in travel agent
         const hrr = hr();
-        travelAgentTargetDiv.insertAdjacentElement('afterend', hrr);
+        targetDiv.appendChild(hrr);
         const signinform = createSignInForm();//whats you
-        travelAgentTargetDiv.insertAdjacentElement('afterend', signinform);
+        targetDiv.appendChild(signinform);
     }
 };
 
