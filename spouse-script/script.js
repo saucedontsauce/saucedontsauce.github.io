@@ -107,7 +107,6 @@
         }
     } else {
         log("%cNO KEY PRESENT", logStyle);
-        log($get("h4").textContent)
         switch ($get("h4").textContent) {
             case "Traveling": {
                 log("%cFlying", logStyle);
