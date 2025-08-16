@@ -107,6 +107,7 @@
         }
     } else {
         log("%cNO KEY PRESENT", logStyle);
+        log($get("h4").textContent)
         switch ($get("h4").textContent) {
             case "Traveling": {
                 log("%cFlying", logStyle);
@@ -116,22 +117,6 @@
             case "Travel Agency": {
                 log("%cTravel Agency", logStyle);
                 renderSignInForm("div.wrapper")
-
-                //const displaylist = createItemDisplay();//displaylist
-                // log(displaylist);
-                //travelAgentTarget.insertAdjacentElement('afterend', displaylist);// makes sure display appears after filter
-                /*
-                                const filterlist = createFilterForm();
-                                log(filterlist)
-                                let travelAgentTargetDiv = $get("div.wrapper")//travel agent target
-                                if (travelAgentTargetDiv) { //only if in travel agent
-                                    const hrr = hr();
-                                    travelAgentTargetDiv.insertAdjacentElement('afterend', hrr);
-                                    const filterform = createFilterForm();
-                                    filterform.style.minHeight = '1rem';
-                                    travelAgentTargetDiv.insertAdjacentElement('afterend', filterlist);
-                                };
-                */
                 break;
             }
             default: {
