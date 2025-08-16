@@ -58,6 +58,7 @@ function createSignInForm() {
 function renderSignInForm(target) {
     log("%cKey absent", logStyle);
     let targetDiv = $get(target)//travel agent target
+    console.log(target, targetDiv)
     if (targetDiv) { //only if in travel agent
         log("%cTARGET FOUND", logStyle)
         const hrr = hr();
