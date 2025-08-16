@@ -36,8 +36,10 @@ async function fetchUserUTIL(key) {
         const json = await data.json();
         log(json);
         if (json.error.code == 2) {
+            window.alert(json.error.error);
             localStorage.removeItem("TornApiKey");
             window.reload();
+            throw json.error.error
         } else {
             return json
         };
@@ -53,8 +55,10 @@ async function fetchSpouseUTIL(key, id) {
         const json = await data.json();
         log(json);
         if (json.error.code == 2) {
+            window.alert(json.error.error);
             localStorage.removeItem("TornApiKey");
             window.reload();
+            throw json.error.error
         } else {
             return json
         };
