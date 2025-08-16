@@ -32,6 +32,7 @@
     log("%cLOCALKEY - %s", logStyle, key);
 
     /* Remove for production */
+    GMDelete("TornApiKey");
     GMDelete("local_data");
     GMDelete("user_data");
     GMDelete("spouse_data");
