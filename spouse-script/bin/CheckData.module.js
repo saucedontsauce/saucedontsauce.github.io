@@ -1,4 +1,4 @@
-async function checkData() {
+async function checkData(user, spouse) {
     if (!user) {
         log("%cNo local user data present", logStyle);
         const newUserData = await fetchUserData();

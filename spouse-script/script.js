@@ -53,7 +53,7 @@
         log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
         /**/
 
-        await checkData();
+        await checkData(user, spouse);
         //const abroad indicator = $get("#skip-to-content");
 
         function renderToolDisp(target) {
