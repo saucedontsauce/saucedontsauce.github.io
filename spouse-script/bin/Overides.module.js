@@ -1,13 +1,13 @@
 // GENERAL
-export const log = console.log;
-export const logStyle = 'background-color: darkblue; color: white; font-style: italic; border: 5px solid hotpink; font-size: 2em;';
+const log = console.log;
+const logStyle = 'background-color: darkblue; color: white; font-style: italic; border: 5px solid hotpink; font-size: 2em;';
 
 // DOM
-export const $get = (selector) => document.querySelector(selector);
-export const $create = (tag) => document.createElement(tag);
+const $get = (selector) => document.querySelector(selector);
+const $create = (tag) => document.createElement(tag);
 
 // GM 
-export const GMSet = async (key, value) => {
+const GMSet = async (key, value) => {
     try {
         await GM.setValue(key, value);
         console.log('Value set successfully');
@@ -16,7 +16,7 @@ export const GMSet = async (key, value) => {
         throw err;
     }
 };
-export const GMGet = async (key, deflt) => {
+const GMGet = async (key, deflt) => {
     try {
         const data = await GM.getValue(key, deflt);
         if (data !== undefined) {
@@ -28,7 +28,7 @@ export const GMGet = async (key, deflt) => {
         console.error('Error setting value:', err);
     }
 };
-export const GMDelete = (key) => { GM.deleteValue(key) };
+const GMDelete = (key) => { GM.deleteValue(key) };
 
 log("%cOverides.module.js loaded", logStyle);
 

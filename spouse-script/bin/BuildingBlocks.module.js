@@ -1,4 +1,3 @@
-import { log, logStyle, $create } from './Overides.module';
 
 function hr() {
     const hr0 = $create("hr");
