@@ -31,7 +31,7 @@ function filterUTIL(filters, merged) {
 async function fetchUserUTIL(key) {
     log("%cFetching user", logStyle);
     try {
-        const data = await fetch("https://api.torn.com/v2/user?selections=profile,display,timestamp&key=" + key);
+        const data = await fetch(`https://api.torn.com/v2/user?selections=profile,display,timestamp&key=${key}`);
         log(data);
         const json = await data.json();
         log(json);
