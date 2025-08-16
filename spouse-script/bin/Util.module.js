@@ -33,7 +33,7 @@ async function fetchUserUTIL(key) {
     try {
         const data = await fetch("https://api.torn.com/v2/user?selections=profile,display,timestamp&key=" + key);
         log(data);
-        const json = data.json();
+        const json = await data.json();
         log(json);
         if (!json.error) return json;
     } catch (err) {
@@ -45,7 +45,7 @@ async function fetchSpouseUTIL(key, id) {
     log("%cFetching spouse", logStyle);
     try {
         const data = await fetch(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`);
-        const json = data.json();
+        const json = await data.json();
         log(json);
         if (!json.error) return json;
     } catch (err) {
