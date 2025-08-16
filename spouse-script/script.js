@@ -4,7 +4,7 @@
 // @version      16-08-2025
 // @description  Script for sharing spouse display for saving purposes
 // @author       D00dleD
-// @match        https://www.torn.com/travelagency.php
+// @match        https://www.torn.com/index.php
 // @match        https://www.torn.com/page.php?sid=travel
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @require https://saucedontsauce.github.io/spouse-script/bin/Overides.module.js?ts=<?= Date.now() ?>
@@ -32,7 +32,7 @@
     log("%cLOCALKEY - %s", logStyle, key);
 
     /* Remove for production */
-    GMDelete("TornApiKey");
+    //GMDelete("TornApiKey");
     GMDelete("local_data");
     GMDelete("user_data");
     GMDelete("spouse_data");
@@ -108,60 +108,60 @@
         }
     } else {
         log("%cNO KEY PRESENT", logStyle);
-        switch ($get("h4").textContent) {
+        switch ($get("h4").textContent.trim()) {
             case "Mexico": {
                 log("%cMexico", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Canada": {
                 log("%cCanada", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Cayman Islands": {
                 log("%cCayman Islands", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Hawaii": {
                 log("%cHawaii", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "UK": {
                 log("%cUK", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Argentina": {
                 log("%cSArgentina", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Switzerland": {
                 log("%cSwitzerland", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Japan": {
                 log("%cJapan", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "China": {
                 log("%cChina", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "UAE": {
                 log("%cUAE", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "South Africa": {
                 log("%cSouth Africa", logStyle);
-                renderToolDisp("");
+                renderSignInForm("div.content-wrapper.travelling");
                 break;
             };
             case "Traveling": { log("%cFlying", logStyle); renderSignInForm("div.content-wrapper.travelling"); break; };
