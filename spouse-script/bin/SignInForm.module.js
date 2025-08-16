@@ -9,10 +9,10 @@ function createSignInForm() {
         f.style.justifyContent = "space-evenly";
         f.style.alignItems = "center";
         f.style.gap = "1rem";
-        f.addEventListener('submit', (e) => {
+        f.addEventListener('submit', async (e) => {
             e.preventDefault();
             log('form submitted: %s', $get("#apiKey").value);
-            GMSet("TornApiKey", $get("#apiKey").value);
+            await GMSet("TornApiKey", $get("#apiKey").value);
             window.location.reload();
         });
 
