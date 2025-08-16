@@ -38,13 +38,13 @@ async function fetchUserUTIL(key) {
         if (json.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            window.reload();
+            window.location.replace(window.location.href);
             throw json.error.error
         } else {
             return json
         };
     } catch (err) {
-        GMDelete("localkey");
+        await GMDelete("TornApiKey");
         log(err);
     };
 };
@@ -57,13 +57,13 @@ async function fetchSpouseUTIL(key, id) {
         if (json.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            window.reload();
+            window.location.replace(window.location.href);
             throw json.error.error
         } else {
             return json
         };
     } catch (err) {
-        GMDelete("localkey"); log(err);
+        await GMDelete("TornApiKey");
         log(err)
     }
 };
