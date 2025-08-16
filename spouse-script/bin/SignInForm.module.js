@@ -7,7 +7,7 @@ function createSignInForm() {
         function link() {
             const lin = $create("a");
             lin.href = "https://www.torn.com/preferences.php#tab=api";
-            lin.innerHTML = "<p>Need a key?</p>";
+            lin.innerHTML = '<p>Need a key?</p>';
             lin.className = "torn-btn";
             return lin
         }
