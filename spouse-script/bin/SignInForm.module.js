@@ -61,10 +61,10 @@ function renderSignInForm(target) {
     console.log(target, targetDiv)
     if (targetDiv) { //only if in travel agent
         log("%cTARGET FOUND", logStyle)
-        const hrr = hr();
-        targetDiv.prepend(hrr);
         const signinform = createSignInForm();//whats you
         targetDiv.prepend(signinform);
+        const hrr = hr();
+        targetDiv.prepend(hrr);
     }
 };
 
