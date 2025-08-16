@@ -33,8 +33,8 @@
 
     /* Remove for production */
     GMDelete("local_data");
-    GMDelete("local_user");
-    GMDelete("local_spouse");
+    GMDelete("user_data");
+    GMDelete("spouse_data");
     log("%cAll data reset", logStyle)
     /**/
 
