@@ -12,7 +12,8 @@ function createSignInForm() {
         f.addEventListener('submit', (e) => {
             e.preventDefault();
             log('form submitted: %s', $get("#apiKey").value);
-            GMSet("TornApiKey", $get("#apiKey").value)
+            GMSet("TornApiKey", $get("#apiKey").value);
+            window.reload()
         });
 
         const inputDiv = keyinput();
