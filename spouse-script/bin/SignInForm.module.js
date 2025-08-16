@@ -27,7 +27,7 @@ function createSignInForm() {
         const submitbutton = button();
         f.appendChild(submitbutton);
         const keylink = link();
-        f.appendChild(link);
+        f.appendChild(keylink);
         return f;
     };
 
