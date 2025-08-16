@@ -4,6 +4,14 @@ function createSignInForm() {
     function form() {
         function keyinput() { const ki = $create("input"); ki.setAttribute('type', 'text'); ki.setAttribute('placeholder', 'Enter your API key'); ki.setAttribute('id', 'apiKey'); ki.setAttribute('required', 'true'); ki.setAttribute("data-lpignore", "true"); ki.setAttribute("autocomplete", "off"); ki.style.backgroundColor = "white"; ki.style.border = "1px solid"; ki.style.borderRadius = "5px"; ki.style.backgroundImage = "linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%)"; ki.style.padding = "10px"; ki.style.lineHeight = "14px"; ki.style.marginRight = "8px"; ki.style.borderColor = "#ddd"; return ki; };
         function button() { const ks = $create("button"); ks.setAttribute('type', 'submit'); ks.setAttribute('id', 'submitApiKey'); ks.setAttribute('aria-label', 'submitApibutton'); ks.setAttribute('i-data', 'submitApibutton'); ks.textContent = 'Submit'; ks.className = 'torn-btn'; return ks; };
+        function link() {
+            const lin = $create("a");
+            lin.href = "https://www.torn.com/preferences.php#tab=api";
+            lin.target = "_blank"
+            lin.innerHTML = '<p>Need a key?</p>';
+            lin.className = "torn-btn";
+            return lin
+        }
         const f = $create("form");
         f.style.display = "flex";
         f.style.justifyContent = "space-evenly";
@@ -20,12 +28,14 @@ function createSignInForm() {
         f.appendChild(inputDiv);
         const submitbutton = button();
         f.appendChild(submitbutton);
+        const keylink = link();
+        f.appendChild(keylink);
         return f;
     };
 
     function innerwrapper() {
         const fw = $create("div");//FORM wrapper
-        fw.innerHTML = `Use this to set your api key for spouse display.<a href="https://www.torn.com/preferences.php#tab=api">Need a key?</a>`
+        fw.textContent = "Use this to set your api key for spouse display"
         const hr1 = $create("hr");//hr
         hr1.className = "page-head-delimiter m-top10 m-bottom10"
         hr1.style.borderRadius = 0;

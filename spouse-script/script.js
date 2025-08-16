@@ -43,9 +43,9 @@
 
     if (key) {
         log(key)
-        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data) } else { data = await fetchUserUTIL(key) };
+        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data); } else { const da = await fetch("https://saucedontsauce.github.io/spouse-script/data/torndata.json"); const jso = da.json(); data = jso };
         let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { user = await fetchUserUTIL(key) };
-        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { spouse = await fetchSpouseUTIL(user) }
+        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { spouse = user.married ? await fetchSpouseUTIL(key, user.married.spouse_id) : null }
         await checkData(key, user, spouse);
         const mergedDisplay = data ? mergeUTIL(user, spouse, data) : [];
         let filteredItems = [];
