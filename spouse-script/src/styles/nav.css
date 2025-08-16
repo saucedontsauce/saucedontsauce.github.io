@@ -1,0 +1,136 @@
+#apikey {
+    text-align: center;
+}
+
+/* Custom styles for the notification widget */
+.notification-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-badge:hover .badge-count,
+.notification-badge:focus .badge-count {
+    transform: scale(1.1);
+}
+
+#submitkey {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+}
+
+.badge-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.notification-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 50;
+}
+
+.notification-popup.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.popup-title {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.popup-message {
+    color: #4b5563;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.popup-link {
+    display: inline-block;
+    color: #4f46e5;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.popup-link:hover {
+    color: #4338ca;
+}
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (hover: none) {
+    .notification-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        width: calc(100% - 32px);
+        max-width: 320px;
+    }
+
+    .notification-popup.visible {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}

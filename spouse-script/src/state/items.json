@@ -1,0 +1,347 @@
+{
+    "186": {
+        "name": "Sheep Plushie",
+        "description": "Baaaaaa.",
+        "type": "Plushie",
+        "buy_price": 25,
+        "image": "https://www.torn.com/images/items/186/large.png",
+        "location": "City"
+    },
+    "187": {
+        "name": "Teddy Bear Plushie",
+        "description": "Soft plush teddy bear for your special someone to cuddle up with when you're not around.",
+        "type": "Plushie",
+        "buy_price": 30,
+        "image": "https://www.torn.com/images/items/187/large.png",
+        "location": "City"
+    },
+    "196": {
+        "name": "Cannabis",
+        "description": "This ain't your garden variety bud, no sir. Torn's Cannabis is so strong it'll melt the anxiety from your bones and dribble it out your ass. After a couple of puffs, you'll feel a special kind of relaxed that rids you of all fear, rendering you capable of some seriously heinous acts. Burgle a home? Why not. Pickpocket an old lady? Sounds fun! Dismember and dispose of a corpse you say? That's just a walk in the park, quite literally.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/196/large.png",
+        "location": "Multiple"
+    },
+    "197": {
+        "name": "Ecstasy",
+        "description": "Hello, boys and girls. This is your old pal stinky wizzleteats. This is a song about a whale. No, this is a song about being happy. That's right, it's the happy, happy, joy, joy, song. Happy, happy, joy, joy. Happy, happy, joy, joy. Happy, happy, joy, joy. Happy, happy, joy, joy. Happy, happy, joy, joy. Happy, happy, joy, joy. Happy, happy, joy, joy, joy.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/197/large.png",
+        "location": "Multiple"
+    },
+    "198": {
+        "name": "Ketamine",
+        "description": "Originally deployed as a surgical anaesthetic during the Vietnam War, Ketamine is also popular among recreational drug users due to its capacity to induce dissociative sensations and hallucinations. However, in Torn City, you'll find its users in the foxhole rather than a k-hole, with ket used to numb the body against incoming attacks. Because everyone knows that if you can't feel it, it didn't happen!",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/198/large.png",
+        "location": "Multiple"
+    },
+    "199": {
+        "name": "LSD",
+        "description": "Wanna get mad stupid? Drop a tab of acid and let fate control your body as your mind takes a trip to dreamland. While your consciousness is pre-occupied with the effects of this potent psychedelic, your physical form will be hit by a maelstrom of effects, rendering you strong yet slow, braced and bumbling. And once the surge of pleasure and enthusiasm has washed away, you may find yourself standing over what's left of your opponent's pulped human face.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/199/large.png",
+        "location": "Multiple"
+    },
+    "200": {
+        "name": "Opium",
+        "description": "Prescribed for a range of ailments from diarrhea and psychosis through to menstrual pain and bronchitis, Opium is a reliable reliever of pain, consequence, and reality. Fortified by this timeless drug, your opponent's blows will feel naught more than tiny mouse breaths upon your body. And should you still find yourself laid up in the hospital, this medical marvel will see you right as rain in no time.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/200/large.png",
+        "location": "Multiple"
+    },
+    "201": {
+        "name": "PCP",
+        "description": "If you've ever been beaten to a pulp by a wide-eyed, grinning maniac, chances are they were hepped up on angel dust. PCP can turn even the most serene wallflower into a psychotic force of nature, imbibing users with the strength of an ox and the dexterity of an ox's effeminate young cousin who left his mining town to join the ballet. Essentially, this drug gives you all the physical benefits of being severely mentally challenged but without the obvious downsides.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/201/large.png",
+        "location": "Multiple"
+    },
+    "203": {
+        "name": "Shrooms",
+        "description": "Have you ever found a blank sheet of paper absolutely fascinating? You soon will with a little help from a dose of Shrooms. These fantasy-inducing fungi tap into the brain's serotonin receptors to flood your gray matter with happy chemicals, transforming the mundane into magical in mere moments. Many people report feeling a little tired after taking psilocybin mushrooms, but don't worry, because the tap-dancing gorilla at the end of your bed will cuddle you to sleep.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/203/large.png",
+        "location": "Multiple"
+    },
+    "204": {
+        "name": "Speed",
+        "description": "Speed does exactly what it says on the tin, making your hands move so fast your opponent will think they're having a stroke. But don't get too cocky, because while you're busy trying to land a hit, your clouded mind leaves you open to a counterattack. Sacrificing dexterity for velocity, you'll be equal parts swift and vulnerable, like a premature baby on rocket skates.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/204/large.png",
+        "location": "Multiple"
+    },
+    "205": {
+        "name": "Vicodin",
+        "description": "Vicodin is a powerful pain medication which is frequently abused by those looking to gain an edge in battle. The drug's ability to inhibit the body's pain perception allows users to perform physical feats at a higher level than before, while also making them a wee bit giddy. However, while Vicodin's effect on your strength, speed, defense, and dexterity is temporary, its damage to your liver is anything but.",
+        "type": "Drug",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/205/large.png",
+        "location": "Multiple"
+    },
+    "206": {
+        "name": "Xanax",
+        "description": "Xanax in Torn City is very different to your typical pharmacy-bought Alprazolam, with its sedative effects giving way to an explosion of relentless energy. Researchers speculate that this phenomenon is rooted in the drug's ability to boost adenosine triphosphate production within neural cells, supercharging the brain into an overclocked state capable of firing neurons like a machine-gun. However it works, Torn Xanax is the grease that oils the gears of war, elevating a soldier to a state of aggressive frenzy that would make a Nazi Stormtrooper look like a slowpoke sissy.",
+        "effect": "Increases energy by 250 and happiness by 75. Includes side effects.",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/206/large.png",
+        "location": "Multiple"
+    },
+    "215": {
+        "name": "Kitten Plushie",
+        "description": "A small plush kitten. Rumour has it, if you pet its nose it will purr, but is more often heard saying Rawr!",
+        "type": "Plushie",
+        "buy_price": 50,
+        "image": "https://www.torn.com/images/items/215/large.png",
+        "location": "City"
+    },
+    "221": {
+        "name": "Stick Grenade",
+        "description": "Stick grenades are less powerful and have shorter fuses than their British counterparts, but weigh significantly less.",
+        "type": "Temporary",
+        "buy_price": 8000,
+        "image": "https://www.torn.com/images/items/221/large.png",
+        "location": "Multiple"
+    },
+    "222": {
+        "name": "Flash Grenade",
+        "description": "Often used to blind opponents, can give an edge in battle that is very hard to overcome.",
+        "type": "Temporary",
+        "buy_price": 12000,
+        "image": "https://www.torn.com/images/items/222/large.png",
+        "location": "Multiple"
+    },
+    "226": {
+        "name": "Smoke Grenade",
+        "description": "Typically used to send signals or create a smokescreen, this grenade can be used to temporarily blind your opponent, to allow you the upper hand in attacking.",
+        "type": "Temporary",
+        "buy_price": 20000,
+        "image": "https://www.torn.com/images/items/226/large.png",
+        "location": "Multiple"
+    },
+    "229": {
+        "name": "Claymore Mine",
+        "description": "The mine contains 700 steel spheres (10.5 grains) and 1-1/2 pound layer of composition C-4 explosive and is initiated by an electric blasting cap.",
+        "type": "Temporary",
+        "buy_price": 15000,
+        "image": "https://www.torn.com/images/items/229/large.png",
+        "location": "Multiple"
+    },
+    "239": {
+        "name": "Ninja Star",
+        "description": "A lethal throwing weapon that can pierce an opponent's body before they realize an attack is under way. Conceal them, and then throw them underhand at an enemy when they least expect it.",
+        "type": "Temporary",
+        "buy_price": 500,
+        "image": "https://www.torn.com/images/items/239/large.png",
+        "location": "Multiple"
+    },
+    "242": {
+        "name": "HEG",
+        "description": "A high-explosive grenade used to cause casualties up to a maximum of 190 meters from the point of burst.",
+        "type": "Temporary",
+        "buy_price": 20000,
+        "image": "https://www.torn.com/images/items/242/large.png",
+        "location": "Multiple"
+    },
+    "256": {
+        "name": "Tear Gas",
+        "description": "Typically used for riot control, this non-lethal gas will temporarily blind your opponent, possibly giving you a bit of an advantage in battle.",
+        "type": "Temporary",
+        "buy_price": 15000,
+        "image": "https://www.torn.com/images/items/256/large.png",
+        "location": "Argentina"
+    },
+    "258": {
+        "name": "Jaguar Plushie",
+        "description": "Modelled after the third largest cat in the world, this small spotted plushie could be easily confused for a leopard.",
+        "type": "Plushie",
+        "buy_price": 10000,
+        "image": "https://www.torn.com/images/items/258/large.png",
+        "location": "Mexico"
+    },
+    "260": {
+        "name": "Dahlia",
+        "description": "Spectacular pink bloom with pointed petals, this is the national flower of Mexico.",
+        "type": "Flower",
+        "buy_price": 300,
+        "image": "https://www.torn.com/images/items/260/large.png",
+        "location": "Mexico"
+    },
+    "261": {
+        "name": "Wolverine Plushie",
+        "description": "The wolverine has been described as the fiercest creature on earth, but this small plush version will only growl if you pull its tail.",
+        "type": "Plushie",
+        "buy_price": 30,
+        "image": "https://www.torn.com/images/items/261/large.png",
+        "location": "Canada"
+    },
+    "263": {
+        "name": "Crocus",
+        "description": "This bright blue flower is often considered the national flower of Canada.",
+        "type": "Flower",
+        "buy_price": 600,
+        "image": "https://www.torn.com/images/items/263/large.png",
+        "location": "Canada"
+    },
+    "264": {
+        "name": "Orchid",
+        "description": "Delicate pink flower, the orchid may not be a native of Hawaii, but it has made the transition to this tropical climate with ease.",
+        "type": "Flower",
+        "buy_price": 700,
+        "image": "https://www.torn.com/images/items/264/large.png",
+        "location": "Hawaii"
+    },
+    "266": {
+        "name": "Nessie Plushie",
+        "description": "Hidden in the depths of the Loch. Seeing this mythical creature will leave a lasting impression.",
+        "type": "Plushie",
+        "buy_price": 200,
+        "image": "https://www.torn.com/images/items/266/large.png",
+        "location": "UK"
+    },
+    "267": {
+        "name": "Heather",
+        "description": "Believed to bring good luck to who possess it. These spiky purple and white flowers cover the hillsides of Scotland.",
+        "type": "Flower",
+        "buy_price": 5000,
+        "image": "https://www.torn.com/images/items/267/large.png",
+        "location": "UK"
+    },
+    "268": {
+        "name": "Red Fox Plushie",
+        "description": "Small dark red fox plushie, will serve as a memento from your trip to Britain, and your participation in a local Fox Hunt.",
+        "type": "Plushie",
+        "buy_price": 1000,
+        "image": "https://www.torn.com/images/items/268/large.png",
+        "location": "UK"
+    },
+    "269": {
+        "name": "Monkey Plushie",
+        "description": "Small plush monkey, made in the image of the simians, often seen around the forests of Argentina.",
+        "type": "Plushie",
+        "buy_price": 400,
+        "image": "https://www.torn.com/images/items/269/large.png",
+        "location": "Argentina"
+    },
+    "271": {
+        "name": "Ceibo Flower",
+        "description": "This unusual red flower is the national flower of Argentina.",
+        "type": "Flower",
+        "buy_price": 500,
+        "image": "https://www.torn.com/images/items/271/large.png",
+        "location": "Argentina"
+    },
+    "272": {
+        "name": "Edelweiss",
+        "description": "Small white blooms are the hallmark of this Swiss national flower.",
+        "type": "Flower",
+        "buy_price": 900,
+        "image": "https://www.torn.com/images/items/272/large.png",
+        "location": "Switzerland"
+    },
+    "273": {
+        "name": "Chamois Plushie",
+        "description": "Small plushie of a Mountain Goat.",
+        "type": "Plushie",
+        "buy_price": 400,
+        "image": "https://www.torn.com/images/items/273/large.png",
+        "location": "Switzerland"
+    },
+    "274": {
+        "name": "Panda Plushie",
+        "description": "One of the most recognizable endangered species, Xiong Mao, as they are called in Chinese, instantly bring to mind bamboo forests and quiet contemplation.",
+        "type": "Plushie",
+        "buy_price": 400,
+        "image": "https://www.torn.com/images/items/274/large.png",
+        "location": "China"
+    },
+    "276": {
+        "name": "Peony",
+        "description": "While China has no official national flower, the peony, with its ruffled, pale pink blooms, is widely recognized as the national favourite.",
+        "type": "Flower",
+        "buy_price": 5000,
+        "image": "https://www.torn.com/images/items/276/large.png",
+        "location": "China"
+    },
+    "277": {
+        "name": "Cherry Blossom",
+        "description": "This beautiful pink blossom is often considered the official flower of Japan.",
+        "type": "Flower",
+        "buy_price": 500,
+        "image": "https://www.torn.com/images/items/277/large.png",
+        "location": "Japan"
+    },
+    "281": {
+        "name": "Lion Plushie",
+        "description": "This small plushie is modelled after the African lion. Squeeze his tummy to hear him roar.",
+        "type": "Plushie",
+        "buy_price": 400,
+        "image": "https://www.torn.com/images/items/281/large.png",
+        "location": "South Africa"
+    },
+    "282": {
+        "name": "African Violet",
+        "description": "While not the national flower for Africa, this beautiful purple plant will remind you of your recent trip to the Southern African plains.",
+        "type": "Flower",
+        "buy_price": 2000,
+        "image": "https://www.torn.com/images/items/282/large.png",
+        "location": "South Africa"
+    },
+    "384": {
+        "name": "Camel Plushie",
+        "description": "This rare camel plushie will instantly remind you of Arabian nights within the U.A.E.",
+        "type": "Plushie",
+        "buy_price": 14000,
+        "image": "https://www.torn.com/images/items/384/large.png",
+        "location": "UAE"
+    },
+    "385": {
+        "name": "Tribulus Omanense",
+        "description": "Originating in the desert, and soon to become Dubai's official flower, the Tribulus Omanense is a hermaphroditic flower that can survive very harsh conditions.",
+        "type": "Flower",
+        "buy_price": 6000,
+        "image": "https://www.torn.com/images/items/385/large.png",
+        "location": "UAE"
+    },
+    "617": {
+        "name": "Banana Orchid",
+        "description": "The national flower of the Cayman Islands, the Wild Banana Orchid is one of many species on the islands but certainly the most unique and recognizable.",
+        "type": "Flower",
+        "buy_price": 4000,
+        "image": "https://www.torn.com/images/items/617/large.png",
+        "location": "Cayman Islands"
+    },
+    "618": {
+        "name": "Stingray Plushie",
+        "description": "A cuddly stingray plushie, one of the Cayman Islands' most famous inhabitants.",
+        "type": "Plushie",
+        "buy_price": 400,
+        "image": "https://www.torn.com/images/items/618/large.png",
+        "location": "Cayman Islands"
+    },
+    "1042": {
+        "name": "Concussion Grenade",
+        "description": "There are two ways to give someone concussion; punch them in the head repeatedly, or lob a Concussion Grenade at them. When your opponent is concussed, they may suffer problems with concentration, memory, balance and coordination.",
+        "effect": "Opponent becomes Concussed, decreasing Dexterity to 1/5th for 15-20 seconds.",
+        "type": "Temporary",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/1042/large.png",
+        "location": "Multiple"
+    },
+    "1054": {
+        "name": "Semtex",
+        "description": "Semtex is a general purpose plastic explosive which can be moulded into all kinds of amusing shapes, if the mood strikes. When fitted with a timer and a detonating cord, this material can be used to explode your target into tiny disappointed pieces.",
+        "type": "Temporary",
+        "buy_price": 0,
+        "image": "https://www.torn.com/images/items/1054/large.png",
+        "location": "Multiple"
+    }
+}
