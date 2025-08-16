@@ -62,9 +62,9 @@ function renderSignInForm(target) {
     if (targetDiv) { //only if in travel agent
         log("%cTARGET FOUND", logStyle)
         const hrr = hr();
-        targetDiv.firstChild.appendChild(hrr);
+        targetDiv.prepend(hrr);
         const signinform = createSignInForm();//whats you
-        targetDiv.firstChild.appendChild(signinform);
+        targetDiv.prepend(signinform);
     }
 };
 
