@@ -38,7 +38,7 @@ async function fetchUserUTIL(key) {
         if (json.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            window.location.replace(window.location.href);
+            window.location.reload();
             throw json.error.error
         } else {
             return json
@@ -57,7 +57,7 @@ async function fetchSpouseUTIL(key, id) {
         if (json.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            window.location.replace(window.location.href);
+            window.location.reload();
             throw json.error.error
         } else {
             return json
