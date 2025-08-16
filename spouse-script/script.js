@@ -22,6 +22,10 @@
 
 (async function () {
     'use strict';
+    if (window.SPOUSE_DISPLAY_INJECTED) { // set this at some point
+        return;
+    }
+
     // Code After Here
     const key = localStorage.getItem("TornApiKey");
     log("%cspouse-script - made by d00dleD", logStyle);
