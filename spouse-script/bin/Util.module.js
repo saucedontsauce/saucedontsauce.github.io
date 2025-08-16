@@ -35,7 +35,7 @@ async function fetchUserUTIL(key) {
         log(data);
         const json = await data.json();
         log(json);
-        if (json.error.code == 2) {
+        if (json?.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
             window.location.reload();
@@ -54,7 +54,7 @@ async function fetchSpouseUTIL(key, id) {
         const data = await fetch(String(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`));
         const json = await data.json();
         log(json);
-        if (json.error.code == 2) {
+        if (json?.error.code == 2) {
             await GMDelete("TornApiKey");
             window.alert(json.error.error);
             window.location.reload();
