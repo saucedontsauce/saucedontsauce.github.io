@@ -111,7 +111,7 @@
         switch ($get("h4").textContent) {
             case "Traveling": {
                 log("%cFlying", logStyle);
-                renderSignInForm("#travel-root")
+                renderSignInForm("div.content-wrapper.travelling")
                 break;
             }
             case "Travel Agency": {
