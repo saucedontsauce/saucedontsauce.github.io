@@ -37,8 +37,9 @@ async function fetchUserUTIL(key) {
         log(json);
         if (json.error) {
             localStorage.removeItem("TornApiKey");
+        } else {
+            return json
         };
-        if (!json.error) return json;
     } catch (err) {
         GMDelete("localkey");
         log(err);
@@ -50,7 +51,11 @@ async function fetchSpouseUTIL(key, id) {
         const data = await fetch(String(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`));
         const json = await data.json();
         log(json);
-        if (!json.error) return json;
+        if (json.error) {
+            localStorage.removeItem("TornApiKey");
+        } else {
+            return json
+        };
     } catch (err) {
         GMDelete("localkey"); log(err);
         log(err)
