@@ -41,7 +41,7 @@
     log("%cSpouse Travel script loaded", logStyle);
 
     if (key) {
-        let data = await GMGet("local_data"); if (data) data = await JSON.parse(data);
+        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data) } else await fetchUserUTIL(key);
         let user = await GMGet("user_data"); if (user) user = await JSON.parse(user);
         let spouse = await GMGet("spouse_data"); if (spouse) spouse = await JSON.parse(spouse);
         await checkData(user, spouse);
