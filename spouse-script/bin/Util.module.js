@@ -34,6 +34,7 @@ async function fetchUserUTIL(key) {
         const data = await fetch("https://api.torn.com/v2/user?selections=profile,display,timestamp&key=" + key);
         log(data);
         const json = data.json();
+        log(json);
         if (!json.error) return json;
     } catch (err) {
         GMDelete("localkey");
@@ -45,6 +46,7 @@ async function fetchSpouseUTIL(key, id) {
     try {
         const data = await fetch(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`);
         const json = data.json();
+        log(json);
         if (!json.error) return json;
     } catch (err) {
         GMDelete("localkey"); log(err);
