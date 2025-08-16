@@ -6,10 +6,11 @@ async function checkData(user, spouse) {
         GMSet('user_data', JSON.stringify(newUserData))
     } else {
         const jsonuser = user;
-        if (Math.floor((jsonuser.timestamp * 1000) - 21600) <= Date.now() || jsonuser.error) {
+        if (Math.floor(((jsonuser.timestamp * 1000) - 21600) <= Date.now()) || jsonuser.error) {
             const newUserData = await fetchUserUTIL();
             GMSet('user_data', JSON.stringify(newUserData));
         } else {
+            log(jsonuser);
             log("%cLocal user data present and valid", logStyle);
             user = { ...jsonuser };
         };
@@ -25,7 +26,7 @@ async function checkData(user, spouse) {
             spouse = newSpouseData;
             GMSet('spouse_data', JSON.stringify(newSpouseData));
         } else {
-            log(jsonspouse)
+            log(jsonspouse);
             log("%cLocal spouse data present and valid", logStyle);
             spouse = { ...jsonspouse };
         }
