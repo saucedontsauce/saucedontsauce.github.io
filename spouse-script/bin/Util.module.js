@@ -2,6 +2,7 @@ log("loading Util.module.js")
 
 function mergeUTIL(user, spouse, data) {
     let merged = {};
+    if (data) return
     user.display.forEach(i => {
         //console.log({...dd[i.name]})
         merged[i.name] = { ...i, ...data[i.name] };
