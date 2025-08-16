@@ -10,6 +10,7 @@
 // @grant    GM.getValue
 // @grant    GM.setValue
 // @grant    GM.deleteValue
+// @require https://saucedontsauce.github.io/spouse-script/bin/Data.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/Overides.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/Util.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/CheckData.module.js?ts=<?= Date.now() ?>
@@ -33,7 +34,6 @@
 
     /* Remove for production */
     //GMDelete("TornApiKey");
-    GMDelete("local_data");
     GMDelete("user_data");
     GMDelete("spouse_data");
     log("%cAll data reset", logStyle)
@@ -43,11 +43,10 @@
 
     if (key) {
         log(key)
-        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data); } else { const da = await fetch("https://saucedontsauce.github.io/spouse-script/data/torndata.json"); const jso = da.json(); data = jso };
         let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { user = await fetchUserUTIL(key) };
         let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { spouse = user.married ? await fetchSpouseUTIL(key, user.married.spouse_id) : null }
         await checkData(key, user, spouse);
-        const mergedDisplay = data ? mergeUTIL(user, spouse, data) : [];
+        const mergedDisplay = mergeUTIL(user, spouse, data);
         let filteredItems = [];
         let filters = [];
 
