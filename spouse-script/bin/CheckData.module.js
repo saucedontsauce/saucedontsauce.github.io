@@ -6,7 +6,7 @@ async function checkData(user, spouse) {
         GMSet('user_data', JSON.stringify(newUserData))
     } else {
         const jsonuser = user;
-        if (Math.floor(((jsonuser.timestamp * 1000) - 21600) <= Date.now()) || jsonuser.error) {
+        if (((jsonuser.timestamp * 1000) - 21600 <= Date.now()) || jsonuser.error) {
             const newUserData = await fetchUserUTIL();
             GMSet('user_data', JSON.stringify(newUserData));
         } else {
@@ -21,7 +21,7 @@ async function checkData(user, spouse) {
         spouse = newSpouseData; GMSet('spouse_data', JSON.stringify(newSpouseData));
     } else {
         const jsonspouse = spouse;
-        if (Math.floor(((jsonspouse.timestamp * 1000) - 21600) <= Date.now()) || jsonspouse.error) {
+        if (((jsonspouse.timestamp * 1000) - 21600 <= Date.now()) || jsonspouse.error) {
             const newSpouseData = await fetchSpouseUTIL(user.married.spouse_id);
             spouse = newSpouseData;
             GMSet('spouse_data', JSON.stringify(newSpouseData));
