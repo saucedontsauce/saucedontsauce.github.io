@@ -27,7 +27,7 @@
     }
 
     // Code After Here
-    const key = localStorage.getItem("TornApiKey");
+    const key = await GMGet("TornApiKey");
     log("%cspouse-script - made by d00dleD", logStyle);
     log("%cLOCALKEY - %s", logStyle, key);
 

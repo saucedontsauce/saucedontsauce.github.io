@@ -37,7 +37,7 @@ async function fetchUserUTIL(key) {
         log(json);
         if (json.error.code == 2) {
             window.alert(json.error.error);
-            localStorage.removeItem("TornApiKey");
+            GMDelete("TornApiKey");
             window.reload();
             throw json.error.error
         } else {
@@ -56,7 +56,7 @@ async function fetchSpouseUTIL(key, id) {
         log(json);
         if (json.error.code == 2) {
             window.alert(json.error.error);
-            localStorage.removeItem("TornApiKey");
+            GMDelete("TornApiKey");
             window.reload();
             throw json.error.error
         } else {
