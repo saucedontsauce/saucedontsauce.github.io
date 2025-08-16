@@ -36,8 +36,8 @@ async function fetchUserUTIL(key) {
         const json = await data.json();
         log(json);
         if (json.error.code == 2) {
+            await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            GMDelete("TornApiKey");
             window.reload();
             throw json.error.error
         } else {
@@ -55,8 +55,8 @@ async function fetchSpouseUTIL(key, id) {
         const json = await data.json();
         log(json);
         if (json.error.code == 2) {
+            await GMDelete("TornApiKey");
             window.alert(json.error.error);
-            GMDelete("TornApiKey");
             window.reload();
             throw json.error.error
         } else {

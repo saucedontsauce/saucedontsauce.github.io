@@ -29,7 +29,7 @@ const GMGet = async (key, deflt) => {
         console.error('Error setting value:', err);
     }
 };
-const GMDelete = (key) => { GM.deleteValue(key) };
+const GMDelete = async (key) => { await GM.deleteValue(key) };
 
 log("%cOverides.module.js loaded", logStyle);
 
