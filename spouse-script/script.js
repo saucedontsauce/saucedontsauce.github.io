@@ -7,14 +7,14 @@
 // @match        https://www.torn.com/index.php
 // @match        https://www.torn.com/page.php?sid=travel
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @grant    GM.getValue
+// @grant    GM.setValue
+// @grant    GM.deleteValue
 // @require https://saucedontsauce.github.io/spouse-script/bin/Overides.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/Util.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/CheckData.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/BuildingBlocks.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/SignInForm.module.js?ts=<?= Date.now() ?>
-// @grant    GM.getValue
-// @grant    GM.setValue
-// @grant    GM.deleteValue
 // ==/UserScript==
 
 // remove ?ts=<?= Date.now() ?> when finished as this removes module caching, slowing load times
@@ -42,10 +42,11 @@
     log("%cSpouse Travel script loaded", logStyle);
 
     if (key) {
-        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data) } else await fetchUserUTIL(key);
-        let user = await GMGet("user_data"); if (user) user = await JSON.parse(user);
-        let spouse = await GMGet("spouse_data"); if (spouse) spouse = await JSON.parse(spouse);
-        await checkData(user, spouse);
+        log(key)
+        let data = await GMGet("local_data"); if (data) { data = await JSON.parse(data) } else { data = await fetchUserUTIL(key) };
+        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { user = await fetchUserUTIL(key) };
+        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { spouse = await fetchSpouseUTIL(user) }
+        await checkData(key, user, spouse);
         const mergedDisplay = data ? mergeUTIL(user, spouse, data) : [];
         let filteredItems = [];
         let filters = [];
@@ -70,7 +71,7 @@
             }
         };
 
-        //const abroad indicator = $get("#skip-to-content");
+        // check location before rendering display;
         switch ($get("h4").textContent) {
             case "Traveling": {
                 log("%cFlying", logStyle);
@@ -108,6 +109,7 @@
         }
     } else {
         log("%cNO KEY PRESENT", logStyle);
+        // check location before rendering api key input form
         switch ($get("h4").textContent.trim()) {
             case "Mexico": {
                 log("%cMexico", logStyle);
