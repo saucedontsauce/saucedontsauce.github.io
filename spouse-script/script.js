@@ -44,6 +44,7 @@
         let data = await GMGet("local_data"); if (data) data = await JSON.parse(data);
         let user = await GMGet("user_data"); if (user) user = await JSON.parse(user);
         let spouse = await GMGet("spouse_data"); if (spouse) spouse = await JSON.parse(spouse);
+        await checkData(user, spouse);
         const mergedDisplay = data ? mergeUTIL(user, spouse, data) : [];
         let filteredItems = [];
         let filters = [];
@@ -57,8 +58,6 @@
         log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
         /**/
 
-        await checkData(user, spouse);
-        //const abroad indicator = $get("#skip-to-content");
 
         function renderToolDisp(target) {
             const targetDiv = $get(target);
@@ -70,6 +69,7 @@
             }
         };
 
+        //const abroad indicator = $get("#skip-to-content");
         switch ($get("h4").textContent) {
             case "Traveling": {
                 log("%cFlying", logStyle);
