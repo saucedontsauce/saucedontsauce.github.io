@@ -18,7 +18,7 @@ async function checkData(key, user, spouse) {
             user = { ...jsonuser };
         };
     };
-    if (!spouse && user?.married?.spouse_id) {
+    if (!spouse && user?.married?.spouse_id || !spouse) {
         log("%cHas spouse but no data", logStyle);
         const newSpouseData = await fetchSpouseUTIL(key, user.married.spouse_id);
         spouse = newSpouseData; GMSet('spouse_data', JSON.stringify(newSpouseData));
