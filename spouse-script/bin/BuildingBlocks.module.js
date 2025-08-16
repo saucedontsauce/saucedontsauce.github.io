@@ -1,4 +1,4 @@
-log("loading BuildingBlocks.module.js");
+log("%cloading BuildingBlocks.module.js", logStyle);
 
 function hr() {
     const hr0 = $create("hr");

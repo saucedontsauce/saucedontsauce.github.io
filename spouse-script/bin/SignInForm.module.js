@@ -1,4 +1,4 @@
-log("loading SignUpForm.module.js")
+log("%cloading SignUpForm.module.js", logStyle);
 
 function createSignInForm() {
     function form() {
@@ -67,4 +67,4 @@ function renderSignInForm() {
 };
 
 //leave this here
-log("%SignUpForm.module.js loaded", logStyle);
+log("%cSignUpForm.module.js loaded", logStyle);
