@@ -43,8 +43,9 @@
 
     if (key) {
         log(key)
-        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { user = await fetchUserUTIL(key) };
-        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { spouse = user.married ? await fetchSpouseUTIL(key, user.married.spouse_id) : null }
+        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { return await fetchUserUTIL(key) };
+        console.log(user)
+        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { console.log(user); return await fetchSpouseUTIL(key, user.married.spouse_id) }
         await checkData(key, user, spouse);
         const mergedDisplay = mergeUTIL(user, spouse, data);
         let filteredItems = [];

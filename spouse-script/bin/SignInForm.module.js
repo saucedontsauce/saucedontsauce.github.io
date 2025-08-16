@@ -7,11 +7,11 @@ function createSignInForm() {
         function link() {
             const lin = $create("a");
             lin.href = "https://www.torn.com/preferences.php#tab=api";
-            lin.target = "_blank"
+            lin.target = "_blank";
             lin.innerHTML = '<p>Need a key?</p>';
             lin.className = "torn-btn";
             return lin
-        }
+        };
         const f = $create("form");
         f.style.display = "flex";
         f.style.justifyContent = "space-evenly";
