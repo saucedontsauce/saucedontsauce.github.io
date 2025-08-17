@@ -74,6 +74,13 @@ function createSpouseDisplay(filteredItems = []) {
                 };
                 break;
             };
+            case "locations": {
+                toggleFilterStatus(e.target);
+                if (e.target.dataset.active === "true") {
+
+                };
+                break;
+            }
             default: {
                 log("%cfilterBtnHandler Shit itself", logStyle)
                 break;
@@ -159,7 +166,9 @@ function createSpouseDisplay(filteredItems = []) {
         const btn = $create("div");
         btn.dataset.type = "location";
         btn.dataset.value = location;
+        btn.title = location;
         btn.dataset.active = "true";
+        btn.addEventListener = filterBtnHandler;
         btn.id = "location" + location;
         setStyles(btn, {
             display: "flex",
