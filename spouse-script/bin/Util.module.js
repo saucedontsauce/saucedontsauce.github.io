@@ -32,9 +32,7 @@ async function fetchUserUTIL(key) {
     log("%cFetching user", logStyle);
     try {
         const data = await fetch(String(`https://api.torn.com/v2/user?selections=profile,display,timestamp&key=${key}`));
-        log(data);
         const json = await data.json();
-        log(json);
         if (json.error) {
             switch (json.error.code) {
                 case 2: {
@@ -44,7 +42,7 @@ async function fetchUserUTIL(key) {
                     break;
                 };
                 default: {
-                    console.log("");
+                    console.log("Fetch shit itself");
                     break
                 }
             };
@@ -61,7 +59,6 @@ async function fetchSpouseUTIL(key, id) {
     try {
         const data = await fetch(String(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`));
         const json = await data.json();
-        log(json);
         if (json.error) {
             switch (json.error.code) {
                 case 2: {
@@ -71,7 +68,7 @@ async function fetchSpouseUTIL(key, id) {
                     break;
                 };
                 default: {
-                    console.log("");
+                    console.log("Fetch shit itself");
                     break
                 }
             };

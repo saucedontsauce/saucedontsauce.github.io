@@ -33,7 +33,7 @@ function createSignInForm() {
         return f;
     };
 
-    function innerwrapper() {
+    function wrapper() {
         const fw = $create("div");//FORM wrapper
         fw.textContent = "Use this to set your api key for spouse display"
         const hr1 = $create("hr");//hr
@@ -48,36 +48,30 @@ function createSignInForm() {
         return fw
     };
 
-    function formwrapper() {
-        const akfd = $create("div");
-        akfd.className = "delimiter border-round";
-        akfd.style.borderRadius = 0;
-        akfd.style.borderRadius = '5px';
-        const innerWrapper = innerwrapper();
-        akfd.appendChild(innerWrapper);
-        return akfd
-    };
-
-    const formObject = $create("div");//FORM outer wrapper
-    formObject.className = "flex border-round info-msg";
-    formObject.style.alignItems = "center";
-    const formwrap = formwrapper();
-    formObject.appendChild(formwrap);
+    const formObject = wrapper();//FORM outer wrapper
     return formObject;
 };
 
-function renderSignInForm(target) {
-    log("%cKey absent", logStyle);
+function renderBox(target, fn) {
+    log("%cRendering box", logStyle);
     let targetDiv = $get(target)//travel agent target
-    console.log(target, targetDiv)
-    if (targetDiv) { //only if in travel agent
-        log("%cTARGET FOUND", logStyle)
+    console.log(target, targetDiv);
+    if (targetDiv) {
+        log("%cTARGET FOUND", logStyle);
         const hrr = hr();
         targetDiv.prepend(hrr);
-        const signinform = createSignInForm();//whats you
-        targetDiv.prepend(signinform);
-    }
+        const outerWrap = $create("div");
+        outerWrap.className = "flex border-round info-msg";
+        outerWrap.style.alignItems = "center";
+        const innerWrap = $create("div");
+        innerWrap.className = "delimiter border-round";
+        innerWrap.style.borderRadius = 0;
+        innerWrap.style.borderRadius = '5px';
+        const innerWrapper = fn();
+        innerWrap.appendChild(innerWrapper);
+        targetDiv.prepend(outerWrap)
+    };
 };
-
+//call like renderBox(target,fn)
 //leave this here
 log("%cSignUpForm.module.js loaded", logStyle);
