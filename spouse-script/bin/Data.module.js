@@ -1013,25 +1013,6 @@ var data = {
         { type: "type", value: "Booster" },
         { type: "type", value: "Drug" }
     ],
-
-    keykey: "TornApiKey",
-    userkey: "user_data",
-    spousekey: "user_data",
-    filterkey: "filter_data",
-
-    key: await GMGet(keykey),
-    user: await GMGet(userkey),
-    spouse: await GMGet(userkey),
-    filters: await GMGet(filterkey),
-
-
-    /**
-    * @param {object}val
-    */
-    set user(val) {
-        this.user = val
-    },
-
     async get(v) {
         const val = await GM.getItem(v);
         return val ? v : false;
@@ -1048,6 +1029,23 @@ var data = {
             log("%cError deleting item", logStyle)
             return false
         }
+    },
+    keykey: "TornApiKey",
+    userkey: "user_data",
+    spousekey: "user_data",
+    filterkey: "filter_data",
+
+    key: await this.get(keykey),
+    user: await this.get(userkey),
+    spouse: await this.get(userkey),
+    filters: await this.get(filterkey),
+
+
+    /**
+    * @param {object}val
+    */
+    set user(val) {
+        this.user = val
     },
 
     /**
