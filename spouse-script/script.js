@@ -29,7 +29,7 @@
     }
 
     /* Remove for production */
-    await GMDelete("TornApiKey");
+    //await GMDelete("TornApiKey");
     await GMDelete("user_data");
     await GMDelete("spouse_data");
     log("%cAll data reset", logStyle)
@@ -45,9 +45,10 @@
 
     if (key) {
         log(key)
-        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { return await fetchUserUTIL(key) };
-        console.log(user)
-        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else { console.log(user); return await fetchSpouseUTIL(key, user.married.spouse_id) }
+        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { const nu = await fetchUserUTIL(key); await GMSet("user_data", JSON.stringify(nu)); user = nu };
+        log("%cUSER: %o", logStyle, user);
+
+        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else if (user.married) { const ns = await fetchSpouseUTIL(key, user.married.spouse_id); await GMSet("spouse_data", JSON.stringify(ns)); spouse = ns }
         await checkData(key, user, spouse);
         const mergedDisplay = mergeUTIL(user, spouse, data);
         let filteredItems = [];
