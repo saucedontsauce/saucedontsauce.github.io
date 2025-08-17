@@ -33,23 +33,19 @@ function createSignInForm() {
         return f;
     };
 
-    function wrapper() {
-        const fw = $create("div");//FORM wrapper
-        fw.textContent = "Use this to set your api key for spouse display"
-        const hr1 = $create("hr");//hr
-        hr1.className = "page-head-delimiter m-top10 m-bottom10"
-        hr1.style.borderRadius = 0;
-        hr1.style.borderRadius = '5px';
-        fw.appendChild(hr1);
-        fw.className = "msg border-round";
-        fw.style.width = "auto !important";
-        const f = form();
-        fw.appendChild(f);
-        return fw
-    };
+    const fw = $create("div");//FORM wrapper
+    fw.textContent = "Use this to set your api key for spouse display"
+    const hr1 = $create("hr");//hr
+    hr1.className = "page-head-delimiter m-top10 m-bottom10"
+    hr1.style.borderRadius = 0;
+    hr1.style.borderRadius = '5px';
+    fw.appendChild(hr1);
+    fw.className = "msg border-round";
+    fw.style.width = "auto !important";
+    const f = form();
+    fw.appendChild(f);
+    return fw
 
-    const formObject = wrapper();//FORM outer wrapper
-    return formObject;
 };
 
 function renderBox(target, fn) {
@@ -58,8 +54,8 @@ function renderBox(target, fn) {
     console.log(target, targetDiv);
     if (targetDiv) {
         log("%cTARGET FOUND", logStyle);
-        const hrr = hr();
-        targetDiv.prepend(hrr);
+        const jubwr = $create("")
+
         const outerWrap = $create("div");
         outerWrap.className = "flex border-round info-msg";
         outerWrap.style.alignItems = "center";
@@ -70,7 +66,10 @@ function renderBox(target, fn) {
         const item = fn();
         innerWrap.appendChild(item);
         outerWrap.appendChild(innerWrap);
-        targetDiv.prepend(outerWrap)
+        jubwr.appendChild(outerWrap);
+        const hrr = hr();
+        jubwr.appendChild(hrr);
+        targetDiv.prepend(jubwr)
     };
 };
 //call like renderBox(target,fn)
