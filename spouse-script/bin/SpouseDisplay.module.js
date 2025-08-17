@@ -16,7 +16,7 @@ function createSpouseDisplay(filteredItems = []) {
     wrapper.appendChild(filterheader);
 
     function toggleFilter(target) {
-        var div = target;
+        var div = $get("#" + target.dataset.type + target.dataset.value);
         if (div.dataset.active === "true") {
             div.style.border = "2px solid grey";
             div.dataset.active = "false";
@@ -96,6 +96,7 @@ function createSpouseDisplay(filteredItems = []) {
         const btn = $create("div");
         btn.dataset.type = "control";
         btn.dataset.value = ob.value;
+        btn.id = "control" + ob.value;
         btn.title = ob.value;
         btn.innerHTML = ob.icon;
         btn.addEventListener("click", filterBtnHandler);
