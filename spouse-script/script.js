@@ -29,7 +29,7 @@
     }
 
     /* Remove for production */
-    await GMDelete("TornApiKey");
+    //await GMDelete("TornApiKey");
     await GMDelete("user_data");
     await GMDelete("spouse_data");
     log("%cAll data reset", logStyle)
@@ -62,96 +62,71 @@
         log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
         /**/
 
-        function renderToolDisp(target) {
-            //const displaylist = createItemDisplay();//displaylist
-            // log(displaylist);
-            //travelAgentTarget.insertAdjacentElement('afterend', displaylist);// makes sure display appears after filter
-            /*
-                            const filterlist = createFilterForm();
-                            log(filterlist)
-                            let travelAgentTargetDiv = $get("div.wrapper")//travel agent target
-                            if (travelAgentTargetDiv) { //only if in travel agent
-                                const hrr = hr();
-                                travelAgentTargetDiv.insertAdjacentElement('afterend', hrr);
-                                const filterform = createFilterForm();
-                                filterform.style.minHeight = '1rem';
-                                travelAgentTargetDiv.insertAdjacentElement('afterend', filterlist);
-                            };
-            */
-            const targetDiv = $get(target);
-            if (targetDiv) {
-                const hrr = hr();
-                targetDiv.insertAdjacentElement('afterend', hrr);
-                const signinform = createSignInForm();
-                targetDiv.insertAdjacentElement('afterend', signinform);
-            }
-        };
-
         // check location before rendering display;
         switch ($get("h4").textContent) {
             case "Mexico": {
                 log("%cMexico", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Canada": {
                 log("%cCanada", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Cayman Islands": {
                 log("%cCayman Islands", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Hawaii": {
                 log("%cHawaii", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
-            case "UK": {
-                log("%cUK", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+            case "United Kingdom": {
+                log("%cUnited Kingdom", logStyle);
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Argentina": {
                 log("%cSArgentina", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Switzerland": {
                 log("%cSwitzerland", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Japan": {
                 log("%cJapan", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "China": {
                 log("%cChina", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "UAE": {
                 log("%cUAE", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "South Africa": {
                 log("%cSouth Africa", logStyle);
-                renderToolDisp("div.content-wrapper.travelling");
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
                 break;
             };
             case "Traveling": {
                 log("%cFlying", logStyle);
-                renderToolDisp("div.content-wrapper.travelling")
+                renderBox("div.content-wrapper.travelling", createSpouseDisplay)
                 break;
             }
             case "Travel Agency": {
                 log("%cTravel Agency", logStyle);
-                renderToolDisp("#div.wrapper")
+                renderBox("#div.wrapper", createSpouseDisplay)
                 break;
             }
             default: {
@@ -185,8 +160,8 @@
                 renderBox("div.content-wrapper.travelling", createSignInForm);
                 break;
             };
-            case "UK": {
-                log("%cUK", logStyle);
+            case "United Kingdom": {
+                log("%cUnited Kingdom", logStyle);
                 renderBox("div.content-wrapper.travelling", createSignInForm);
                 break;
             };
