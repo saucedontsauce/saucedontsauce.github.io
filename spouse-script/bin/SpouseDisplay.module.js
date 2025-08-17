@@ -1,7 +1,6 @@
 
 function createSpouseDisplay(filteredItems) {
 
-
     const wrapper = $create("div");//FORM wrapper
     wrapper.textContent = "Use this to set your api key for spouse display"
     const hr1 = $create("hr");//hr
@@ -15,5 +14,5 @@ function createSpouseDisplay(filteredItems) {
 
 
     //wrapper.appendChild(f);
-    return fw
+    return wrapper
 };

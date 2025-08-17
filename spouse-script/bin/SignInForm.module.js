@@ -44,7 +44,6 @@ function createSignInForm() {
     const f = form();
     fw.appendChild(f);
     return fw
-
 };
 
 //call like renderBox(target,fn)
