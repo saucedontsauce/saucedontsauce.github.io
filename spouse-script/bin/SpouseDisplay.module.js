@@ -109,6 +109,7 @@ function createSpouseDisplay(filteredItems = []) {
             borderRadius: '50%',
             border: "3px solid #22dd22",
             cursor: "pointer",
+            padding: "5px"
         });
         filterrow0.appendChild(btn);
     });
