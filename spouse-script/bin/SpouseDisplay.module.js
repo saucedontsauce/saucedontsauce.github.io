@@ -27,9 +27,9 @@ function createSpouseDisplay(filteredItems = []) {
     }
 
     function filterBtnHandler(e) {
+        log(e)
         const type = e.target.dataset.type || e.target.parent.dataset.type;
         const value = e.target.dataset.value || e.target.parent.dataset.value;
-        log(e)
         switch (type) {
             case "control": {
                 switch (value) {
