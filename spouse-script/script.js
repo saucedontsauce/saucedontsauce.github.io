@@ -130,9 +130,7 @@
                 break;
             }
             default: {
-
-                log("%cShit the bed", logStyle);
-
+                log("%cSCREEN DETECTOR KEY - Shit the bed", logStyle);
                 break;
             }
         }
@@ -201,7 +199,7 @@
                 renderBox("div.wrapper", createSignInForm)
                 break;
             };
-            default: { log("%cShit the bed", logStyle); break; };
+            default: { log("%cSCREEN DETECTOR NO KEY - Shit the bed", logStyle); break; };
         }
     };
 })();

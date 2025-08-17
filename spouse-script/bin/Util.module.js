@@ -43,7 +43,7 @@ async function fetchUserUTIL(key) {
                     break;
                 };
                 default: {
-                    console.log("Fetch shit itself");
+                    console.log("USER Fetch shit itself");
                     break
                 }
             };
@@ -69,7 +69,7 @@ async function fetchSpouseUTIL(key, id) {
                     break;
                 };
                 default: {
-                    console.log("Fetch shit itself");
+                    console.log("SPOUSE Fetch shit itself");
                     break
                 }
             };
