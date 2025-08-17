@@ -168,7 +168,7 @@ function createSpouseDisplay(filteredItems = []) {
         btn.dataset.value = location;
         btn.title = location;
         btn.dataset.active = "true";
-        btn.addEventListener = filterBtnHandler;
+        btn.addEventListener("click", filterBtnHandler);
         btn.id = "location" + location;
         setStyles(btn, {
             display: "flex",
