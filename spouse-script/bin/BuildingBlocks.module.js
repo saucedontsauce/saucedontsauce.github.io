@@ -1,4 +1,12 @@
-
+function filterRow() {
+    const fr = $create("div");
+    setStyles(fr, {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-evenly"
+    });
+    return fr;
+}
 function hr() {
     const hr0 = $create("hr");
     hr0.id = "hr0";
