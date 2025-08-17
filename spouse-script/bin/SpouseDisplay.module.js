@@ -17,7 +17,13 @@ function createSpouseDisplay(filteredItems = []) {
 
     function toggleFilter(id) {
         var div = $get("#" + id);
-
+        if (div.dataset.active === "true") {
+            div.style.border = "2px solid grey";
+            div.dataset.active = "false";
+        } else {
+            div.style.border = "3px solid #22dd22";
+            div.dataset.active = "true";
+        }
     }
 
     function filterBtnHandler(e) {
@@ -29,11 +35,13 @@ function createSpouseDisplay(filteredItems = []) {
                     case "types": {
                         log("%ctypes control", logStyle);
 
+                        toggleFilter(e.target);
                         break;
                     };
                     case "locations": {
                         log("%clocations control", logStyle);
 
+                        toggleFilter(e.target);
                         break;
                     }
                     default: {
