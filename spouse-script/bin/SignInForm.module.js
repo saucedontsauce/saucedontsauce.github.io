@@ -48,37 +48,49 @@ function createSignInForm() {
 
 };
 
-function renderBox(target, fn) {
+function renderBox(target, fnOrEl) {
     log("%cRendering box", logStyle);
     let targetDiv = $get(target); // travel agent target
     console.log(target, targetDiv);
 
-    if (targetDiv) {
-        log("%cTARGET FOUND", logStyle);
+    if (!targetDiv) return;
 
-        const jubwr = $create("div");
-        jubwr.className = "api-form-wrapper";
+    log("%cTARGET FOUND", logStyle);
 
-        const outerWrap = $create("div");
-        outerWrap.className = "flex border-round info-msg";
-        outerWrap.style.alignItems = "center";
+    const jubwr = $create("div");
+    jubwr.className = "api-form-wrapper";
 
-        const innerWrap = $create("div");
-        innerWrap.className = "delimiter border-round";
-        innerWrap.style.borderRadius = "5px";
+    const outerWrap = $create("div");
+    outerWrap.className = "flex border-round info-msg";
+    outerWrap.style.alignItems = "center";
 
-        const item = fn();
-        innerWrap.appendChild(item);
+    const innerWrap = $create("div");
+    innerWrap.className = "delimiter border-round";
+    innerWrap.style.borderRadius = "5px";
 
-        outerWrap.appendChild(innerWrap);
-        jubwr.appendChild(outerWrap);
-
-        const hrr = hr();
-        jubwr.appendChild(hrr);
-
-        targetDiv.prepend(jubwr);
+    // 🔑 Normalize argument
+    let item;
+    if (typeof fnOrEl === "function") {
+        item = fnOrEl(); // call the function
+    } else {
+        item = fnOrEl; // assume it's already a DOM node
     }
+
+    if (!(item instanceof HTMLElement)) {
+        console.warn("renderBox expected a DOM node but got:", item);
+        return; // bail early
+    }
+
+    innerWrap.appendChild(item);
+    outerWrap.appendChild(innerWrap);
+    jubwr.appendChild(outerWrap);
+
+    const hrr = hr();
+    jubwr.appendChild(hrr);
+
+    targetDiv.prepend(jubwr);
 }
+
 
 //call like renderBox(target,fn)
 //leave this here
