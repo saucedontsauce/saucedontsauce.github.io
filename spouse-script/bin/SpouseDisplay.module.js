@@ -15,7 +15,7 @@ function createSpouseDisplay(filteredItems = []) {
     });
     wrapper.appendChild(filterheader);
 
-    function toggleFilter(target) {
+    function toggleFilterStatus(target) {
         var div = $get("#" + target.dataset.type + target.dataset.value);
         if (div.dataset.active === "true") {
             div.style.border = "2px solid grey";
@@ -27,11 +27,7 @@ function createSpouseDisplay(filteredItems = []) {
     }
 
     function filterBtnHandler(e) {
-        log(e)
-        if (e.target.namespaceURI === "http://www.w3.org/2000/svg") {
-
-
-        }
+        const types = ["Drug", "Flower", "Plushie", "Temporary"]
         const type = e.target.dataset.type;
         const value = e.target.dataset.value;
         switch (type) {
@@ -39,14 +35,36 @@ function createSpouseDisplay(filteredItems = []) {
                 switch (value) {
                     case "types": {
                         log("%ctypes control", logStyle);
-
-                        toggleFilter(e.target);
+                        toggleFilterStatus(e.target);
+                        const catset = e.target.dataset.active
+                        types.forEach((type) => {
+                            if (filters.indexOf(type) >= 0) {
+                                if (!catset) {
+                                    filters.slice(filters.indexOf(type), 1);
+                                }
+                            } else {
+                                if (catset) {
+                                    filters.push(type);
+                                }
+                            };
+                        });
                         break;
                     };
                     case "locations": {
                         log("%clocations control", logStyle);
-
-                        toggleFilter(e.target);
+                        toggleFilterStatus(e.target);
+                        const catset = e.target.dataset.active;
+                        locations.forEach((location) => {
+                            if (filters.indexOf(location) >= 0) {
+                                if (!catset) {
+                                    filters.slice(filters.indexOf(location), 1);
+                                }
+                            } else {
+                                if (catset) {
+                                    filters.push(location);
+                                }
+                            }
+                        })
                         break;
                     }
                     default: {
@@ -61,6 +79,8 @@ function createSpouseDisplay(filteredItems = []) {
                 break;
             }
         };
+
+        console.log("%cFilters Updated: %o", logStyle, filters);
     };
 
     const filterrow0 = filterRow();
