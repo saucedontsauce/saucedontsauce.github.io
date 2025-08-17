@@ -1035,10 +1035,10 @@ var data = {
     spousekey: "user_data",
     filterkey: "filter_data",
 
-    key: await this.get(keykey),
-    user: await this.get(userkey),
-    spouse: await this.get(userkey),
-    filters: await this.get(filterkey),
+    key: await this.get(this.keykey),
+    user: await this.get(this.userkey),
+    spouse: await this.get(this.userkey),
+    filters: await this.get(this.filterkey),
 
 
     /**
