@@ -2,7 +2,11 @@ function filterRow() {
     const fr = $create("div");
     setStyles(fr, {
         display: "flex",
+        padding: ".5rem 0",
+        flexWrap: "wrap",
         flexDirection: "row",
+        gap: ".5rem",
+        rowGap: ".5rem",
         justifyContent: "space-evenly"
     });
     return fr;
