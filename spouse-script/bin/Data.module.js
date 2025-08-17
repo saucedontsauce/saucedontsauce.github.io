@@ -100,6 +100,7 @@ class Store {
     }
 
     get mergedDisplay() {
+        console.log(user)
         let merged = {};
         if (!this.user || !this.system) throw new Error("Incorrect data passed to merge function")
         this.user.display.forEach(i => {
@@ -158,6 +159,12 @@ class Store {
     }
 
     static async init() {
+        await s.#delete(s.#keyLocation);
+        await s.#delete(s.#userLocation);
+        await s.#delete(s.#spouseLocation);
+        await s.#delete(s.#filterLocation);
+
+
         const s = new Store();
         s.key = await s.#get(s.#keyLocation);
         s.user = await s.#get(s.#userLocation);
