@@ -95,9 +95,10 @@ function createSpouseDisplay(filteredItems = []) {
             justifyContent: "center",
             alignItems: "center",
             height: "50px",
+            overflow: "hidden",
             width: "50px",
             borderRadius: '50%',
-            border: "3px solid green",
+            border: "3px solid #22dd22",
             cursor: "pointer",
         });
         filterrow0.appendChild(btn);
