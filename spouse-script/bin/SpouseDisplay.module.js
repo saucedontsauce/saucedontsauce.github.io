@@ -15,8 +15,8 @@ function createSpouseDisplay(filteredItems = []) {
     });
     wrapper.appendChild(filterheader);
 
-    function toggleFilter(id) {
-        var div = $get("#" + id);
+    function toggleFilter(target) {
+        var div = target;
         if (div.dataset.active === "true") {
             div.style.border = "2px solid grey";
             div.dataset.active = "false";
