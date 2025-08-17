@@ -90,8 +90,8 @@ class Store {
     #spouseLocation = "user_data"
     #filterLocation = "filter_data"
 
-    async #get(k) { const val = await GM.getItem(k); return val ? val : false; }
-    async #set(k, v) { const val = await GM.setItem(k, v); return val ? val : false; }
+    async #get(k) { const val = await GM.getValue(k); return val ? val : false; }
+    async #set(k, v) { const val = await GM.setValue(k, v); return val ? val : false; }
     async #delete(key) { try { GM.deleteValue(key); return true; } catch (error) { log("%cError deleting item", logStyle); return false; }; }
 
     async loginHandler(e) {
@@ -168,4 +168,4 @@ class Store {
     }
 
 };
-const data = Store.init();
+const data = await Store.init();
