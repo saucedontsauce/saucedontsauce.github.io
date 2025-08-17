@@ -6,6 +6,12 @@ function createSpouseDisplay(filteredItems = []) {
     // list
     const filterheader = $create("p");
     filterheader.textContent = "Filters";
+    setStyles(filterheader, {
+        display: "flex",
+        fontWeight: 600,
+        justifyContent: "center",
+        alignItems: "center"
+    });
     wrapper.appendChild(filterheader);
 
     function toggleFilter(id) {
@@ -72,6 +78,12 @@ function createSpouseDisplay(filteredItems = []) {
     //header
     const displayheader = $create("p");
     displayheader.textContent = "Items";
+    setStyles(displayheader, {
+        display: "flex",
+        fontWeight: 600,
+        justifyContent: "center",
+        alignItems: "center"
+    });
     wrapper.appendChild(displayheader);
     //list
     if (filteredItems.length) {
