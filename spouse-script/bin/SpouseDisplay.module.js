@@ -28,6 +28,10 @@ function createSpouseDisplay(filteredItems = []) {
 
     function filterBtnHandler(e) {
         log(e)
+        if (e.target.namespaceURI === "http://www.w3.org/2000/svg") {
+
+
+        }
         const type = e.target.dataset.type;
         const value = e.target.dataset.value;
         switch (type) {
@@ -96,6 +100,7 @@ function createSpouseDisplay(filteredItems = []) {
         const btn = $create("div");
         btn.dataset.type = "control";
         btn.dataset.value = ob.value;
+        btn.dataset.active = "true";
         btn.id = "control" + ob.value;
         btn.title = ob.value;
         btn.innerHTML = ob.icon;
