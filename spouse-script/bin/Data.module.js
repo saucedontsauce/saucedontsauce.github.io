@@ -1013,15 +1013,15 @@ var data = {
         { type: "type", value: "Booster" },
         { type: "type", value: "Drug" }
     ],
-    async get(v) {
+    get: async (v) => {
         const val = await GM.getItem(v);
         return val ? v : false;
     },
-    async set(k, v) {
+    set: async (k, v) => {
         const val = await GM.setItem(k, v);
         return val ? v : false;
     },
-    async delete(key) {
+    delete: async (key) => {
         try {
             GM.deleteValue(key);
             return true
