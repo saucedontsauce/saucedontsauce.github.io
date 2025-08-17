@@ -20,10 +20,14 @@ function createSpouseDisplay(filteredItems = []) {
             case "control": {
                 switch (value) {
                     case "types": {
+                        log("%ctypes control", logStyle);
 
+                        break;
                     };
                     case "locations": {
+                        log("%clocations control", logStyle);
 
+                        break;
                     }
                     default: {
                         log("%cfilterBtnHandler control Shit itself", logStyle);
@@ -44,13 +48,16 @@ function createSpouseDisplay(filteredItems = []) {
         const btn = $create("div");
         btn.type = "control";
         btn.value = ob.value;
-        btn.title = ob.value
+        btn.title = ob.value;
+        btn.textContent = ob.text
         btn.addEventListener("click", filterBtnHandler);
         setStyles(btn, {
             height: "50px",
             width: "50px",
             borderRadius: '50%',
             borderWidth: "3px",
+            border: "green",
+            cursor: "pointer",
         });
         filterrow0.appendChild(btn);
     });
