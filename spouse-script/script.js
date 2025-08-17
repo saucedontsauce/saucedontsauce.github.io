@@ -30,9 +30,9 @@
 
     /* Remove for production */
     //await GMDelete("TornApiKey");
-    await GMDelete("user_data");
-    await GMDelete("spouse_data");
-    log("%cAll data reset", logStyle)
+    //await GMDelete("user_data");
+    //await GMDelete("spouse_data");
+    //log("%cAll data reset", logStyle)
     /**/
 
     // Code After Here
@@ -125,7 +125,7 @@
             }
             case "Travel Agency": {
                 log("%cTravel Agency", logStyle);
-                renderBox("#div.wrapper", createSpouseDisplay)
+                renderBox("div.content-wrapper", createSpouseDisplay)
                 break;
             }
             default: {
@@ -195,7 +195,7 @@
             case "Traveling": { log("%cFlying", logStyle); renderBox("div.content-wrapper.travelling", createSignInForm); break; };
             case "Travel Agency": {
                 log("%cTravel Agency", logStyle);
-                renderBox("div.wrapper", createSignInForm)
+                renderBox("div.content-wrapper", createSignInForm)
                 break;
             };
             default: { log("%cSCREEN DETECTOR NO KEY - Shit the bed", logStyle); break; };
