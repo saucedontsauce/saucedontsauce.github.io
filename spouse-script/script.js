@@ -29,7 +29,7 @@
     }
 
     /* Remove for production */
-    //await GMDelete("TornApiKey");
+    await GMDelete("TornApiKey");
     await GMDelete("user_data");
     await GMDelete("spouse_data");
     log("%cAll data reset", logStyle)
