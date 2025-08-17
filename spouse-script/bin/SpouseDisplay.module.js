@@ -2,7 +2,10 @@ function createSpouseDisplay(filteredItems = []) {
     console.log("%ccreating spouse display", logStyle);
     const wrapper = $create("div");
     wrapper.className = "msg border-round";
-    wrapper.style.width = "auto";
+    setStyles(wrapper, {
+        width: "auto",
+        rowGap: "8px"
+    });
     // filter lists
     const filterheader = $create("p");
     filterheader.textContent = "Filters";
