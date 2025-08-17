@@ -46,8 +46,6 @@
     if (key) {
         log(key)
         let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { const nu = await fetchUserUTIL(key); await GMSet("user_data", JSON.stringify(nu)); user = nu };
-        log("%cUSER: %o", logStyle, user);
-
         let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else if (user.married) { const ns = await fetchSpouseUTIL(key, user.married.spouse_id); await GMSet("spouse_data", JSON.stringify(ns)); spouse = ns }
         await checkData(key, user, spouse);
         const mergedDisplay = mergeUTIL(user, spouse, data);
@@ -58,7 +56,7 @@
         log("%cData: %o", logStyle, data); // CHECK STATE
         log("%cUser: %o", logStyle, user); // CHECK STATE
         log("%cSpouse: %o", logStyle, spouse); // CHECK STATE
-        log("%cJoined: %o", logStyle, mergedDisplay); // CHECK STATE
+        log("%cMerged: %o", logStyle, mergedDisplay); // CHECK STATE
         log("%cFilters: %o", logStyle, filters); // CHECK STATE
         log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
         /**/

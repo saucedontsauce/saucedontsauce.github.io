@@ -3,7 +3,7 @@ function setStyles(el, styles) {
 }
 function mergeUTIL(user, spouse, data) {
     let merged = {};
-    if (data) return null
+    if (!user || !data) throw new Error("Incorrect data passed to merge function")
     user.display.forEach(i => {
         //console.log({...dd[i.name]})
         merged[i.name] = { ...i, ...data[i.name] };
