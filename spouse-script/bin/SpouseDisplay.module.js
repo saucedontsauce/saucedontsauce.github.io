@@ -3,10 +3,11 @@ function createSpouseDisplay(filteredItems = []) {
     const wrapper = $create("div");
     wrapper.className = "msg border-round";
     wrapper.style.width = "auto";
-    // list
+    // filter lists
     const filterheader = $create("p");
     filterheader.textContent = "Filters";
     setStyles(filterheader, {
+        padding: ".5rem",
         display: "flex",
         fontWeight: 600,
         justifyContent: "center",
@@ -50,7 +51,10 @@ function createSpouseDisplay(filteredItems = []) {
     };
 
     const filterrow0 = filterRow();
-    [{ value: "types", text: "All Types" }, { value: "locations", text: "All Locations" }].forEach((ob) => {
+    [
+        { value: "types", text: "All Types" },
+        { value: "locations", text: "All Locations" }
+    ].forEach((ob) => {
         const btn = $create("div");
         btn.type = "control";
         btn.value = ob.value;
@@ -58,16 +62,21 @@ function createSpouseDisplay(filteredItems = []) {
         btn.textContent = ob.text
         btn.addEventListener("click", filterBtnHandler);
         setStyles(btn, {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             height: "50px",
             width: "50px",
             borderRadius: '50%',
-            borderWidth: "3px",
-            border: "green",
+            border: "3px solid green",
             cursor: "pointer",
         });
         filterrow0.appendChild(btn);
     });
     wrapper.appendChild(filterrow0);
+
+
+
 
 
     // break
