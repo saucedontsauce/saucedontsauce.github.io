@@ -28,17 +28,18 @@
         return;
     }
 
+    /* Remove for production */
+    await GMDelete("TornApiKey");
+    await GMDelete("user_data");
+    await GMDelete("spouse_data");
+    log("%cAll data reset", logStyle)
+    /**/
+
     // Code After Here
     const key = await GMGet("TornApiKey");
     log("%cspouse-script - made by d00dleD", logStyle);
     log("%cLOCALKEY - %s", logStyle, key);
 
-    /* Remove for production */
-    //GMDelete("TornApiKey");
-    GMDelete("user_data");
-    GMDelete("spouse_data");
-    log("%cAll data reset", logStyle)
-    /**/
 
     log("%cSpouse Travel script loaded", logStyle);
 

@@ -67,8 +67,9 @@ function renderBox(target, fn) {
         innerWrap.className = "delimiter border-round";
         innerWrap.style.borderRadius = 0;
         innerWrap.style.borderRadius = '5px';
-        const innerWrapper = fn();
-        innerWrap.appendChild(innerWrapper);
+        const item = fn();
+        innerWrap.appendChild(item);
+        outerWrap.appendChild(innerWrap);
         targetDiv.prepend(outerWrap)
     };
 };
