@@ -1,5 +1,6 @@
 
 function createSpouseDisplay(filteredItems) {
+    console.log("%ccreating spouse display", logStyle)
 
     const wrapper = $create("div");//FORM wrapper
     wrapper.textContent = "Use this to set your api key for spouse display"
