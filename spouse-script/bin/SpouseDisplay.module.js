@@ -29,13 +29,10 @@ function createSpouseDisplay(filteredItems = []) {
         }
     }
 
-
-
-    function filterBtnHandler(e) {
-        const supers = [
-            { value: "types", text: "All Types", icon: `<svg data-type="control" data-value="types" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title>categories</title><path data-type="control" data-value="types" d="M6.76,6l.45.89L7.76,8H12v5H4V6H6.76m.62-2H3A1,1,0,0,0,2,5v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H9L8.28,4.55A1,1,0,0,0,7.38,4Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M22.76,6l.45.89L23.76,8H28v5H20V6h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M6.76,19l.45.89L7.76,21H12v5H4V19H6.76m.62-2H3a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H9l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M22.76,19l.45.89L23.76,21H28v5H20V19h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><rect data-type="control" data-value="types" id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>` },
-            {
-                value: "locations", text: "All Locations", icon: `<svg data-type="control" data-value="locations" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    const supers = [
+        { value: "types", text: "All Types", icon: `<svg data-type="control" data-value="types" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title>categories</title><path data-type="control" data-value="types" d="M6.76,6l.45.89L7.76,8H12v5H4V6H6.76m.62-2H3A1,1,0,0,0,2,5v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H9L8.28,4.55A1,1,0,0,0,7.38,4Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M22.76,6l.45.89L23.76,8H28v5H20V6h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M6.76,19l.45.89L7.76,21H12v5H4V19H6.76m.62-2H3a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H9l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="types" d="M22.76,19l.45.89L23.76,21H28v5H20V19h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><rect data-type="control" data-value="types" id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>` },
+        {
+            value: "locations", text: "All Locations", icon: `<svg data-type="control" data-value="locations" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 511.986 511.986" xml:space="preserve">
 <g data-type="control" data-value="locations" >
 	<g data-type="control" data-value="locations" >
@@ -64,21 +61,24 @@ function createSpouseDisplay(filteredItems = []) {
 				c-0.04-0.394-0.075-0.789-0.119-1.182c-3.491-31.877-18.568-59.878-40.723-80.124c-1.402-9.021-1.422-17.938,0.036-26.802
 				c5.536-33.86,32.267-61.97,65.553-68.89c54.498-11.352,103.924,29.307,103.924,83.391
 				C426.663,142.475,423.059,156.381,416.273,168.767z"/></g></g></g></svg>`}
-        ];
-        const types = [];
-        const locations = [
-            { name: "Mexico", icon: "" },
-            { name: "Canada", icon: "" },
-            { name: "Cayman Islands", icon: "" },
-            { name: "Hawaii", icon: "" },
-            { name: "Argentina", icon: "" },
-            { name: "United Kingdom", icon: "" },
-            { name: "Switzerland", icon: "" },
-            { name: "Japan", icon: "" },
-            { name: "China", icon: "" },
-            { name: "UAE", icon: "" },
-            { name: "South Africa", icon: "" }
-        ];
+    ];
+    const types = [];
+    const locations = [
+        { name: "Mexico", icon: "" },
+        { name: "Canada", icon: "" },
+        { name: "Cayman Islands", icon: "" },
+        { name: "Hawaii", icon: "" },
+        { name: "Argentina", icon: "" },
+        { name: "United Kingdom", icon: "" },
+        { name: "Switzerland", icon: "" },
+        { name: "Japan", icon: "" },
+        { name: "China", icon: "" },
+        { name: "UAE", icon: "" },
+        { name: "South Africa", icon: "" }
+    ];
+
+    function filterBtnHandler(e) {
+
         const type = e.target.dataset.type;
         const value = e.target.dataset.value;
         switch (type) {
