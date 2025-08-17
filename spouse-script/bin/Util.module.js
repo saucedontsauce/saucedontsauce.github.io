@@ -1,87 +1,11 @@
 function setStyles(el, styles) {
     Object.assign(el.style, styles);
 }
-function mergeUTIL(user, spouse, data) {
-    let merged = {};
-    if (!user || !data) throw new Error("Incorrect data passed to merge function")
-    user.display.forEach(i => {
-        //console.log({...dd[i.name]})
-        merged[i.name] = { ...i, ...data[i.name] };
-        merged[i.name].my_quantity = i.quantity;
-        merged[i.name].spouse_quantity = 0;
-    });
-    if (spouse) {
-        spouse.display.forEach(i => {
-            if (merged[i.name]) {
-                merged[i.name] = { ...merged[i.name], spouse_quantity: i.quantity, quantity: merged[i.name].quantity += i.quantity };
-
-            } else {
-                merged[i.name] = { ...i, spouse_quantity: i.quantity, my_quantity: 0 };
-            }
-        })
-    };
-    return merged;
-};
 
 function filterUTIL(filters, merged) {
 
     return merged
 }
-
-// FETCH FUNCTIONS //
-async function fetchUserUTIL(key) {
-    log("%cFetching user", logStyle);
-    try {
-        const data = await fetch(String(`https://api.torn.com/v2/user?selections=profile,display,timestamp&key=${key}`));
-        const json = await data.json();
-        if (json.error) {
-            switch (json.error.code) {
-                case 2: {
-                    await GMDelete("TornApiKey");
-                    window.alert(json.error.error);
-                    window.location.reload();
-                    break;
-                };
-                default: {
-                    console.log("USER Fetch shit itself");
-                    break
-                }
-            };
-        } else {
-            return json
-        };
-    } catch (err) {
-        await GMDelete("TornApiKey");
-        log(err);
-    };
-};
-async function fetchSpouseUTIL(key, id) {
-    log("%cFetching spouse", logStyle);
-    try {
-        const data = await fetch(String(`https://api.torn.com/v2/user/${id}?selections=display,timestamp&key=${key}`));
-        const json = await data.json();
-        if (json.error) {
-            switch (json.error.code) {
-                case 2: {
-                    await GMDelete("TornApiKey");
-                    window.alert(json.error.error);
-                    window.location.reload();
-                    break;
-                };
-                default: {
-                    console.log("SPOUSE Fetch shit itself");
-                    break
-                }
-            };
-        } else {
-            return json
-        };
-    } catch (err) {
-        await GMDelete("TornApiKey");
-        log(err)
-    }
-};
-
 
 function renderBox(target, fnOrEl) {
     log("%cRendering box", logStyle);

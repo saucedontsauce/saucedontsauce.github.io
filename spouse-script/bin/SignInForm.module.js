@@ -23,7 +23,7 @@ function createSignInForm() {
         f.addEventListener('submit', async (e) => {
             e.preventDefault();
             log('form submitted: %s', $get("#apiKey").value);
-            await GMSet("TornApiKey", $get("#apiKey").value);
+            await data.set(data.keykey, $get("#apiKey").value);
             window.location.reload();
         });
 

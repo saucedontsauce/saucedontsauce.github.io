@@ -10,8 +10,8 @@
 // @grant    GM.getValue
 // @grant    GM.setValue
 // @grant    GM.deleteValue
-// @require https://saucedontsauce.github.io/spouse-script/bin/Data.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/Overides.module.js?ts=<?= Date.now() ?>
+// @require https://saucedontsauce.github.io/spouse-script/bin/Data.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/Util.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/CheckData.module.js?ts=<?= Date.now() ?>
 // @require https://saucedontsauce.github.io/spouse-script/bin/BuildingBlocks.module.js?ts=<?= Date.now() ?>
@@ -19,46 +19,26 @@
 // @require https://saucedontsauce.github.io/spouse-script/bin/SpouseDisplay.module.js?ts=<?= Date.now() ?>
 // ==/UserScript==
 
-// remove ?ts=<?= Date.now() ?> when finished as this removes module caching, slowing load times
-
 
 (async function () {
     'use strict';
-    if (window.SPOUSE_DISPLAY_INJECTED) { // set this at some point
-        return;
-    }
-
-    /* Remove for production */
-    //await GMDelete("TornApiKey");
-    //await GMDelete("user_data");
-    //await GMDelete("spouse_data");
-    //log("%cAll data reset", logStyle)
-    /**/
 
     // Code After Here
     const key = await GMGet("TornApiKey");
     log("%cspouse-script - made by d00dleD", logStyle);
-    log("%cLOCALKEY - %s", logStyle, key);
+    log("%cLOCALKEY - %s", logStyle, data.key);
 
-
-    log("%cSpouse Travel script loaded", logStyle);
-
-    if (key) {
-        log(key)
-        let user = await GMGet("user_data"); if (user) { user = await JSON.parse(user); } else { const nu = await fetchUserUTIL(key); await GMSet("user_data", JSON.stringify(nu)); user = nu };
-        let spouse = await GMGet("spouse_data"); if (spouse) { spouse = await JSON.parse(spouse); } else if (user.married) { const ns = await fetchSpouseUTIL(key, user.married.spouse_id); await GMSet("spouse_data", JSON.stringify(ns)); spouse = ns }
-        await checkData(key, user, spouse);
-        const mergedDisplay = mergeUTIL(user, spouse, data);
-        let filteredItems = [];
-        let filters = [];
+    log("%cSpouse Travel script loading", logStyle);
+    if (data.key) {
+        log(data.key)
 
         /* Remove for production */
-        log("%cData: %o", logStyle, data); // CHECK STATE
-        log("%cUser: %o", logStyle, user); // CHECK STATE
-        log("%cSpouse: %o", logStyle, spouse); // CHECK STATE
-        log("%cMerged: %o", logStyle, mergedDisplay); // CHECK STATE
-        log("%cFilters: %o", logStyle, filters); // CHECK STATE
-        log("%cFiltered: %o", logStyle, filteredItems); // CHECK STATE
+        log("%cData: %o", logStyle, data.system); // CHECK STATE
+        log("%cUser: %o", logStyle, data.user); // CHECK STATE
+        log("%cSpouse: %o", logStyle, data.spouse); // CHECK STATE
+        log("%cMerged: %o", logStyle, data.mergedDisplay); // CHECK STATE
+        log("%cFilters: %o", logStyle, data.filters); // CHECK STATE
+        log("%cFiltered: %o", logStyle, data.filteredItems); // CHECK STATE
         /**/
 
         // check location before rendering display;
