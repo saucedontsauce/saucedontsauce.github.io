@@ -27,8 +27,8 @@ function createSpouseDisplay(filteredItems = []) {
     }
 
     function filterBtnHandler(e) {
-        const type = e.target.type;
-        const value = e.target.value;
+        const type = e.target.dataset.type;
+        const value = e.target.dataset.value;
         switch (type) {
             case "control": {
                 switch (value) {
@@ -93,8 +93,8 @@ function createSpouseDisplay(filteredItems = []) {
 				C426.663,142.475,423.059,156.381,416.273,168.767z"/></g></g></g></svg>`}
     ].forEach((ob) => {
         const btn = $create("div");
-        btn.type = "control";
-        btn.value = ob.value;
+        btn.dataset.type = "control";
+        btn.dataset.value = ob.value;
         btn.title = ob.value;
         btn.innerHTML = ob.icon;
         btn.addEventListener("click", filterBtnHandler);
