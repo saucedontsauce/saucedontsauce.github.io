@@ -50,28 +50,36 @@ function createSignInForm() {
 
 function renderBox(target, fn) {
     log("%cRendering box", logStyle);
-    let targetDiv = $get(target)//travel agent target
+    let targetDiv = $get(target); // travel agent target
     console.log(target, targetDiv);
+
     if (targetDiv) {
         log("%cTARGET FOUND", logStyle);
-        const jubwr = $create("")
+
+        const jubwr = $create("div");
+        jubwr.className = "api-form-wrapper";
 
         const outerWrap = $create("div");
         outerWrap.className = "flex border-round info-msg";
         outerWrap.style.alignItems = "center";
+
         const innerWrap = $create("div");
         innerWrap.className = "delimiter border-round";
-        innerWrap.style.borderRadius = 0;
-        innerWrap.style.borderRadius = '5px';
+        innerWrap.style.borderRadius = "5px";
+
         const item = fn();
         innerWrap.appendChild(item);
+
         outerWrap.appendChild(innerWrap);
         jubwr.appendChild(outerWrap);
+
         const hrr = hr();
         jubwr.appendChild(hrr);
-        targetDiv.prepend(jubwr)
-    };
-};
+
+        targetDiv.prepend(jubwr);
+    }
+}
+
 //call like renderBox(target,fn)
 //leave this here
 log("%cSignUpForm.module.js loaded", logStyle);
