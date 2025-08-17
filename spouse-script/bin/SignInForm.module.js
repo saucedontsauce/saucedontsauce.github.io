@@ -33,7 +33,9 @@ function createSignInForm() {
     };
 
     const fw = $create("div");//FORM wrapper
-    fw.textContent = "Use this to set your api key for spouse display"
+    const headr = $create("p");
+    headr.textContent = "Use this to set your api key for spouse display";
+    fw.appendChild(headr)
     const hr1 = $create("hr");//hr
     hr1.className = "page-head-delimiter m-top10 m-bottom10"
     hr1.style.borderRadius = 0;
