@@ -142,6 +142,45 @@ function createSpouseDisplay(filteredItems = []) {
     wrapper.appendChild(filterrow0);
 
 
+    const filterrow1 = filterRow();//types
+    [
+        "Mexico",
+        "Canada",
+        "Cayman Islands",
+        "Hawaii",
+        "Argentina",
+        "United Kingdom",
+        "Switzerland",
+        "Japan",
+        "China",
+        "UAE",
+        "South Africa"
+    ].forEach((location) => {
+        const btn = $create("div");
+        btn.dataset.type = "location";
+        btn.dataset.value = location;
+        btn.dataset.active = "true";
+        btn.id = "location" + location;
+        setStyles(btn, {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "35px",
+            overflow: "hidden",
+            width: "35px",
+            borderRadius: '50%',
+            border: "3px solid #22dd22",
+            cursor: "pointer",
+            padding: "5px"
+        });
+        filterrow1.appendChild(btn);
+    });
+    wrapper.appendChild(filterrow1);
+
+
+
+    const filterrow2 = filterRow();//locations
+
 
 
 
