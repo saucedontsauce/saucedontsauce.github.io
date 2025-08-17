@@ -1,4 +1,3 @@
-console.log("%cloading Overides.module.js", 'background-color: darkblue; color: white; font-style: italic; border: 5px solid hotpink; font-size: 2em;');
 // GENERAL
 const log = console.log;
 const logStyle = 'background-color: darkblue; color: white; font-style: italic; border: 5px solid hotpink; font-size: 2em;';
@@ -30,6 +29,3 @@ const GMGet = async (key, deflt) => {
     }
 };
 const GMDelete = async (key) => { await GM.deleteValue(key) };
-
-log("%cOverides.module.js loaded", logStyle);
-

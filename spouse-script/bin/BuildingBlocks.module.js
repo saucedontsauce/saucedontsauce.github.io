@@ -1,4 +1,3 @@
-log("%cloading BuildingBlocks.module.js", logStyle);
 
 function hr() {
     const hr0 = $create("hr");
@@ -8,7 +7,4 @@ function hr() {
     hr0.className = "page-head-delimiter border-round m-top10 m-bottom10";
     return hr0;
 };
-
-//leave this here
-log("%cBuildingBlocks.module.js loaded", logStyle);
 

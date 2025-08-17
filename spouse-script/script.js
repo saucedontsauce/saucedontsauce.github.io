@@ -205,6 +205,3 @@
         }
     };
 })();
-
-
-log("%cscript.user.js loaded", logStyle);
