@@ -11,11 +11,15 @@ function createSignInForm() {
             lin.className = "torn-btn";
             return lin
         };
+
         const f = $create("form");
-        f.style.display = "flex";
-        f.style.justifyContent = "space-evenly";
-        f.style.alignItems = "center";
-        f.style.gap = "1rem";
+        setStyles(f, {
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            gap: "1rem"
+        });
+
         f.addEventListener('submit', async (e) => {
             e.preventDefault();
             log('form submitted: %s', $get("#apiKey").value);
@@ -33,18 +37,26 @@ function createSignInForm() {
     };
 
     const fw = $create("div");//FORM wrapper
-    const headr = $create("p");
-    headr.textContent = "Use this to set your api key for spouse display";
-    fw.appendChild(headr)
-    const hr1 = $create("hr");//hr
-    hr1.className = "page-head-delimiter m-top10 m-bottom10"
-    hr1.style.borderRadius = 0;
-    hr1.style.borderRadius = '5px';
-    fw.appendChild(hr1);
     fw.className = "msg border-round";
     fw.style.width = "auto !important";
+
+    const headr = $create("p");
+    headr.textContent = "Use this to set your api key for spouse display";
+    setStyles(headr, {
+        textAlign: "center"
+    });
+    fw.appendChild(headr)
+
+    const hr1 = $create("hr");//hr
+    hr1.className = "page-head-delimiter m-top10 m-bottom10"
+    setStyles(hr1, {
+        borderRadius: 0,
+        borderRadius: '5px'
+    });
+    fw.appendChild(hr1);
     const f = form();
     fw.appendChild(f);
+
     return fw
 };
 

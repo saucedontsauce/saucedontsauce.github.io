@@ -1,4 +1,6 @@
-
+function setStyles(el, styles) {
+    Object.assign(el.style, styles);
+}
 function mergeUTIL(user, spouse, data) {
     let merged = {};
     if (data) return null
