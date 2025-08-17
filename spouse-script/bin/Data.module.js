@@ -159,10 +159,10 @@ class Store {
 
     static async init() {
         const s = new Store();
-        s.key = await s.#get(s.keykey);
-        s.user = await s.#get(s.userkey);
-        s.spouse = await s.#get(s.spousekey);
-        s.filters = await s.#get(s.filterkey);
+        s.key = await s.#get(s.#keyLocation);
+        s.user = await s.#get(s.#userLocation);
+        s.spouse = await s.#get(s.#spouseLocation);
+        s.filters = await s.#get(s.#filterLocation);
         await s.#checkData()
         return s;
     }
