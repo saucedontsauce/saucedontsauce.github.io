@@ -160,12 +160,12 @@ class Store {
         } else {
             if (!this.user) {
                 log("%cNO USER", logStyle);
-                await this.#fetchPlayer(key, this.#userLocation);
+                await this.#fetchPlayer(this.key, this.#userLocation);
             } else {
                 const jsonuser = this.user;
                 if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000)) {
                     log("%cOLD USER", logStyle);
-                    await this.#fetchPlayer(key, this.#userLocation);
+                    await this.#fetchPlayer(this.key, this.#userLocation);
                 } else {
                     log("%cUSER VALID", logStyle);
                     this.user = { ...jsonuser };
@@ -174,12 +174,12 @@ class Store {
             if (this.user.married?.spouse_id) {
                 if (!this.spouse) {
                     log("%cNO SPOUSE BUT MARRIED", logStyle);
-                    await this.#fetchPlayer(key, this.#spouseLocation, this.user.married.spouse_id);
+                    await this.#fetchPlayer(this.key, this.#spouseLocation, this.user.married.spouse_id);
                 } else {
                     const jsonspouse = this.spouse;
                     if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000)) {
                         log("%cOLD SPOUSE", logStyle);
-                        await this.#fetchPlayer(key, this.#spouseLocation);
+                        await this.#fetchPlayer(this.key, this.#spouseLocation);
                     } else {
                         log("%cSPOUSE VALID", logStyle);
                         this.spouse = { ...jsonspouse };
