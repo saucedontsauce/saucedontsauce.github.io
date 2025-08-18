@@ -76,7 +76,7 @@ class Store {
 				c5.536-33.86,32.267-61.97,65.553-68.89c54.498-11.352,103.924,29.307,103.924,83.391
 				C426.663,142.475,423.059,156.381,416.273,168.767z"/></g></g></g></svg>`}
     ]
-    types = [{ value: "Plushie", icon: "" }, { value: "Flower", icon: "" }, { value: "Temporary", icon: "" }, { value: "Drug", icon: "" }, { value: "Booster", icon: "" }];
+    types = [{ value: "Plushie", icon: "" }, { value: "Flower", icon: "" }, { value: "Temporary", icon: "" }, { value: "Alcohol", icon: "" }, { value: "Drug", icon: "" }, { value: "Booster", icon: "" }];
     locations = [
         { value: "Mexico", icon: `https://flagcdn.com/72x54/mx.png` },
         { value: "Canada", icon: `https://flagcdn.com/72x54/ca.png` },

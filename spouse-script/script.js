@@ -44,7 +44,6 @@
             wrapper.appendChild(filterheader);
 
             function toggleFilterStatus(target) {
-                console.log(target)
                 var div = $get("#" + target.dataset.type + target.dataset.value.split(" ").join(""));
                 if (div.dataset.active === "true") {
                     div.style.border = "2px solid grey";
@@ -53,26 +52,39 @@
                     div.style.border = "3px solid #22dd22";
                     div.dataset.active = "true";
                 }
-            }
+            };
 
 
 
             function filterBtnHandler(e) {
                 const type = e.target.dataset.type;
                 const value = e.target.dataset.value;
-                var filterFound = false;
-                data.filters.forEach((f, i) => {
-                    if (f.type == type && f.value == value) {
-                        filterFound = i;
-                    }
-                });
-                if (filterFound) {
-                    data.filters.splice(filterFound, 1)
+                log("%cFILTER BTN CLICKED %s %s", logStyle, type, value);
+                toggleFilterStatus(e.target);
+                const active = e.target.dataset.active;
+                if (type === "control") {
+                    log("%cCONTROL FILTERS %s", logStyle, value);
+                    const itms = Object.keys(data.system).filter(obj => obj.type === value);
+                    itms.forEach((itm) => {
+                        const found = data.filters.findIndex(obj => obj.value === itm.value && obj.type === itm.type);
+                        toggleFilterStatus($get("#" + itm.type + itm.name.split(" ").join("")));
+                        if (found !== -1 && active === "true") {
+                            data.filters.push({ value: itm.name, type: type });
+                        } else if (found !== -1 && active === "false") {
+                            data.filters.splice(found, 1)
+                        }
+                    });
                 } else {
-                    data.filters.push({
-                        type: type,
-                        value: value
-                    })
+                    log("%cINDIVIDUAL FILTER %s", logStyle, value);
+                    const found = data.filters.findIndex(obj => obj.type === type && obj.value === value);
+                    if (found === -1) {
+                        data.filters.push({
+                            type: type,
+                            value: value
+                        })
+                    } else {
+                        data.filters.splice(found, 1)
+                    }
                 };
                 console.log("%cFilters Updated: %o", logStyle, data.filters);
             };
