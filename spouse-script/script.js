@@ -42,7 +42,6 @@
             });
             wrapper.appendChild(filterheader);
 
-            // ✅ FIXED toggleFilterStatus
             function toggleFilterStatus(target) {
                 const div = $get("#" + target.dataset.type + target.dataset.value.replace(/\s+/g, ""));
                 let isActive = div.dataset.active === "true";
@@ -58,7 +57,6 @@
                 }
             };
 
-            // ✅ FIXED filterBtnHandler
             function filterBtnHandler(e) {
                 const type = e.target.dataset.type;
                 const value = e.target.dataset.value;
@@ -166,6 +164,7 @@
 
             const filterrow2 = filterRow();
             data.type.forEach((type) => {
+                const btn = $create("div");
                 btn.id = "type" + type.value;
                 btn.dataset.type = "type";
                 btn.dataset.value = type.value;
