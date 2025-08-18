@@ -159,13 +159,15 @@ class Store {
     }
 
     static async init() {
+        const s = new Store();
+
         await s.#delete(s.#keyLocation);
         await s.#delete(s.#userLocation);
         await s.#delete(s.#spouseLocation);
         await s.#delete(s.#filterLocation);
 
 
-        const s = new Store();
+
         s.key = await s.#get(s.#keyLocation);
         s.user = await s.#get(s.#userLocation);
         s.spouse = await s.#get(s.#spouseLocation);
