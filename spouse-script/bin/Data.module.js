@@ -46,18 +46,18 @@ class Store {
         {
             value: "location",
             text: "All Locations",
-            icon: `<svg data-type="control" data-value="locations" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+            icon: `<svg data-type="control" data-value="location" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 511.986 511.986" xml:space="preserve">
-<g data-type="control" data-value="locations" >
-	<g data-type="control" data-value="locations" >
-		<g data-type="control" data-value="locations" >
-			<path data-type="control" data-value="locations"  d="M170.654,170.652c-35.355,0-64,28.645-64,64c0,35.34,28.65,64,64,64c35.35,0,64-28.66,64-64
+<g data-type="control" data-value="location" >
+	<g data-type="control" data-value="location" >
+		<g data-type="control" data-value="location" >
+			<path data-type="control" data-value="location"  d="M170.654,170.652c-35.355,0-64,28.645-64,64c0,35.34,28.65,64,64,64c35.35,0,64-28.66,64-64
 				C234.654,199.297,206.009,170.652,170.654,170.652z M170.654,255.986c-11.782,0-21.333-9.554-21.333-21.333
 				c0-11.791,9.542-21.333,21.333-21.333s21.333,9.542,21.333,21.333C191.987,246.431,182.436,255.986,170.654,255.986z"/>
 			<path data-type="control" data-value="locations"  d="M341.321,63.986c-35.355,0-64,28.645-64,64s28.645,64,64,64s64-28.645,64-64S376.676,63.986,341.321,63.986z
 				 M341.321,149.319c-11.791,0-21.333-9.542-21.333-21.333s9.542-21.333,21.333-21.333s21.333,9.542,21.333,21.333
 				S353.112,149.319,341.321,149.319z"/>
-			<path data-type="control" data-value="locations"  d="M314.046,2.825c-50.626,10.526-90.594,52.553-98.965,103.758c-0.421,2.56-0.751,5.122-1.01,7.683
+			<path data-type="control" data-value="location"  d="M314.046,2.825c-50.626,10.526-90.594,52.553-98.965,103.758c-0.421,2.56-0.751,5.122-1.01,7.683
 				c-21.626-7.8-45.835-9.955-70.7-4.776c-50.637,10.554-90.596,52.563-98.965,103.758c-4.638,28.395,0.042,56.452,12.934,80.91
 				c2.981,5.665,5.474,10.347,10.755,20.223l0.852,1.594c19.541,36.545,28.265,53.879,37.153,75.197l44.862,107.685
 				c7.293,17.505,32.091,17.506,39.385,0.002l48.619-116.672c8.674-20.841,17.38-37.76,36.947-73.291l0.917-1.666
