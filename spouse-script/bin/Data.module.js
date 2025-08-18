@@ -130,7 +130,7 @@ class Store {
 
     get filteredItems() {
 
-        return this.merged;
+        return [];
     }
 
     async #fetchPlayer(key, save, id) {
