@@ -118,7 +118,7 @@
 
 
             const filterrow1 = filterRow();//locations
-            data.locations.forEach((location) => {
+            data.location.forEach((location) => {
                 const btn = $create("div");
                 btn.id = "location" + location.value.split(" ").join("");
                 btn.dataset.type = "location";
