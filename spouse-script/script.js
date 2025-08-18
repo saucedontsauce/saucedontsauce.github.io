@@ -44,7 +44,8 @@
             wrapper.appendChild(filterheader);
 
             function toggleFilterStatus(target) {
-                var div = $get("#" + target.dataset.type + target.dataset.value);
+                console.log(target)
+                var div = $get("#" + target.dataset.type + target.dataset.value.split(" ").join(""));
                 if (div.dataset.active === "true") {
                     div.style.border = "2px solid grey";
                     div.dataset.active = "false";
@@ -57,66 +58,22 @@
 
 
             function filterBtnHandler(e) {
-
                 const type = e.target.dataset.type;
                 const value = e.target.dataset.value;
-                switch (type) {
-                    case "control": {
-                        switch (value) {
-                            case "types": {
-                                log("%ctypes control", logStyle);
-                                toggleFilterStatus(e.target);
-                                const catset = e.target.dataset.active
-                                data.types.forEach((type) => {
-                                    if (filters.indexOf(type) >= 0) {
-                                        if (!catset) {
-                                            filters.slice(filters.indexOf(type), 1);
-                                        }
-                                    } else {
-                                        if (catset) {
-                                            filters.push(type);
-                                        }
-                                    };
-                                });
-                                break;
-                            };
-                            case "locations": {
-                                log("%clocations control", logStyle);
-                                toggleFilterStatus(e.target);
-                                const catset = e.target.dataset.active;
-                                data.locations.forEach((location) => {
-                                    if (filters.indexOf(location) >= 0) {
-                                        if (!catset) {
-                                            filters.slice(filters.indexOf(location), 1);
-                                        }
-                                    } else {
-                                        if (catset) {
-                                            filters.push(location);
-                                        }
-                                    }
-                                })
-                                break;
-                            }
-                            default: {
-                                log("%cfilterBtnHandler control Shit itself", logStyle);
-                                break;
-                            }
-                        };
-                        break;
-                    };
-                    case "locations": {
-                        toggleFilterStatus(e.target);
-                        if (e.target.dataset.active === "true") {
-
-                        };
-                        break;
+                var filterFound = false;
+                data.filters.forEach((f, i) => {
+                    if (f.type == type && f.value == value) {
+                        filterFound = i;
                     }
-                    default: {
-                        log("%cfilterBtnHandler Shit itself", logStyle)
-                        break;
-                    }
+                });
+                if (filterFound) {
+                    data.filters.splice(filterFound, 1)
+                } else {
+                    data.filters.push({
+                        type: type,
+                        value: value
+                    })
                 };
-
                 console.log("%cFilters Updated: %o", logStyle, data.filters);
             };
 
@@ -126,7 +83,7 @@
                 btn.dataset.type = "control";
                 btn.dataset.value = ob.value;
                 btn.dataset.active = "true";
-                btn.id = "control" + ob.value;
+                btn.id = "control" + ob.value.split(" ").join("");
                 btn.title = ob.value;
                 btn.innerHTML = ob.icon;
                 btn.addEventListener("click", filterBtnHandler);
@@ -150,13 +107,21 @@
             const filterrow1 = filterRow();//locations
             data.locations.forEach((location) => {
                 const btn = $create("div");
+                btn.id = "location" + location.value.split(" ").join("");
                 btn.dataset.type = "location";
-                btn.dataset.value = location.name;
-                btn.title = location.name;
+                btn.dataset.value = location.value;
                 btn.dataset.active = "true";
-                btn.innerHTML = location.icon;
+                btn.title = location.value;
+                const icon = $create("img");
+                icon.src = location.icon;
+                icon.dataset.type = "location";
+                icon.dataset.value = location.value;
+                setStyles(icon, {
+                    width: "100%",
+                    height: "100%"
+                })
+                btn.appendChild(icon)
                 btn.addEventListener("click", filterBtnHandler);
-                btn.id = "location" + location.name;
                 setStyles(btn, {
                     display: "flex",
                     justifyContent: "center",
@@ -311,8 +276,7 @@
                 case "Traveling":
                 case "Travel Agency": {
                     log("%c%s", logStyle, indicator);
-                    if (data.key) {
-                        log("%cNO KEY PRESENT", logStyle);
+                    if (data.user) {
                         a.#render("div.content-wrapper", a.createSpouseDisplay);
                     } else {
                         a.#render("div.content-wrapper", a.createSignInForm);

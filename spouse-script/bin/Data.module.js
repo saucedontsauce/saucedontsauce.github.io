@@ -165,7 +165,8 @@ class Store {
                 const jsonuser = JSON.parse(this.user);
                 if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000)) {
                     log("%cOLD USER", logStyle);
-                    await this.#fetchPlayer(this.key, this.#userLocation);
+                    let usr = await this.#fetchPlayer(this.key, this.#userLocation);
+                    this.user = usr
                 } else {
                     log("%cUSER VALID", logStyle);
                     this.user = { ...jsonuser };
@@ -179,7 +180,9 @@ class Store {
                     const jsonspouse = JSON.parse(this.spouse);
                     if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000)) {
                         log("%cOLD SPOUSE", logStyle);
-                        await this.#fetchPlayer(this.key, this.#spouseLocation);
+                        let spous = await this.#fetchPlayer(this.key, this.#spouseLocation);
+                        this.spouse = spous
+
                     } else {
                         log("%cSPOUSE VALID", logStyle);
                         this.spouse = { ...jsonspouse };
