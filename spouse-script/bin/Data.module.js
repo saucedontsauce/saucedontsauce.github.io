@@ -162,7 +162,7 @@ class Store {
                 log("%cNO USER", logStyle);
                 await this.#fetchPlayer(this.key, this.#userLocation);
             } else {
-                const jsonuser = this.user;
+                const jsonuser = JSON.parse(this.user);
                 if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000)) {
                     log("%cOLD USER", logStyle);
                     await this.#fetchPlayer(this.key, this.#userLocation);
@@ -176,7 +176,7 @@ class Store {
                     log("%cNO SPOUSE BUT MARRIED", logStyle);
                     await this.#fetchPlayer(this.key, this.#spouseLocation, this.user.married.spouse_id);
                 } else {
-                    const jsonspouse = this.spouse;
+                    const jsonspouse = JSON.parse(this.spouse);
                     if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000)) {
                         log("%cOLD SPOUSE", logStyle);
                         await this.#fetchPlayer(this.key, this.#spouseLocation);

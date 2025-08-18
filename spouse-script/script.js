@@ -289,8 +289,6 @@
         }
 
 
-
-
         static async init() {
             log("%cspouse-script - made by d00dleD", logStyle);
 
