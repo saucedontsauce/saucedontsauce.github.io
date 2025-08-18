@@ -23,161 +23,62 @@
 (async function () {
     'use strict';
 
-    // Code After Here
-    log("%cspouse-script - made by d00dleD", logStyle);
-    log("%cLOCALKEY - %s", logStyle, data.key);
+    class SpouseScript {
 
-    log("%cSpouse Travel script loading", logStyle);
-    if (data.key) {
-        log(data.key)
 
-        /* Remove for production */
-        log("%cData: %o", logStyle, data.system); // CHECK STATE
-        log("%cUser: %o", logStyle, data.user); // CHECK STATE
-        log("%cSpouse: %o", logStyle, data.spouse); // CHECK STATE
-        log("%cMerged: %o", logStyle, data.mergedDisplay); // CHECK STATE
-        log("%cFilters: %o", logStyle, data.filters); // CHECK STATE
-        log("%cFiltered: %o", logStyle, data.filteredItems); // CHECK STATE
-        /**/
+        #render() {
 
-        // check location before rendering display;
-        switch ($get("h4").textContent) {
-            case "Mexico": {
-                log("%cMexico", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Canada": {
-                log("%cCanada", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Cayman Islands": {
-                log("%cCayman Islands", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Hawaii": {
-                log("%cHawaii", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "United Kingdom": {
-                log("%cUnited Kingdom", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Argentina": {
-                log("%cSArgentina", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Switzerland": {
-                log("%cSwitzerland", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Japan": {
-                log("%cJapan", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "China": {
-                log("%cChina", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "UAE": {
-                log("%cUAE", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "South Africa": {
-                log("%cSouth Africa", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay);
-                break;
-            };
-            case "Traveling": {
-                log("%cFlying", logStyle);
-                renderBox("div.content-wrapper.travelling", createSpouseDisplay)
-                break;
-            }
-            case "Travel Agency": {
-                log("%cTravel Agency", logStyle);
-                renderBox("div.content-wrapper", createSpouseDisplay)
-                break;
-            }
-            default: {
-                log("%cSCREEN DETECTOR KEY - Shit the bed", logStyle);
-                break;
-            }
         }
-    } else {
-        log("%cNO KEY PRESENT", logStyle);
-        // check location before rendering api key input form
-        switch ($get("h4").textContent.trim()) {
-            case "Mexico": {
-                log("%cMexico", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Canada": {
-                log("%cCanada", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Cayman Islands": {
-                log("%cCayman Islands", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Hawaii": {
-                log("%cHawaii", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "United Kingdom": {
-                log("%cUnited Kingdom", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Argentina": {
-                log("%cSArgentina", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Switzerland": {
-                log("%cSwitzerland", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Japan": {
-                log("%cJapan", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "China": {
-                log("%cChina", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "UAE": {
-                log("%cUAE", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "South Africa": {
-                log("%cSouth Africa", logStyle);
-                renderBox("div.content-wrapper.travelling", createSignInForm);
-                break;
-            };
-            case "Traveling": { log("%cFlying", logStyle); renderBox("div.content-wrapper.travelling", createSignInForm); break; };
-            case "Travel Agency": {
-                log("%cTravel Agency", logStyle);
-                renderBox("div.content-wrapper", createSignInForm)
-                break;
-            };
-            default: { log("%cSCREEN DETECTOR NO KEY - Shit the bed", logStyle); break; };
+
+        #log() {
+            log("%cKey: %o", logStyle, data.key);
+            log("%cData: %o", logStyle, data.system);
+            log("%cUser: %o", logStyle, data.user);
+            log("%cSpouse: %o", logStyle, data.spouse);
+            log("%cMerged: %o", logStyle, data.mergedDisplay);
+            log("%cFilters: %o", logStyle, data.filters);
+            log("%cFiltered: %o", logStyle, data.filteredItems);
+        }
+
+        static async init() {
+            log("%cspouse-script - made by d00dleD", logStyle);
+
+            const a = new SpouseScript();
+
+
+
+           /**/ a.#log();
+            const indicator = $get("h4").textContent.trim()
+            switch (indicator) {
+                case "Mexico":
+                case "Canada":
+                case "Cayman Islands":
+                case "Hawaii":
+                case "United Kingdom":
+                case "Argentina":
+                case "Switzerland":
+                case "Japan":
+                case "China":
+                case "UAE":
+                case "South Africa":
+                case "Traveling":
+                case "Travel Agency": {
+                    log("%c%s", logStyle, indicator);
+                    if (data.key) {
+                        log("%cNO KEY PRESENT", logStyle);
+                        renderBox("div.content-wrapper", createSpouseDisplay);
+                    } else {
+                        renderBox("div.content-wrapper", createSignInForm);
+                    }
+                    break;
+                }
+                default: {
+                    log("%cSCREEN DETECTOR  - Shit the bed", logStyle);
+                    break;
+                }
+            }
+
         }
     };
+    SpouseScript.init()
 })();

@@ -87,7 +87,7 @@ class Store {
 
     #keyLocation = "TornApiKey"
     #userLocation = "user_data"
-    #spouseLocation = "user_data"
+    #spouseLocation = "spouse_data"
     #filterLocation = "filter_data"
 
     async #get(k) { const val = await GM.getValue(k); return val ? val : false; }
