@@ -189,6 +189,11 @@ class Store {
         }
     }
 
+    async loginHandler(key) {
+        await this.#set(this.#keyLocation, key);
+        window.location.reload();
+    };
+
     static async init() {
         const s = new Store();
 
