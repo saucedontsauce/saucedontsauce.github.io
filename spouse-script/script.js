@@ -64,16 +64,17 @@
                 const active = e.target.dataset.active;
                 if (type === "control") {
                     log("%cCONTROL FILTERS %s", logStyle, value);
-                    const itms = Object.keys(data.system).filter(obj => obj.type === value);
-                    itms.forEach((itm) => {
-                        const found = data.filters.findIndex(obj => obj.value === itm.value && obj.type === itm.type);
-                        toggleFilterStatus($get("#" + itm.type + itm.name.split(" ").join("")));
-                        if (found !== -1 && active === "true") {
-                            data.filters.push({ value: itm.name, type: type });
-                        } else if (found !== -1 && active === "false") {
-                            data.filters.splice(found, 1)
+                    const fltrs = data[value];
+                    log(fltrs)
+                    fltrs.forEach(flt => {
+                        const found = data.filters.findIndex(obj => obj.value === flt.value && obj.type === value);
+                        console.log(found)
+                        if (found === -1) {
+                            active && data.filters.push({ type: value, value: flt.value })
+                        } else {
+                            !active && data.filters.slice(found, 1);
                         }
-                    });
+                    })
                 } else {
                     log("%cINDIVIDUAL FILTER %s", logStyle, value);
                     const found = data.filters.findIndex(obj => obj.type === type && obj.value === value);
