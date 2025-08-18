@@ -172,7 +172,7 @@ class Store {
                 };
             };
             if (this.user.married?.spouse_id) {
-                if (!spouse) {
+                if (!this.spouse) {
                     log("%cNO SPOUSE BUT MARRIED", logStyle);
                     await this.#fetchPlayer(key, this.#spouseLocation, this.user.married.spouse_id);
                 } else {
