@@ -76,7 +76,16 @@ class Store {
 				c5.536-33.86,32.267-61.97,65.553-68.89c54.498-11.352,103.924,29.307,103.924,83.391
 				C426.663,142.475,423.059,156.381,416.273,168.767z"/></g></g></g></svg>`}
     ]
-    type = [{ value: "Plushie", icon: "" }, { value: "Flower", icon: "" }, { value: "Temporary", icon: "" }, { value: "Alcohol", icon: "" }, { value: "Drug", icon: "" }, { value: "Booster", icon: "" }];
+    type = [
+        { value: "Plushie", icon: "https://api.iconify.design/mdi/teddy-bear.svg" },
+        { value: "Flower", icon: "https://api.iconify.design/tabler/flower.svg" },
+        { value: "Temporary", icon: "https://api.iconify.design/game-icons/grenade.svg" },
+        { value: "Medical", icon: "https://api.iconify.design/fluent-emoji/medical-symbol.svg?width=24&height=24" },
+        { value: "Alcohol", icon: "https://api.iconify.design/tabler/glass.svg" },
+        { value: "Drug", icon: "https://api.iconify.design/mdi/pill.svg" },
+        {
+            value: "Booster", icon: "https://api.iconify.design/radix-icons/thick-arrow-up.svg"
+        }];
     location = [
         { value: "Mexico", icon: `https://flagcdn.com/72x54/mx.png` },
         { value: "Canada", icon: `https://flagcdn.com/72x54/ca.png` },

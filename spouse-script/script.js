@@ -22,7 +22,6 @@
 
     class SpouseScript {
 
-
         createSpouseDisplay(filteredItems = []) {
             console.log("%ccreating spouse display", logStyle);
             const wrapper = $create("div");
@@ -43,50 +42,66 @@
             });
             wrapper.appendChild(filterheader);
 
+            // ✅ FIXED toggleFilterStatus
             function toggleFilterStatus(target) {
-                var div = $get("#" + target.dataset.type + target.dataset.value.split(" ").join(""));
-                if (div.dataset.active === "true") {
+                const div = $get("#" + target.dataset.type + target.dataset.value.replace(/\s+/g, ""));
+                let isActive = div.dataset.active === "true";
+
+                if (isActive) {
                     div.style.border = "2px solid grey";
                     div.dataset.active = "false";
+                    return false;
                 } else {
                     div.style.border = "3px solid #22dd22";
                     div.dataset.active = "true";
+                    return true;
                 }
             };
 
-
-
+            // ✅ FIXED filterBtnHandler
             function filterBtnHandler(e) {
                 const type = e.target.dataset.type;
                 const value = e.target.dataset.value;
-                log("%cFILTER BTN CLICKED %s %s", logStyle, type, value);
-                toggleFilterStatus(e.target);
-                const active = e.target.dataset.active;
+
+                // toggle and get new state
+                const active = toggleFilterStatus(e.target);
+
+                log("%cFILTER BTN CLICKED %s %s %s", logStyle, type, value, active);
+
                 if (type === "control") {
                     log("%cCONTROL FILTERS %s", logStyle, value);
                     const fltrs = data[value];
-                    log(fltrs)
                     fltrs.forEach(flt => {
                         const found = data.filters.findIndex(obj => obj.value === flt.value && obj.type === value);
-                        console.log(found)
-                        if (found === -1) {
-                            active && data.filters.push({ type: value, value: flt.value })
-                        } else {
-                            !active && data.filters.slice(found, 1);
+                        const el = $get("#" + value + flt.value.replace(/\s+/g, ""));
+
+                        if (active && found === -1) {
+                            log("%cISNT HERE BUT SHOULD BE", logStyle);
+                            toggleFilterStatus(el);
+                            data.filters.push({ type: value, value: flt.value });
+                        } else if (!active && found !== -1) {
+                            log("%cHERE BUT SHOULDNT BE", logStyle);
+                            toggleFilterStatus(el);
+                            data.filters.splice(found, 1);
                         }
-                    })
+                    });
                 } else {
                     log("%cINDIVIDUAL FILTER %s", logStyle, value);
-                    const found = data.filters.findIndex(obj => obj.type === type && obj.value === value);
-                    if (found === -1) {
-                        data.filters.push({
-                            type: type,
-                            value: value
-                        })
-                    } else {
-                        data.filters.splice(found, 1)
+
+                    // if control is active but a subfilter is being turned off, also deactivate control
+                    const controlEl = $get("#control" + type);
+                    if (controlEl && controlEl.dataset.active === "true" && !active) {
+                        toggleFilterStatus(controlEl);
                     }
-                };
+
+                    const found = data.filters.findIndex(obj => obj.type === type && obj.value === value);
+                    if (found === -1 && active) {
+                        data.filters.push({ type: type, value: value });
+                    } else if (!active && found !== -1) {
+                        data.filters.splice(found, 1);
+                    }
+                }
+
                 console.log("%cFilters Updated: %o", logStyle, data.filters);
             };
 
@@ -115,7 +130,6 @@
                 filterrow0.appendChild(btn);
             });
             wrapper.appendChild(filterrow0);
-
 
             const filterrow1 = filterRow();//locations
             data.location.forEach((location) => {
@@ -150,13 +164,38 @@
             });
             wrapper.appendChild(filterrow1);
 
+            const filterrow2 = filterRow();
+            data.type.forEach((type) => {
+                btn.id = "type" + type.value;
+                btn.dataset.type = "type";
+                btn.dataset.value = type.value;
+                btn.dataset.active = "true";
+                btn.title = type.value;
+                const icon = $create("img");
+                icon.src = type.icon;
+                icon.dataset.type = "type";
+                icon.dataset.value = type.value;
+                setStyles(icon, {
+                    width: "100%",
+                    height: "100%"
+                })
+                btn.appendChild(icon);
+                btn.addEventListener("click", filterBtnHandler);
+                setStyles(btn, {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "35px",
+                    overflow: "hidden",
+                    width: "35px",
+                    borderRadius: '50%',
+                    border: "3px solid #22dd22",
+                    cursor: "pointer"
+                });
+                filterrow2.appendChild(btn);
+            })
 
-
-            const filterrow2 = filterRow();//locations
-
-
-
-
+            wrapper.appendChild(filterrow2);
             // break
             const hr1 = $create("hr");
             hr1.className = "page-head-delimiter m-top10 m-bottom10";
@@ -187,8 +226,6 @@
 
             return wrapper;
         }
-
-
 
         createSignInForm() {
             function form() {
@@ -265,7 +302,6 @@
             log("%cFilters: %o", logStyle, data.filters);
             log("%cFiltered: %o", logStyle, data.filteredItems);
         }
-
 
         static async init() {
             log("%cspouse-script - made by d00dleD", logStyle);
