@@ -101,6 +101,7 @@
                 }
 
                 console.log("%cFilters Updated: %o", logStyle, data.filters);
+
             };
 
             const filterrow0 = filterRow();//supers / set all 

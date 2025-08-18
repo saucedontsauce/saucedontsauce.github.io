@@ -99,7 +99,7 @@ class Store {
         { value: "UAE", icon: `https://flagcdn.com/72x54/ae.png` },
         { value: "South Africa", icon: `https://flagcdn.com/72x54/za.png` }
     ];
-    #filterDefault = [{ type: "location", value: "Mexico" }, { type: "location", value: "Canada" }, { type: "location", value: "Cayman Islands" }, { type: "location", value: "Hawaii" }, { type: "location", value: "Argentina" }, { type: "location", value: "United Kingdom" }, { type: "location", value: "Switzerland" }, { type: "location", value: "Japan" }, { type: "location", value: "China" }, { type: "location", value: "UAE" }, { type: "location", value: "South Africa" }, { type: "type", value: "Plushie" }, { type: "type", value: "Flower" }, { type: "type", value: "Temporary" }, { type: "type", value: "Booster" }, { type: "type", value: "Drug" }];
+    #filterDefault = [{ type: "location", value: "Mexico" }, { type: "location", value: "Canada" }, { type: "location", value: "Cayman Islands" }, { type: "location", value: "Hawaii" }, { type: "location", value: "Argentina" }, { type: "location", value: "United Kingdom" }, { type: "location", value: "Switzerland" }, { type: "location", value: "Japan" }, { type: "location", value: "China" }, { type: "location", value: "UAE" }, { type: "location", value: "South Africa" }, { type: "type", value: "Plushie" }, { type: "type", value: "Flower" }, { type: "type", value: "Alcohol" }, { type: "type", value: "Medical" }, { type: "type", value: "Temporary" }, { type: "type", value: "Booster" }, { type: "type", value: "Drug" }];
 
     #keyLocation = "TornApiKey"
     #userLocation = "user_data"
