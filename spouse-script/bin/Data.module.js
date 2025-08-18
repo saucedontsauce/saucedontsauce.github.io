@@ -107,7 +107,7 @@ class Store {
     }
 
     get mergedDisplay() {
-        console.log(user)
+        console.log(this.user)
         let merged = {};
         if (!this.user || !this.system) throw new Error("Incorrect data passed to merge function")
         this.user.display.forEach(i => {
@@ -133,26 +133,19 @@ class Store {
         return this.merged;
     }
 
-    async #fetchPlayer(key, id) {
+    async #fetchPlayer(key, save, id) {
         log("%cFetching user", logStyle);
         try {
             const data = await fetch(String(`https://api.torn.com/v2/user${id ? "/" + id : ""}?selections=${id ? "display,timestamp" : "profile,display,timestamp"}&key=${key}`));
             const json = await data.json();
             if (json.error) {
                 switch (json.error.code) {
-                    case 2: {
-                        await this.#delete(this.#keyLocation);
-                        window.alert(json.error.error);
-                        window.location.reload();
-                        break;
-                    };
-                    default: {
-                        log("USER Fetch shit itself");
-                        break
-                    }
+                    case 2: { await this.#delete(this.#keyLocation); window.alert(json.error.error); window.location.reload(); break; };
+                    default: { log("USER Fetch shit itself"); break; }
                 };
             } else {
-                return json
+                this.#set(save, JSON.stringify(json));
+                return json;
             };
         } catch (err) {
             await this.#delete(this.#keyLocation);
@@ -161,42 +154,39 @@ class Store {
     };
 
     async #checkData() {
-        log("c%Checking Data", logStyle);
-        if (!key) {
-            log("%cNo key present", logStyle);
-        }
-        if (!user) {
-            log("%cNo local user data present", logStyle);
-            const newUserData = await fetchUserUTIL(key);
-            user = newUserData;
-            GMSet('user_data', JSON.stringify(newUserData))
+        log("c%CHECKING DATA", logStyle);
+        if (!this.key) {
+            log("%cNO KEY", logStyle);
         } else {
-            const jsonuser = user;
-            if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000) || jsonuser.error) {
-                log("%cold data", logStyle);
-                const newUserData = await fetchUserUTIL(key);
-                GMSet('user_data', JSON.stringify(newUserData));
+            if (!user) {
+                log("%cNO USER", logStyle);
+                await this.#fetchPlayer(key, this.#userLocation);
             } else {
-                log("%cLocal user data present and valid", logStyle);
-                user = { ...jsonuser };
+                const jsonuser = this.user;
+                if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000)) {
+                    log("%cOLD USER", logStyle);
+                    await this.#fetchPlayer(key, this.#userLocation);
+                } else {
+                    log("%cUSER VALID", logStyle);
+                    this.user = { ...jsonuser };
+                };
             };
-        };
-        if (!spouse && user?.married?.spouse_id || !spouse) {
-            log("%cHas spouse but no data", logStyle);
-            const newSpouseData = await fetchSpouseUTIL(key, user.married.spouse_id);
-            spouse = newSpouseData; GMSet('spouse_data', JSON.stringify(newSpouseData));
-        } else {
-            const jsonspouse = spouse;
-            if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000) || jsonspouse.error) {
-                log("%cold data", logStyle)
-                const newSpouseData = await fetchSpouseUTIL(key, user.married.spouse_id);
-                spouse = newSpouseData;
-                GMSet('spouse_data', JSON.stringify(newSpouseData));
-            } else {
-                log("%cLocal spouse data present and valid", logStyle);
-                spouse = { ...jsonspouse };
+            if (this.user.married?.spouse_id) {
+                if (!spouse) {
+                    log("%cNO SPOUSE BUT MARRIED", logStyle);
+                    await this.#fetchPlayer(key, this.#spouseLocation, this.user.married.spouse_id);
+                } else {
+                    const jsonspouse = this.spouse;
+                    if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000)) {
+                        log("%cOLD SPOUSE", logStyle);
+                        await this.#fetchPlayer(key, this.#spouseLocation);
+                    } else {
+                        log("%cSPOUSE VALID", logStyle);
+                        this.spouse = { ...jsonspouse };
+                    }
+                }
             }
-        };
+        }
     }
 
     static async init() {
@@ -206,8 +196,6 @@ class Store {
         await s.#delete(s.#userLocation);
         await s.#delete(s.#spouseLocation);
         await s.#delete(s.#filterLocation);
-
-
 
         s.key = await s.#get(s.#keyLocation);
         s.user = await s.#get(s.#userLocation);
