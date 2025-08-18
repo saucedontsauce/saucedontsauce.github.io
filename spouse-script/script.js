@@ -280,7 +280,7 @@
             log("%cData: %o", logStyle, data.system);
             log("%cUser: %o", logStyle, data.user);
             log("%cSpouse: %o", logStyle, data.spouse);
-            log("%cMerged: %o", logStyle, data.mergedDisplay);
+            log("%cMerged: %o", logStyle, data.user && data.mergedDisplay);
             log("%cFilters: %o", logStyle, data.filters);
             log("%cFiltered: %o", logStyle, data.filteredItems);
         }
