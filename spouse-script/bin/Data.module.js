@@ -5,72 +5,78 @@ const $get = (selector) => document.querySelector(selector);
 const $create = (tag) => document.createElement(tag);
 function setStyles(el, styles) { Object.assign(el.style, styles); };
 
+const SYSTEM = {
+    "Kitten Plushie": { "location": "City", "type": "Plushie", "price": 50, "img-src": "https://www.torn.com/images/items/215/large.png", "target": 0 },
+    "Sheep Plushie": { "location": "City", "type": "Plushie", "price": 25, "img-src": "https://www.torn.com/images/items/186/large.png", "target": 0 },
+    "Teddy Bear Plushie": { "location": "City", "type": "Plushie", "price": 30, "img-src": "https://www.torn.com/images/items/187/large.png", "target": 0 },
+    "Jaguar Plushie": { "location": "Mexico", "type": "Plushie", "price": 10000, "img-src": "https://www.torn.com/images/items/258/large.png", "target": 0 },
+    "Dahlia": { "location": "Mexico", "type": "Flower", "price": 300, "img-src": "https://www.torn.com/images/items/260/large.png", "target": 0 },
+    "Wolverine Plushie": { "location": "Canada", "type": "Plushie", "price": 30, "img-src": "https://www.torn.com/images/items/261/large.png", "target": 0 },
+    "Crocus": { "location": "Canada", "type": "Flower", "price": 600, "img-src": "https://www.torn.com/images/items/263/large.png", "target": 0 },
+    "Banana Orchid": { "location": "Cayman Islands", "type": "Flower", "price": 4000, "img-src": "https://www.torn.com/images/items/617/large.png", "target": 0 },
+    "Stingray Plushie": { "location": "Cayman Islands", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/618/large.png", "target": 0 },
+    "Orchid": { "location": "Hawaii", "type": "Flower", "price": 700, "img-src": "https://www.torn.com/images/items/264/large.png", "target": 0 },
+    "Heather": { "location": "UK", "type": "Flower", "price": 5000, "img-src": "https://www.torn.com/images/items/267/large.png", "target": 0 },
+    "Nessie Plushie": { "location": "UK", "type": "Plushie", "price": 200, "img-src": "https://www.torn.com/images/items/266/large.png", "target": 0 },
+    "Red Fox Plushie": { "location": "UK", "type": "Plushie", "price": 1000, "img-src": "https://www.torn.com/images/items/268/large.png", "target": 0 },
+    "Ceibo Flower": { "location": "Argentina", "price": 500, "type": "Flower", "img-src": "https://www.torn.com/images/items/271/large.png", "target": 0 },
+    "Monkey Plushie": { "location": "Argentina", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/269/large.png", "target": 0 },
+    "Edelweiss": { "location": "Switzerland", "type": "Flower", "price": 900, "img-src": "https://www.torn.com/images/items/272/large.png", "target": 0 },
+    "Chamois Plushie": { "location": "Switzerland", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/273/large.png", "target": 0 },
+    "Cherry Blossom": { "location": "Japan", "type": "Flower", "price": 500, "img-src": "https://www.torn.com/images/items/277/large.png", "target": 0 },
+    "Panda Plushie": { "location": "China", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/274/large.png", "target": 0 },
+    "Peony": { "location": "China", "type": "Flower", "price": 5000, "img-src": "https://www.torn.com/images/items/276/large.png", "target": 0 },
+    "Camel Plushie": { "location": "UAE", "type": "Plushie", "price": 14000, "img-src": "https://www.torn.com/images/items/384/large.png", "target": 0 },
+    "Tribulus Omanense": { "location": "UAE", "type": "Flower", "price": 6000, "img-src": "https://www.torn.com/images/items/385/large.png", "target": 0 },
+    "Lion Plushie": { "location": "South Africa", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/281/large.png", "target": 0 },
+    "African Violet": { "location": "South Africa", "type": "Flower", "price": 2000, "img-src": "https://www.torn.com/images/items/282/large.png", "target": 0 }
+};
+const CONTROLS = [
+    {
+        value: "type",
+        text: "All Types",
+        icon: `https://images.icon-icons.com/3404/PNG/512/categories_collapse_icon_215799.png`
+    },
+    {
+        value: "location",
+        text: "All Locations",
+        icon: `https://images.icon-icons.com/1678/PNG/96/wondicon-ui-free-website_111210.png`
+    }
+];
+const TYPE = [
+    { value: "Plushie", icon: "https://api.iconify.design/mdi/teddy-bear.svg" },
+    { value: "Flower", icon: "https://api.iconify.design/tabler/flower.svg" },
+    { value: "Temporary", icon: "https://api.iconify.design/game-icons/grenade.svg" },
+    { value: "Medical", icon: "https://api.iconify.design/fluent-emoji/medical-symbol.svg?width=24&height=24" },
+    { value: "Alcohol", icon: "https://api.iconify.design/tabler/glass.svg" },
+    { value: "Drug", icon: "https://api.iconify.design/mdi/pill.svg" },
+    { value: "Booster", icon: "https://api.iconify.design/radix-icons/thick-arrow-up.svg" }];
+const LOCATION = [
+    { value: "Mexico", icon: `https://flagcdn.com/72x54/mx.png` },
+    { value: "Canada", icon: `https://flagcdn.com/72x54/ca.png` },
+    { value: "Cayman Islands", icon: `https://flagcdn.com/72x54/ky.png` },
+    { value: "Hawaii", icon: `https://flagcdn.com/72x54/us.png` },
+    { value: "Argentina", icon: `https://flagcdn.com/72x54/ar.png` },
+    { value: "United Kingdom", icon: `https://flagcdn.com/72x54/gb.png` },
+    { value: "Switzerland", icon: `https://flagcdn.com/72x54/ch.png` },
+    { value: "Japan", icon: `https://flagcdn.com/72x54/jp.png` },
+    { value: "China", icon: `https://flagcdn.com/72x54/cn.png` },
+    { value: "UAE", icon: `https://flagcdn.com/72x54/ae.png` },
+    { value: "South Africa", icon: `https://flagcdn.com/72x54/za.png` }
+];
+const FILTERDEFAULT = [{ type: "location", value: "Mexico" }, { type: "location", value: "Canada" }, { type: "location", value: "Cayman Islands" }, { type: "location", value: "Hawaii" }, { type: "location", value: "Argentina" }, { type: "location", value: "United Kingdom" }, { type: "location", value: "Switzerland" }, { type: "location", value: "Japan" }, { type: "location", value: "China" }, { type: "location", value: "UAE" }, { type: "location", value: "South Africa" }, { type: "type", value: "Plushie" }, { type: "type", value: "Flower" }, { type: "type", value: "Alcohol" }, { type: "type", value: "Medical" }, { type: "type", value: "Temporary" }, { type: "type", value: "Booster" }, { type: "type", value: "Drug" }]
+
 class Store {
     keykey = "TornApiKey";
     userkey = "user_data";
     spousekey = "user_data";
     filterkey = "filter_data";
 
-    system = {
-        "Kitten Plushie": { "location": "City", "type": "Plushie", "price": 50, "img-src": "https://www.torn.com/images/items/215/large.png", "target": 0 },
-        "Sheep Plushie": { "location": "City", "type": "Plushie", "price": 25, "img-src": "https://www.torn.com/images/items/186/large.png", "target": 0 },
-        "Teddy Bear Plushie": { "location": "City", "type": "Plushie", "price": 30, "img-src": "https://www.torn.com/images/items/187/large.png", "target": 0 },
-        "Jaguar Plushie": { "location": "Mexico", "type": "Plushie", "price": 10000, "img-src": "https://www.torn.com/images/items/258/large.png", "target": 0 },
-        "Dahlia": { "location": "Mexico", "type": "Flower", "price": 300, "img-src": "https://www.torn.com/images/items/260/large.png", "target": 0 },
-        "Wolverine Plushie": { "location": "Canada", "type": "Plushie", "price": 30, "img-src": "https://www.torn.com/images/items/261/large.png", "target": 0 },
-        "Crocus": { "location": "Canada", "type": "Flower", "price": 600, "img-src": "https://www.torn.com/images/items/263/large.png", "target": 0 },
-        "Banana Orchid": { "location": "Cayman Islands", "type": "Flower", "price": 4000, "img-src": "https://www.torn.com/images/items/617/large.png", "target": 0 },
-        "Stingray Plushie": { "location": "Cayman Islands", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/618/large.png", "target": 0 },
-        "Orchid": { "location": "Hawaii", "type": "Flower", "price": 700, "img-src": "https://www.torn.com/images/items/264/large.png", "target": 0 },
-        "Heather": { "location": "UK", "type": "Flower", "price": 5000, "img-src": "https://www.torn.com/images/items/267/large.png", "target": 0 },
-        "Nessie Plushie": { "location": "UK", "type": "Plushie", "price": 200, "img-src": "https://www.torn.com/images/items/266/large.png", "target": 0 },
-        "Red Fox Plushie": { "location": "UK", "type": "Plushie", "price": 1000, "img-src": "https://www.torn.com/images/items/268/large.png", "target": 0 },
-        "Ceibo Flower": { "location": "Argentina", "price": 500, "type": "Flower", "img-src": "https://www.torn.com/images/items/271/large.png", "target": 0 },
-        "Monkey Plushie": { "location": "Argentina", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/269/large.png", "target": 0 },
-        "Edelweiss": { "location": "Switzerland", "type": "Flower", "price": 900, "img-src": "https://www.torn.com/images/items/272/large.png", "target": 0 },
-        "Chamois Plushie": { "location": "Switzerland", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/273/large.png", "target": 0 },
-        "Cherry Blossom": { "location": "Japan", "type": "Flower", "price": 500, "img-src": "https://www.torn.com/images/items/277/large.png", "target": 0 },
-        "Panda Plushie": { "location": "China", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/274/large.png", "target": 0 },
-        "Peony": { "location": "China", "type": "Flower", "price": 5000, "img-src": "https://www.torn.com/images/items/276/large.png", "target": 0 },
-        "Camel Plushie": { "location": "UAE", "type": "Plushie", "price": 14000, "img-src": "https://www.torn.com/images/items/384/large.png", "target": 0 },
-        "Tribulus Omanense": { "location": "UAE", "type": "Flower", "price": 6000, "img-src": "https://www.torn.com/images/items/385/large.png", "target": 0 },
-        "Lion Plushie": { "location": "South Africa", "type": "Plushie", "price": 400, "img-src": "https://www.torn.com/images/items/281/large.png", "target": 0 },
-        "African Violet": { "location": "South Africa", "type": "Flower", "price": 2000, "img-src": "https://www.torn.com/images/items/282/large.png", "target": 0 }
-    }
-    controls = [
-        {
-            value: "type",
-            text: "All Types",
-            icon: `https://images.icon-icons.com/3404/PNG/512/categories_collapse_icon_215799.png`
-        },
-        {
-            value: "location",
-            text: "All Locations",
-            icon: `https://images.icon-icons.com/1678/PNG/96/wondicon-ui-free-website_111210.png`
-        }
-    ]
-    type = [
-        { value: "Plushie", icon: "https://api.iconify.design/mdi/teddy-bear.svg" },
-        { value: "Flower", icon: "https://api.iconify.design/tabler/flower.svg" },
-        { value: "Temporary", icon: "https://api.iconify.design/game-icons/grenade.svg" },
-        { value: "Medical", icon: "https://api.iconify.design/fluent-emoji/medical-symbol.svg?width=24&height=24" },
-        { value: "Alcohol", icon: "https://api.iconify.design/tabler/glass.svg" },
-        { value: "Drug", icon: "https://api.iconify.design/mdi/pill.svg" },
-        { value: "Booster", icon: "https://api.iconify.design/radix-icons/thick-arrow-up.svg" }];
-    location = [
-        { value: "Mexico", icon: `https://flagcdn.com/72x54/mx.png` },
-        { value: "Canada", icon: `https://flagcdn.com/72x54/ca.png` },
-        { value: "Cayman Islands", icon: `https://flagcdn.com/72x54/ky.png` },
-        { value: "Hawaii", icon: `https://flagcdn.com/72x54/us.png` },
-        { value: "Argentina", icon: `https://flagcdn.com/72x54/ar.png` },
-        { value: "United Kingdom", icon: `https://flagcdn.com/72x54/gb.png` },
-        { value: "Switzerland", icon: `https://flagcdn.com/72x54/ch.png` },
-        { value: "Japan", icon: `https://flagcdn.com/72x54/jp.png` },
-        { value: "China", icon: `https://flagcdn.com/72x54/cn.png` },
-        { value: "UAE", icon: `https://flagcdn.com/72x54/ae.png` },
-        { value: "South Africa", icon: `https://flagcdn.com/72x54/za.png` }
-    ];
-    #filterDefault = [{ type: "location", value: "Mexico" }, { type: "location", value: "Canada" }, { type: "location", value: "Cayman Islands" }, { type: "location", value: "Hawaii" }, { type: "location", value: "Argentina" }, { type: "location", value: "United Kingdom" }, { type: "location", value: "Switzerland" }, { type: "location", value: "Japan" }, { type: "location", value: "China" }, { type: "location", value: "UAE" }, { type: "location", value: "South Africa" }, { type: "type", value: "Plushie" }, { type: "type", value: "Flower" }, { type: "type", value: "Alcohol" }, { type: "type", value: "Medical" }, { type: "type", value: "Temporary" }, { type: "type", value: "Booster" }, { type: "type", value: "Drug" }];
+    system = { ...SYSTEM };
+    controls = [...CONTROLS];
+    type = [...TYPE];
+    location = [...LOCATION]
+    #filterDefault = [...FILTERDEFAULT];
 
     #keyLocation = "TornApiKey"
     #userLocation = "user_data"
@@ -108,10 +114,25 @@ class Store {
         return merged;
     }
 
-    get filteredItems() {
+    get filteredValues() {
+        if (!this.filters) return [];
 
-        return [];
-    }
+        // Get location and type filter arrays
+        const locationFilters = this.filters
+            .filter(f => f.type === "location")
+            .map(f => f.value);
+
+        const typeFilters = this.filters
+            .filter(f => f.type === "type")
+            .map(f => f.value);
+
+        // Filter mergedDisplay and map to the value you want
+        return Object.values(this.mergedDisplay)
+            .filter(item =>
+                locationFilters.includes(item.location) &&
+                typeFilters.includes(item.type)
+            )
+    };
 
     async #fetchPlayer(key, save, id) {
         log("%cFetching user", logStyle);
@@ -133,8 +154,8 @@ class Store {
         };
     };
 
-    handleFilterChange() {
-        this.#set(this.#filterLocation, this.filters);
+    async handleFilterChange() {
+        await this.#set(this.#filterLocation, this.filters);
         log("%cFILTERS SET LOCALLY", logStyle);
     };
 
@@ -188,11 +209,6 @@ class Store {
 
     static async init() {
         const s = new Store();
-
-        //await s.#delete(s.#keyLocation);
-        //await s.#delete(s.#userLocation);
-        //await s.#delete(s.#spouseLocation);
-        //await s.#delete(s.#filterLocation);
 
         s.key = await s.#get(s.#keyLocation);
         s.user = await s.#get(s.#userLocation);

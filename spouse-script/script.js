@@ -69,6 +69,7 @@
                 }
                 log("%cFilters changed %o", logStyle, data.filters);
                 data.handleFilterChange()
+                this.#rerenderItems()
             };
 
             // Control buttons
@@ -116,14 +117,20 @@
             wrapper.appendChild(row2);
 
             wrapper.appendChild(hrEl());
+
             wrapper.appendChild(createEl('p', { innerHTML: 'Items', styles: { display: 'flex', fontWeight: 600, justifyContent: 'center', alignItems: 'center' } }));
 
+            const itemWrapper = createEl("div", {
+                attrs: { id: "itemDisplay" }
+            })
             // Items
             if (data.filteredItems.length) {
-                data.filteredItems.forEach(item => wrapper.appendChild(createEl('div', { innerHTML: `• ${item.name}-${item.location} -- ${item.quantity}/${item.target}` })));
+                data.filteredItems.forEach(item => itemWrapper.appendChild(createEl('div', { innerHTML: `• ${item.name}-${item.location} -- ${item.quantity}/${item.target}` })));
             } else {
-                wrapper.appendChild(createEl('p', { innerHTML: 'No data available.' }));
+                itemWrapper.appendChild(createEl('p', { innerHTML: 'No data available.' }));
             }
+
+            wrapper.appendChild(itemWrapper)
 
             return wrapper;
         }
@@ -147,10 +154,22 @@
                     form
                 ]
             });
+        };
+
+        #rerenderItems() {
+            const targetDiv = $get("#itemDisplay")
+            targetDiv.innerHTML = ``;
+            // Items
+            if (data.filteredItems.length) {
+                data.filteredItems.forEach(item => targetDiv.appendChild(createEl('div', { innerHTML: `• ${item.name}-${item.location} -- ${item.quantity}/${item.target}` })));
+            } else {
+                targetDiv.appendChild(createEl('p', { innerHTML: 'No data available.' }));
+            }
+
         }
 
         #render(target, contentFn) {
-            const targetDiv = document.querySelector(target);
+            const targetDiv = $get(target);
             if (!targetDiv) return;
             const wrapper = createEl('div', { attrs: { class: 'api-form-wrapper' } });
             const outer = createEl('div', { attrs: { class: 'flex border-round info-msg' }, styles: { alignItems: 'center' } });
