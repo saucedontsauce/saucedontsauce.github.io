@@ -114,25 +114,18 @@ class Store {
         return merged;
     }
 
-    get filteredValues() {
-        if (!this.filters) return [];
-
-        // Get location and type filter arrays
-        const locationFilters = this.filters
+    get filteredItems() {
+        const locations = this.filters
             .filter(f => f.type === "location")
             .map(f => f.value);
 
-        const typeFilters = this.filters
+        const types = this.filters
             .filter(f => f.type === "type")
             .map(f => f.value);
 
-        // Filter mergedDisplay and map to the value you want
         return Object.values(this.mergedDisplay)
-            .filter(item =>
-                locationFilters.includes(item.location) &&
-                typeFilters.includes(item.type)
-            )
-    };
+            .filter(item => locations.includes(item.location) && types.includes(item.type));
+    }
 
     async #fetchPlayer(key, save, id) {
         log("%cFetching user", logStyle);
