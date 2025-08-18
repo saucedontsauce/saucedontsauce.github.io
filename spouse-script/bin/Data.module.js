@@ -158,7 +158,7 @@ class Store {
         if (!this.key) {
             log("%cNO KEY", logStyle);
         } else {
-            if (!user) {
+            if (!this.user) {
                 log("%cNO USER", logStyle);
                 await this.#fetchPlayer(key, this.#userLocation);
             } else {

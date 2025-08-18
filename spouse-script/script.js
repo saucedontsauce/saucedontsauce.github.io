@@ -228,7 +228,7 @@
                 const f = $create("form");
                 setStyles(f, {
                     display: "flex",
-                    justifyContent: "space-evenly",
+                    justifyContent: "flex-end",
                     alignItems: "center",
                     gap: "1rem"
                 });
@@ -236,10 +236,14 @@
                 f.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     log('form submitted: %s', $get("#apiKey").value);
-                    await loginHandler($get("#apiKey").value);
+                    await data.loginHandler($get("#apiKey").value);
                 });
 
                 const inputDiv = keyinput();
+                setStyles(inputDiv, {
+                    display: "inline-flex",
+                    flexGrow: "grow"
+                })
                 f.appendChild(inputDiv);
                 const submitbutton = button();
                 f.appendChild(submitbutton);
