@@ -186,6 +186,10 @@ class Store {
                     }
                 }
             }
+            if (!this.filters) {
+                this.filters = [...this.#filterDefault];
+                this.#set(this.#filterLocation, this.#filterDefault);
+            }
         }
     }
 
