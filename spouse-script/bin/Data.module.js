@@ -41,40 +41,13 @@ class Store {
         {
             value: "type",
             text: "All Types",
-            icon: `<svg data-type="control" data-value="type" fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title>categories</title><path data-type="control" data-value="type" d="M6.76,6l.45.89L7.76,8H12v5H4V6H6.76m.62-2H3A1,1,0,0,0,2,5v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H9L8.28,4.55A1,1,0,0,0,7.38,4Z" transform="translate(0 0)"/><path data-type="control" data-value="type" d="M22.76,6l.45.89L23.76,8H28v5H20V6h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="type" d="M6.76,19l.45.89L7.76,21H12v5H4V19H6.76m.62-2H3a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H9l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><path data-type="control" data-value="type" d="M22.76,19l.45.89L23.76,21H28v5H20V19h2.76m.62-2H19a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V20a1,1,0,0,0-1-1H25l-.72-1.45a1,1,0,0,0-.9-.55Z" transform="translate(0 0)"/><rect data-type="control" data-value="type" id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>`
+            icon: `https://images.icon-icons.com/3404/PNG/512/categories_collapse_icon_215799.png`
         },
         {
             value: "location",
             text: "All Locations",
-            icon: `<svg data-type="control" data-value="location" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 511.986 511.986" xml:space="preserve">
-<g data-type="control" data-value="location" >
-	<g data-type="control" data-value="location" >
-		<g data-type="control" data-value="location" >
-			<path data-type="control" data-value="location"  d="M170.654,170.652c-35.355,0-64,28.645-64,64c0,35.34,28.65,64,64,64c35.35,0,64-28.66,64-64
-				C234.654,199.297,206.009,170.652,170.654,170.652z M170.654,255.986c-11.782,0-21.333-9.554-21.333-21.333
-				c0-11.791,9.542-21.333,21.333-21.333s21.333,9.542,21.333,21.333C191.987,246.431,182.436,255.986,170.654,255.986z"/>
-			<path data-type="control" data-value="locations"  d="M341.321,63.986c-35.355,0-64,28.645-64,64s28.645,64,64,64s64-28.645,64-64S376.676,63.986,341.321,63.986z
-				 M341.321,149.319c-11.791,0-21.333-9.542-21.333-21.333s9.542-21.333,21.333-21.333s21.333,9.542,21.333,21.333
-				S353.112,149.319,341.321,149.319z"/>
-			<path data-type="control" data-value="location"  d="M314.046,2.825c-50.626,10.526-90.594,52.553-98.965,103.758c-0.421,2.56-0.751,5.122-1.01,7.683
-				c-21.626-7.8-45.835-9.955-70.7-4.776c-50.637,10.554-90.596,52.563-98.965,103.758c-4.638,28.395,0.042,56.452,12.934,80.91
-				c2.981,5.665,5.474,10.347,10.755,20.223l0.852,1.594c19.541,36.545,28.265,53.879,37.153,75.197l44.862,107.685
-				c7.293,17.505,32.091,17.506,39.385,0.002l48.619-116.672c8.674-20.841,17.38-37.76,36.947-73.291l0.917-1.666
-				c2.573-4.672,3.955-7.185,5.344-9.719l39.464,94.685c7.295,17.504,32.093,17.501,39.385-0.005l48.597-116.672
-				c8.674-20.807,17.295-37.558,36.958-73.296l0.679-1.233c3.219-5.85,4.646-8.448,6.445-11.74
-				c10.199-18.615,15.628-39.566,15.628-61.262C469.329,46.958,395.146-14.067,314.046,2.825z M239.456,286.646l-0.918,1.667
-				c-20.303,36.867-29.503,54.747-38.961,77.47l-28.92,69.401l-25.174-60.427c-9.585-22.99-18.735-41.171-38.911-78.902
-				l-0.853-1.594c-5.237-9.794-7.699-14.416-10.629-19.985c-8.596-16.308-11.709-34.973-8.577-54.148
-				c5.53-33.829,32.258-61.928,65.56-68.869c26.85-5.593,52.465,1.449,71.548,16.497c0.198,0.173,0.387,0.355,0.592,0.521
-				c17.708,14.319,28.983,34.891,31.321,57.555c0.041,0.409,0.087,0.815,0.123,1.226c0.013,0.146,0.022,0.293,0.034,0.44
-				c0.186,2.268,0.285,4.564,0.292,6.885c-0.008,0.25-0.018,0.567-0.03,0.997c0,0.17,0.011,0.338,0.015,0.508
-				c-0.199,14.037-3.775,27.514-10.36,39.564C243.9,278.573,242.549,281.03,239.456,286.646z M416.273,168.767
-				c-1.785,3.265-3.19,5.823-6.399,11.655l-0.679,1.234c-20.394,37.067-29.5,54.76-38.96,77.451l-28.913,69.414l-25.188-60.431
-				c-4.934-11.846-10.481-23.729-17.548-37.843c-0.076-2.222-0.211-4.434-0.4-6.633c-0.057-0.676-0.129-1.347-0.197-2.019
-				c-0.04-0.394-0.075-0.789-0.119-1.182c-3.491-31.877-18.568-59.878-40.723-80.124c-1.402-9.021-1.422-17.938,0.036-26.802
-				c5.536-33.86,32.267-61.97,65.553-68.89c54.498-11.352,103.924,29.307,103.924,83.391
-				C426.663,142.475,423.059,156.381,416.273,168.767z"/></g></g></g></svg>`}
+            icon: `https://images.icon-icons.com/1678/PNG/96/wondicon-ui-free-website_111210.png`
+        }
     ]
     type = [
         { value: "Plushie", icon: "https://api.iconify.design/mdi/teddy-bear.svg" },
@@ -83,9 +56,7 @@ class Store {
         { value: "Medical", icon: "https://api.iconify.design/fluent-emoji/medical-symbol.svg?width=24&height=24" },
         { value: "Alcohol", icon: "https://api.iconify.design/tabler/glass.svg" },
         { value: "Drug", icon: "https://api.iconify.design/mdi/pill.svg" },
-        {
-            value: "Booster", icon: "https://api.iconify.design/radix-icons/thick-arrow-up.svg"
-        }];
+        { value: "Booster", icon: "https://api.iconify.design/radix-icons/thick-arrow-up.svg" }];
     location = [
         { value: "Mexico", icon: `https://flagcdn.com/72x54/mx.png` },
         { value: "Canada", icon: `https://flagcdn.com/72x54/ca.png` },
@@ -160,6 +131,11 @@ class Store {
             await this.#delete(this.#keyLocation);
             log(err);
         };
+    };
+
+    handleFilterChange() {
+        this.#set(this.#filterLocation, this.filters);
+        log("%cFILTERS SET LOCALLY", logStyle);
     };
 
     async #checkData() {

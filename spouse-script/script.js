@@ -65,17 +65,20 @@
                     const ctrl = document.getElementById('control' + type);
                     if (ctrl.dataset.active === 'true' && !active) toggleFilterStatus(ctrl);
                     const idx = data.filters.findIndex(o => o.type === type && o.value === value);
-                    idx === -1 ? data.filters.push({ type, value }) : data.filters.splice(idx, 1);
+                    idx === -1 ? data.filters.push({ type: type, value: value }) : data.filters.splice(idx, 1);
                 }
+                log("%cFilters changed %o", logStyle, data.filters);
+                data.handleFilterChange()
             };
 
             // Control buttons
             const row0 = filterRow();
             data.controls.forEach(ob => {
+                const icon = createEl('img', { attrs: { src: ob.icon }, dataset: { type: 'control', value: ob.value }, styles: { width: '100%', height: '100%' } });
                 const btn = createEl('div', {
                     dataset: { type: 'control', value: ob.value, active: 'true' },
                     attrs: { id: 'control' + ob.value.replace(/\s/g, ''), title: ob.value },
-                    innerHTML: ob.icon,
+                    children: [icon],
                     styles: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '35px', width: '35px', borderRadius: '50%', border: '3px solid #22dd22', cursor: 'pointer', padding: '5px' }
                 });
                 btn.addEventListener('click', filterBtnHandler);
@@ -103,7 +106,7 @@
                 const icon = createEl('img', { attrs: { src: typ.icon }, dataset: { type: 'type', value: typ.value }, styles: { width: '100%', height: '100%' } });
                 const btn = createEl('div', {
                     dataset: { type: 'type', value: typ.value, active: 'true' },
-                    attrs: { id: 'type' + typ.value.replace(/\s/g, ''), title: typ.value },
+                    attrs: { id: 'type' + typ.value, title: typ.value },
                     children: [icon],
                     styles: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '35px', width: '35px', borderRadius: '50%', border: '3px solid #22dd22', cursor: 'pointer' }
                 });
