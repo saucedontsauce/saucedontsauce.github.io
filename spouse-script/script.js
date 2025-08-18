@@ -16,13 +16,7 @@
 
 (async function () {
     'use strict';
-    const log = console.log;
-    const logStyle = 'background-color: darkblue; color: white; font-style: italic; border: 5px solid hotpink; font-size: 2em;';
-    const $get = (selector) => document.querySelector(selector);
-    const $create = (tag) => document.createElement(tag);
-    function setStyles(el, styles) { Object.assign(el.style, styles); };
-
-
+    // code 
     function filterRow() { const fr = $create("div"); setStyles(fr, { display: "flex", padding: ".5rem 0", flexWrap: "wrap", flexDirection: "row", gap: ".5rem", rowGap: ".5rem", justifyContent: "space-evenly" }); return fr; };
     function hr() { const hr0 = $create("hr"); hr0.id = "hr0"; hr0.style.borderTopLeftRadius = "5px !important"; hr0.style.borderBottomLeftRadius = "5px !important"; hr0.className = "page-head-delimiter border-round m-top10 m-bottom10"; return hr0; };
 
@@ -291,6 +285,9 @@
             log("%cFiltered: %o", logStyle, data.filteredItems);
         }
 
+
+
+
         static async init() {
             log("%cspouse-script - made by d00dleD", logStyle);
 
@@ -329,5 +326,5 @@
 
         }
     };
-    SpouseScript.init()
+    await SpouseScript.init()
 })();
