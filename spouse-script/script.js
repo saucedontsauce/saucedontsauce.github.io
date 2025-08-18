@@ -180,6 +180,10 @@
             targetDiv.prepend(wrapper);
         }
 
+        #toggleShowing() {
+
+        }
+
         static async init() {
             const a = new SpouseScript();
             const indicator = document.querySelector('h4')?.textContent.trim();

@@ -64,33 +64,28 @@ const LOCATION = [
     { value: "UAE", icon: `https://flagcdn.com/72x54/ae.png` },
     { value: "South Africa", icon: `https://flagcdn.com/72x54/za.png` }
 ];
-const FILTERDEFAULT = [{ type: "location", value: "Mexico" }, { type: "location", value: "Canada" }, { type: "location", value: "Cayman Islands" }, { type: "location", value: "Hawaii" }, { type: "location", value: "Argentina" }, { type: "location", value: "United Kingdom" }, { type: "location", value: "Switzerland" }, { type: "location", value: "Japan" }, { type: "location", value: "China" }, { type: "location", value: "UAE" }, { type: "location", value: "South Africa" }, { type: "type", value: "Plushie" }, { type: "type", value: "Flower" }, { type: "type", value: "Alcohol" }, { type: "type", value: "Medical" }, { type: "type", value: "Temporary" }, { type: "type", value: "Booster" }, { type: "type", value: "Drug" }]
-
+const FILTERDEFAULT = [
+    ...LOCATION.map(l => ({ type: "location", value: l.value })),
+    ...TYPE.map(t => ({ type: "type", value: t.value }))
+];
+const KEYS = {
+    key: "TornApiKey",
+    user: "user_data",
+    spouse: "spouse_data",
+    filter: "filter_data"
+};
 class Store {
-    keykey = "TornApiKey";
-    userkey = "user_data";
-    spousekey = "user_data";
-    filterkey = "filter_data";
-
     system = { ...SYSTEM };
     controls = [...CONTROLS];
     type = [...TYPE];
     location = [...LOCATION]
     #filterDefault = [...FILTERDEFAULT];
 
-    #keyLocation = "TornApiKey"
-    #userLocation = "user_data"
-    #spouseLocation = "spouse_data"
-    #filterLocation = "filter_data"
+    #KEYS = KEYS
 
-    async #get(k) { const val = await GM.getValue(k); return val ? val : false; }
-    async #set(k, v) { const val = await GM.setValue(k, v); return val ? val : false; }
-    async #delete(key) { try { GM.deleteValue(key); return true; } catch (error) { log("%cError deleting item", logStyle); return false; }; }
-
-    async loginHandler(e) {
-        e.preventDefault();
-
-    }
+    async #get(k) { const val = await GM.getValue(this.#KEYS[k]); return val ? val : false; }
+    async #set(k, v) { const val = await GM.setValue(this.#KEYS[k], v); return val ? val : false; }
+    async #delete(k) { try { GM.deleteValue(this.#KEYS[k]); return true; } catch (error) { log("%cError deleting item", logStyle); return false; }; }
 
     get mergedDisplay() {
         let merged = { ...this.system };
@@ -114,98 +109,85 @@ class Store {
     }
 
     get filteredItems() {
-        const locations = this.filters
-            .filter(f => f.type === "location")
-            .map(f => f.value);
-
-        const types = this.filters
-            .filter(f => f.type === "type")
-            .map(f => f.value);
-
+        const activeFilters = this.filters.reduce((acc, f) => {
+            acc[f.type] ??= new Set();
+            acc[f.type].add(f.value);
+            return acc;
+        }, {});
         return Object.values(this.mergedDisplay)
-            .filter(item => locations.includes(item.location) && types.includes(item.type));
+            .filter(item =>
+                (!activeFilters.location || activeFilters.location.has(item.location)) &&
+                (!activeFilters.type || activeFilters.type.has(item.type))
+            );
     }
 
-    async #fetchPlayer(key, save, id) {
+    async #fetchPlayer(key, saveKey, id = "") {
         log("%cFetching user", logStyle);
         try {
-            const data = await fetch(String(`https://api.torn.com/v2/user${id ? "/" + id : ""}?selections=${id ? "display,timestamp" : "profile,display,timestamp"}&key=${key}`));
-            const json = await data.json();
-            if (json.error) {
-                switch (json.error.code) {
-                    case 2: { await this.#delete(this.#keyLocation); window.alert(json.error.error); window.location.reload(); break; };
-                    default: { log("USER Fetch shit itself"); break; }
-                };
-            } else {
-                this.#set(save, JSON.stringify(json));
-                return json;
-            };
+            const url = `https://api.torn.com/v2/user${id ? "/" + id : ""}?selections=${id ? "display,timestamp" : "profile,display,timestamp"}&key=${key}`;
+            const res = await fetch(url);
+            const json = await res.json();
+            if (json.error) return this.#handleApiError(json);
+            await this.#set(saveKey, JSON.stringify(json));
+            return json;
         } catch (err) {
-            await this.#delete(this.#keyLocation);
+            await this.#delete("key");
             log(err);
-        };
-    };
+        }
+    }
+
+    #handleApiError(json) {
+        switch (json.error.code) {
+            case 2:
+                this.#delete("key");
+                window.alert(json.error.error);
+                window.location.reload();
+                break;
+            default:
+                log("API Fetch failed", json.error);
+        }
+    }
 
     async handleFilterChange() {
-        await this.#set(this.#filterLocation, this.filters);
+        await this.#set("filter", this.filters);
         log("%cFILTERS SET LOCALLY", logStyle);
     };
 
-    async #checkData() {
-        log("c%CHECKING DATA", logStyle);
-        if (!this.key) {
-            log("%cNO KEY", logStyle);
-        } else {
-            if (!this.user) {
-                log("%cNO USER", logStyle);
-                await this.#fetchPlayer(this.key, this.#userLocation);
-            } else {
-                const jsonuser = JSON.parse(this.user);
-                if ((Date.now() - (jsonuser.timestamp * 1000) > 3600000)) {
-                    log("%cOLD USER", logStyle);
-                    let usr = await this.#fetchPlayer(this.key, this.#userLocation);
-                    this.user = usr
-                } else {
-                    log("%cUSER VALID", logStyle);
-                    this.user = { ...jsonuser };
-                };
-            };
-            if (this.user.married?.spouse_id) {
-                if (!this.spouse) {
-                    log("%cNO SPOUSE BUT MARRIED", logStyle);
-                    await this.#fetchPlayer(this.key, this.#spouseLocation, this.user.married.spouse_id);
-                } else {
-                    const jsonspouse = JSON.parse(this.spouse);
-                    if ((Date.now() - (jsonspouse.timestamp * 1000) > 3600000)) {
-                        log("%cOLD SPOUSE", logStyle);
-                        let spous = await this.#fetchPlayer(this.key, this.#spouseLocation);
-                        this.spouse = spous
+    async #ensureFresh(type, id = null) {
+        let cached = await this.#get(type);
+        if (!cached) { log(`%cNO ${type.toUpperCase()}`, logStyle); return await this.#fetchPlayer(this.key, type, id); }
+        let parsed = JSON.parse(cached);
+        let isStale = (Date.now() - parsed.timestamp * 1000) > 3600000;
+        if (isStale) { log(`%cOLD ${type.toUpperCase()}`, logStyle); return await this.#fetchPlayer(this.key, type, id); }
+        log(`%c${type.toUpperCase()} VALID`, logStyle);
+        return parsed;
+    }
 
-                    } else {
-                        log("%cSPOUSE VALID", logStyle);
-                        this.spouse = { ...jsonspouse };
-                    }
-                }
-            }
-            if (!this.filters) {
-                this.filters = [...this.#filterDefault];
-                this.#set(this.#filterLocation, this.#filterDefault);
-            }
+    async #checkData() {
+        if (!this.key) return log("%cNO KEY", logStyle);
+
+        this.user = await this.#ensureFresh("user");
+        if (this.user?.married?.spouse_id) {
+            this.spouse = await this.#ensureFresh("spouse", this.user.married.spouse_id);
+        }
+
+        if (!this.filters) {
+            this.filters = [...this.#filterDefault];
+            await this.#set("filter", this.#filterDefault);
         }
     }
 
     async loginHandler(key) {
-        await this.#set(this.#keyLocation, key);
+        await this.#set("key", key);
         window.location.reload();
     };
 
     static async init() {
         const s = new Store();
-
-        s.key = await s.#get(s.#keyLocation);
-        s.user = await s.#get(s.#userLocation);
-        s.spouse = await s.#get(s.#spouseLocation);
-        s.filters = await s.#get(s.#filterLocation);
+        s.key = await s.#get(s.#KEYS["key"]);
+        s.user = await s.#get(s.#KEYS["user"]);
+        s.spouse = await s.#get(s.#KEYS["spouse"]);
+        s.filters = await s.#get(s.#KEYS["filter"]);
         await s.#checkData()
         return s;
     }
