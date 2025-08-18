@@ -93,8 +93,7 @@ class Store {
     }
 
     get mergedDisplay() {
-        console.log(this.user)
-        let merged = {};
+        let merged = { ...this.system };
         if (!this.user || !this.system) throw new Error("Incorrect data passed to merge function")
         this.user.display.forEach(i => {
             merged[i.name] = { ...i, ...this.system[i.name] };

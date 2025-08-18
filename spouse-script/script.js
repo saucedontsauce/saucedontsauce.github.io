@@ -125,7 +125,7 @@
             })
             // Items
             if (data.filteredItems.length) {
-                data.filteredItems.forEach(item => itemWrapper.appendChild(createEl('div', { innerHTML: `• ${item.name}-${item.location} -- ${item.quantity}/${item.target}` })));
+                data.filteredItems.forEach(item => itemWrapper.appendChild(createEl('div', { innerHTML: `• ${item.name}-${item.location} -- ${item.quantity || "0"}/${item.target}` })));
             } else {
                 itemWrapper.appendChild(createEl('p', { innerHTML: 'No data available.' }));
             }
