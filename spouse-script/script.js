@@ -220,7 +220,7 @@
                     const lin = $create("a");
                     lin.href = "https://www.torn.com/preferences.php#tab=api";
                     lin.target = "_blank";
-                    lin.innerHTML = '<p>Need a key?</p>';
+                    lin.innerHTML = '<p>No Key?</p>';
                     lin.className = "torn-btn";
                     return lin
                 };
