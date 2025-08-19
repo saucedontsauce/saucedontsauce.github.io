@@ -91,19 +91,12 @@ class Store {
         let merged = { ...this.system };
         if (!this.user || !this.system) throw new Error("Incorrect data passed to merge function")
         this.user.display.forEach(i => {
-            merged[i.name] = { ...i, ...this.system[i.name] };
-            merged[i.name].my_quantity = i.quantity;
-            merged[i.name].spouse_quantity = 0;
+            merged[i.name] = { ...i, ...this.system[i.name], my_quantity: i.quantity, spouse_quantity: 0 };
         });
         if (this.spouse) {
             this.spouse.display.forEach(i => {
-                if (merged[i.name]) {
-                    merged[i.name] = { ...merged[i.name], spouse_quantity: i.quantity, quantity: merged[i.name].quantity += i.quantity };
-
-                } else {
-                    merged[i.name] = { ...i, spouse_quantity: i.quantity, my_quantity: 0 };
-                }
-            })
+                merged[i.name] = merged[i.name].my_quantity ? { ...merged[i.name], spouse_quantity: i.quantity, quantity: merged[i.name].quantity += i.quantity } : { ...i, spouse_quantity: i.quantity, my_quantity: 0 };
+            });
         };
         return merged;
     }
@@ -114,6 +107,7 @@ class Store {
             acc[f.type].add(f.value);
             return acc;
         }, {});
+
         return Object.values(this.mergedDisplay)
             .filter(item =>
                 (!activeFilters.location || activeFilters.location.has(item.location)) &&
