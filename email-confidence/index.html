@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email Confidence</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-light d-flex pt-4 justify-content-center min-vh-100">
+
+    <div class="container-fluid px-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+
+                <!-- Title -->
+                <div class="text-center mb-4">
+                    <h1 class="fw-bold text-primary">Email confidence checker</h1>
+                    <p class="text-secondary">Enter an email below to get started.</p>
+                </div>
+
+                <!-- Form Card -->
+                <div class="card border-0 shadow-sm p-4 rounded-4 mb-4">
+                    <form id="emailForm" novalidate>
+                        <div class="mb-2">
+                            <label for="emailInput" class="form-label fw-semibold">Email Address</label>
+
+                            <!-- Input group with inline badge + copy + fix -->
+                            <div class="input-group input-group-lg">
+                                <input type="email" class="form-control rounded-start-3" id="emailInput"
+                                    placeholder="name@example.com" required>
+                                <!--<span class="input-group-text">
+                                    <span id="liveBadge" class="badge text-bg-secondary">--%</span>
+                                </span>-->
+                                <!--<button id="copyBtn" type="button" class="btn btn-outline-secondary">
+                                    Copy
+                                </button>-->
+                                <!--<button id="fixBtn" type="button" class="btn btn-outline-primary" disabled
+                                    title="No typo suggestion yet">
+                                    Fix typo
+                                </button>-->
+                            </div>
+                        </div>
+
+                        <!-- Live checklist -->
+                        <div id="liveChecklist" class="small text-secondary ms-1 mb-3"></div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3">Check Confidence</button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsContainer" class="d-none">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 mb-3">
+                        <h5 class="fw-bold text-primary mb-2">Overall Confidence</h5>
+                        <p id="confidenceScore" class="fs-4 fw-semibold text-dark mb-2">--%</p>
+                        <div class="progress">
+                            <div id="confidenceBar" class="progress-bar" role="progressbar" style="width:0%;">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="card border-0 shadow-sm p-4 rounded-4 mb-3">
+                        <h5 class="fw-bold text-primary mb-2">Validity Checks</h5>
+                        <ul id="validityList" class="text-secondary mb-0"></ul>
+                    </div>
+
+                    <div class="card border-0 shadow-sm p-4 rounded-4">
+                        <h5 class="fw-bold text-primary mb-2">Suggestions</h5>
+                        <p id="suggestionsText" class="text-secondary mb-0">--</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast (copy/fix confirmations) -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+        <div id="copyToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div id="copyToastBody" class="toast-body">Copied to clipboard</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="src/main.js" type="module"></script>
+</body>
+
+</html>

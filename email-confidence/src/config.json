@@ -1,0 +1,56 @@
+{
+    "ver": 1,
+    "patterns": {
+        "vowels": {
+            "pattern": "[AEIOUaeiou]",
+            "flags": "gi"
+        },
+        "letters": {
+            "pattern": "[A-Za-z]",
+            "flags": "g"
+        },
+        "basic": "/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/"
+    },
+    "POPULAR_DOMAINS": {
+        "gmail.com": true,
+        "yahoo.com": true,
+        "outlook.com": true,
+        "hotmail.com": true,
+        "icloud.com": true,
+        "proton.me": true,
+        "protonmail.com": true,
+        "aol.com": true,
+        "live.com": true,
+        "hotmail.co.uk": true
+    },
+    "DISPOSABLE_DOMAINS": {
+        "mailinator.com": true,
+        "guerrillamail.com": true,
+        "10minutemail.com": true,
+        "tempmail.email": true,
+        "yopmail.com": true,
+        "trashmail.com": true,
+        "getnada.com": true,
+        "fakeinbox.com": true,
+        "maildrop.cc": true
+    },
+    "COMMON_TLDS": {
+        "com": true,
+        "net": true,
+        "org": true,
+        "edu": true,
+        "gov": true,
+        "io": true,
+        "co": true,
+        "me": true,
+        "ai": true,
+        "uk": true,
+        "de": true,
+        "fr": true,
+        "es": true,
+        "it": true,
+        "nl": true,
+        "ca": true,
+        "au": true
+    }
+}
