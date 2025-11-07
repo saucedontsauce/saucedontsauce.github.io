@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/dollaricon.png">
+    <title>Payout Calc.</title>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+
+<body>
+    <!--
+    
+    <div class="card">This is a card. Hover to see subtle glow, neon mode makes it intense.</div>
+
+    <button class="primary">Primary Button</button>
+    <button class="secondary">Secondary Button</button>
+
+    <div class="alert alert-success">✅ Success! Everything worked.</div>
+    <div class="alert alert-warning">⚠️ Warning! Check your inputs.</div>
+    <div class="alert alert-error">❌ Error! Something went wrong.</div>
+
+
+dev note: neon mode is a fun easter egg, but it can be hard on the eyes. Use sparingly.
+    
+    To toggle neon mode, click the "Toggle Neon Mode" button in the settings section.
+    
+    Neon mode adds a glowing effect to cards and buttons, making them stand out more.
+    
+    <tr data-payout="100">
+        <td title="[ID]">User</td>
+        <td>5</td>
+        <td>2</td>
+        <td>1</td>
+        <td>0</td>
+        <td>$120</td>
+    </tr>
+-->
+
+
+
+    <nav id="nav">
+        <h3>Payout Calculator - Adam A.</h3>
+        <form id="apiKeyModal" class="flex-row field" style="display:none;">
+            <input type="text" class="input" id="apiKeyInput" placeholder="Enter API Key">
+            <button class="primary" type="submit">Submit</button>
+        </form>
+    </nav>
+
+    <div id="alert"></div>
+
+    <div id="root">
+
+        <div class="card center-text">
+            <h4>Calculate Payouts</h4>
+            <div class="field success">
+                <label for="faction-cut">Faction Cut</label>
+                <input type="number" value="20" id="faction-cut" class="input" placeholder="Enter Faction Cut">
+                <div class="hint">How much does the faction take?</div>
+            </div>
+            <div class="field error">
+                <label for="war">War</label>
+                <select id="war" class="select error">
+                    <option value="">Select…</option>
+
+                </select>
+                <div class="hint">Please choose a war</div>
+            </div>
+            <button class="primary" id="calculateBtn">Calculate Payouts</button>
+        </div>
+
+        <hr>
+
+
+        <div class="card center-text">
+            <div class="table-container">
+                <table id="displayTable">
+                    <thead>
+                        <th data-title="Username">Name</th>
+                        <th data-title="Respect Gained">Resp</th>
+                        <th data-title="Outside Hits">OH</th>
+                        <th data-title="Inside Hits">IH</th>
+                        <th data-title="Fees (Bounties ect.)">Fees</th>
+                        <th data-title="Total Payout">Payout</th>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td colspan="6" class="center-text">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="card center-text">
+            <h4>Settings</h4>
+            <div class="flex-align">
+                <button class="secondary">Git</button>
+                <button onclick="document.body.classList.toggle('neon-mode')">🎛 Toggle Neon Mode</button>
+                <button class="primary" onclick="localStorage.removeItem('apiKey'); location.reload();">Reset
+                    Key</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>

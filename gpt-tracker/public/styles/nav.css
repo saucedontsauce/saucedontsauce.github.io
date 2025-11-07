@@ -1,0 +1,42 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    height: 45px;
+    padding: 0 .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
+}
+
+.navTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navLinks {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.navLinks a {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    color: #444444;
+}
+
+.navLinks a:hover {
+    color: #007BFF;
+    font-weight: bold;
+    background-color: #555;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+}

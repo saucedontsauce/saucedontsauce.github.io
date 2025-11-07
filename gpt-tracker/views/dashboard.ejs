@@ -1,0 +1,59 @@
+<h2>Dashboard</h2>
+<p>Welcome, <%= user.name %>!</p>
+
+<h3>Create Transaction</h3>
+
+<form action="/transactions" method="POST">
+    <label>Amount</label>
+    <input type="number" step="0.01" name="amount" required />
+
+    <label>Currency</label>
+    <select name="currency" required>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="SOL">SOL</option>
+        <option value="DOGE">DOGE</option>
+        <option value="LTC">LTC</option>
+    </select>
+
+    <label>Website</label>
+    <input type="url" name="website" placeholder="https://example.com" required />
+
+    <label>Type</label>
+    <select name="type" required>
+        <option value="deposit">Deposit</option>
+        <option value="withdrawal">Withdrawal</option>
+        <option value="purchase">Purchase</option>
+        <option value="refund">Refund</option>
+        <option value="transfer">Transfer</option>
+    </select>
+
+    <label>Status</label>
+    <select name="status">
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+        <option value="failed">Failed</option>
+        <option value="cancelled">Cancelled</option>
+    </select>
+
+    <button type="submit">Add Transaction</button>
+</form>
+
+<hr />
+
+<h3>Your Transactions</h3>
+<ul>
+    <% if (transactions.length === 0) { %>
+    <li>No transactions yet.</li>
+    <% } else { %>
+    <% transactions.forEach(t => { %>
+    <li>
+        <strong><%= t.type %></strong> —
+        <%= t.amount %> <%= t.currency %> at
+        <%= t.website %>
+        (<%= t.status %>)
+    </li>
+    <% }) %>
+    <% } %>
+</ul>

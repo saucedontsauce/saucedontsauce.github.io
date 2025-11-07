@@ -70,7 +70,7 @@ function renderShell() {
             var div = document.createElement('a');
             div.href = `#${i}`;
             div.className = 'btn spaceeven';
-            div.innerHTML = `${pages[i]?.name}`;
+            div.innerHTML = `Go to ${pages[i]?.name}`;
             homeHero.appendChild(div);
         }
     }

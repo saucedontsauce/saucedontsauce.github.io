@@ -1,0 +1,496 @@
+:root {
+    /* Base */
+    --color-bg: #0D0D0D;
+    --color-surface: #1A1A1A;
+    --color-border: #2E2E2E;
+
+    /* Text */
+    --color-text-primary: #EAEAEA;
+    --color-text-secondary: #A3A3A3;
+
+    /* Accents */
+    --color-accent: #3A86FF;
+    --color-accent-hover: #2D5FCC;
+    --color-accent-secondary: #FF006E;
+
+    /* State Colors */
+    --color-success: #06D6A0;
+    --color-warning: #FFD166;
+    --color-error: #EF476F;
+
+    /* Shadows (subtle) */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-glow-accent: 0 0 12px rgba(58, 134, 255, 0.4);
+    --shadow-glow-success: 0 0 12px rgba(6, 214, 160, 0.4);
+    --shadow-glow-warning: 0 0 12px rgba(255, 209, 102, 0.4);
+    --shadow-glow-error: 0 0 12px rgba(239, 71, 111, 0.4);
+
+    /* Transition */
+    --transition-speed: 0.3s;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: system-ui, sans-serif;
+}
+
+#root {
+    margin: 0;
+    padding: 2rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+nav {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-accent-hover);
+}
+
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem;
+    color: var(--color-text-secondary);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft), var(--shadow-glow-accent);
+}
+
+button {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    margin-right: 0.5rem;
+}
+
+button.primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+    border: none;
+    box-shadow: var(--shadow-soft);
+}
+
+button.primary:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: var(--shadow-glow-accent);
+}
+
+button.secondary {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    box-shadow: var(--shadow-soft);
+}
+
+button.secondary:hover {
+    background-color: rgba(58, 134, 255, 0.1);
+    box-shadow: var(--shadow-glow-accent);
+}
+
+.alert {
+    display: flex;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow var(--transition-speed);
+    cursor: pointer;
+}
+
+body>.alert {
+    margin: 1rem;
+}
+
+.alert-success {
+    background-color: rgba(6, 214, 160, 0.1);
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+}
+
+.alert-success:hover {
+    box-shadow: var(--shadow-glow-success);
+}
+
+.alert-warning {
+    background-color: rgba(255, 209, 102, 0.1);
+    border: 1px solid var(--color-warning);
+    color: var(--color-warning);
+}
+
+.alert-warning:hover {
+    box-shadow: var(--shadow-glow-warning);
+}
+
+.alert-error {
+    background-color: rgba(239, 71, 111, 0.1);
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+}
+
+.alert-error:hover {
+    box-shadow: var(--shadow-glow-error);
+}
+
+/* Neon Mode */
+body.neon-mode {
+    /*--shadow-glow-accent: 0 0 20px rgba(58, 134, 255, 0.9), 0 0 40px rgba(58, 134, 255, 0.6);*/
+    --shadow-glow-success: 0 0 20px rgba(6, 214, 160, 0.9), 0 0 40px rgba(6, 214, 160, 0.6);
+    --shadow-glow-warning: 0 0 20px rgba(255, 209, 102, 0.9), 0 0 40px rgba(255, 209, 102, 0.6);
+    --shadow-glow-error: 0 0 20px rgba(239, 71, 111, 0.9), 0 0 40px rgba(239, 71, 111, 0.6);
+}
+
+.flex-align {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.flex-row {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.center-text {
+    text-align: center;
+}
+
+
+.table-container {
+    width: 100%;
+    height: fit-content;
+    max-width: 100dvw;
+    overflow-x: auto;
+}
+
+#displayTable {
+    min-width: 420px;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    min-height: 240px;
+    height: 100%;
+    overflow-y: auto;
+    max-height: 820px;
+}
+
+th {
+    position: relative;
+}
+
+th[data-title]:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 105%;
+    /* place below the th */
+    left: 0;
+    z-index: 100;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    white-space: normal;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+td,
+th {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem;
+    text-align: left;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* ---------- Fields: input, textarea, select ---------- */
+.field {
+    display: grid;
+    padding: .5rem 0;
+    gap: 0.4rem;
+}
+
+.field label {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+
+.field .hint {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    outline: none;
+    transition: border-color var(--transition-speed, .2s), box-shadow var(--transition-speed, .2s), background-color var(--transition-speed, .2s), color var(--transition-speed, .2s);
+    box-shadow: var(--shadow-soft);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: color-mix(in oklab, var(--color-text-secondary) 85%, black 15%);
+}
+
+/* Hover */
+.input:hover,
+.textarea:hover,
+.select:hover {
+    border-color: color-mix(in oklab, var(--color-accent) 30%, var(--color-border));
+}
+
+/* Focus */
+.input:focus,
+.textarea:focus,
+.select:focus {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-soft), var(--shadow-glow-accent);
+}
+
+/* Disabled */
+.input:disabled,
+.textarea:disabled,
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Readonly */
+.input[readonly],
+.textarea[readonly] {
+    background: color-mix(in oklab, var(--color-surface) 85%, white 15%);
+}
+
+/* Sizes */
+.input.sm,
+.textarea.sm,
+.select.sm {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+}
+
+.input.lg,
+.textarea.lg,
+.select.lg {
+    padding: 0.8rem 1rem;
+    font-size: 1.05rem;
+}
+
+/* Validation states (apply to the control or .field) */
+.field.success .input,
+.field.success .textarea,
+.field.success .select,
+.input.success,
+.textarea.success,
+.select.success {
+    border-color: var(--color-success);
+    box-shadow: var(--shadow-soft);
+}
+
+.field.success .input:focus,
+.field.success .textarea:focus,
+.field.success .select:focus,
+.input.success:focus,
+.textarea.success:focus,
+.select.success:focus {
+    box-shadow: var(--shadow-soft), var(--shadow-glow-success);
+}
+
+.field.error .input,
+.field.error .textarea,
+.field.error .select,
+.input.error,
+.textarea.error,
+.select.error {
+    border-color: var(--color-error);
+    box-shadow: var(--shadow-soft);
+}
+
+.field.error .input:focus,
+.field.error .textarea:focus,
+.field.error .select:focus,
+.input.error:focus,
+.textarea.error:focus,
+.select.error:focus {
+    box-shadow: var(--shadow-soft), var(--shadow-glow-error);
+}
+
+.field.warning .input,
+.field.warning .textarea,
+.field.warning .select,
+.input.warning,
+.textarea.warning,
+.select.warning {
+    border-color: var(--color-warning);
+}
+
+.field.warning .input:focus,
+.field.warning .textarea:focus,
+.field.warning .select:focus,
+.input.warning:focus,
+.textarea.warning:focus,
+.select.warning:focus {
+    box-shadow: var(--shadow-soft), var(--shadow-glow-warning);
+}
+
+/* With leading icon */
+.input.with-icon,
+.select.with-icon {
+    padding-left: 2.4rem;
+    position: relative;
+}
+
+.field .icon {
+    position: absolute;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: 0.8rem;
+    margin-top: 2.35rem;
+    /* aligns under label; tweak if no label */
+    color: var(--color-text-secondary);
+    pointer-events: none;
+}
+
+/* ---------- Textarea specifics ---------- */
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+/* ---------- Select (native) with custom arrow ---------- */
+.select {
+    appearance: none;
+    background:
+        linear-gradient(transparent, transparent) padding-box,
+        var(--color-surface) border-box;
+    background-color: var(--color-surface);
+    /* Down arrow (inline SVG using currentColor) */
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2.2rem;
+}
+
+/* High-contrast arrow color on hover/focus */
+.select:hover,
+.select:focus {
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233A86FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+}
+
+/* Invalid (native) */
+.input:invalid,
+.textarea:invalid,
+.select:invalid {
+    border-color: var(--color-error);
+}
+
+/* ---------- Grouped inputs (e.g., left/right addons) ---------- */
+.input-group {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+}
+
+.input-addon {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Merge when flushed */
+.input-group.flush .input,
+.input-group.flush .select {
+    border-radius: 10px;
+}
+
+.input-group.flush .input:first-child,
+.input-group.flush .select:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group.flush .input:last-child,
+.input-group.flush .select:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* ---------- Neon mode refinements ---------- */
+body.neon-mode .input:focus,
+body.neon-mode .textarea:focus,
+body.neon-mode .select:focus {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-glow-accent);
+}
+
+body.neon-mode .field.success .input:focus,
+body.neon-mode .field.success .textarea:focus,
+body.neon-mode .field.success .select:focus {
+    box-shadow: var(--shadow-glow-success);
+}
+
+body.neon-mode .field.warning .input:focus,
+body.neon-mode .field.warning .textarea:focus,
+body.neon-mode .field.warning .select:focus {
+    box-shadow: var(--shadow-glow-warning);
+}
+
+body.neon-mode .field.error .input:focus,
+body.neon-mode .field.error .textarea:focus,
+body.neon-mode .field.error .select:focus {
+    box-shadow: var(--shadow-glow-error);
+}
+
+hr {
+    border-color: var(--color-text-secondary);
+}

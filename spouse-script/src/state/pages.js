@@ -4,9 +4,8 @@ const pages = {
         link: "home",
         html: `
         <div class="hero-content" id="home-hero">
-            <h1>TornAIDS</h1>
-            <p>Micro-plastics in your balls. LEGO is Danish. Hurts up Bum.</p>
-            
+            <h1>TornStuff</h1>
+            <p>Just some stuff I made that's Torn related.</p>
         </div>
     `,
 

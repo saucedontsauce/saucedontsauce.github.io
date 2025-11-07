@@ -1,0 +1,15 @@
+<nav class="navBar">
+    <div class="navTitle"><%= appName%></div>
+    <div class="navLinks">
+        <% if(user){ %>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
+        <% }else{ %>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% }; %>
+    </div>
+</nav>

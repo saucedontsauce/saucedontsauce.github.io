@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/public/stockicon.svg" />
+    <link rel="stylesheet" href="/public/styles.css" />
+
+</head>
+
+<body>
+    <%- include("partials/navbar",{appName: appName, user: user}) %>
+    <% if (success.length > 0) { %>
+    <div style="color: green;" class="flash-message" onclick="this.style.display='none'"><%= success %></div>
+    <% } %>
+    <% if (error.length > 0) { %>
+    <div style="color: red;" class="flash-message" onclick="this.style.display='none'"><%= error %></div>
+    <% } %>
+    <main>
+        <%- body %>
+    </main>
+
+    <%- include("partials/footer",{appName: appName}) %>
+</body>
+
+</html>
