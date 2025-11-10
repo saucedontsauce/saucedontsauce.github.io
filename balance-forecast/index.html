@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Balance Forecast (LTC/BTC/SOL)</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+            <h1>Balance Forecast</h1>
+            <div class="sub">Predict when a balance will hit zero. Modular, framework‑free.</div>
+        </div>
+    </header>
+
+    <main class="container grid">
+        <section class="card" aria-labelledby="setup-h">
+            <h2 id="setup-h">Setup</h2>
+            <div class="row" style="margin-top:8px">
+                <div class="col-4">
+                    <label for="currency">Currency</label>
+                    <select id="currency" aria-label="Currency">
+                        <option value="LTC">LTC — Litecoin</option>
+                        <option value="BTC">BTC — Bitcoin</option>
+                        <option value="SOL">SOL — Solana</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    <label for="balance">Current balance (<span class="mono" id="sym">LTC</span>)</label>
+                    <input id="balance" inputmode="decimal" placeholder="e.g. 1.2345" />
+                </div>
+                <div class="col-12 stack" style="margin-top:4px">
+                    <button id="saveSetup" class="btn primary">Save setup</button>
+                    <button id="reset" class="btn ghost">Reset</button>
+                    <span class="hint">Tip: set a balance and begin adding transactions to calculate.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" aria-labelledby="results-h">
+            <h2 id="results-h" class="stack" style="justify-content:space-between; align-items:center">
+                <span>Results</span>
+                <label class="stack" style="gap:6px">
+                    <span class="hint">Lookback</span>
+                    <select id="lookback" aria-label="Lookback window (days)" style="min-width:86px">
+                        <option value="7">7d</option>
+                        <option value="14" selected>14d</option>
+                        <option value="30">30d</option>
+                        <option value="90">90d</option>
+                    </select>
+                </label>
+                <label class="stack" style="gap:6px">
+                    <span class="hint">Critical ≤</span>
+                    <input id="threshCriticalDays" type="number" min="1" step="1" value="2" style="width:72px" />
+                    <span class="hint">days</span>
+                </label>
+
+                <label class="stack" style="gap:6px">
+                    <span class="hint">Watch ≤</span>
+                    <input id="threshWatchDays" type="number" min="1" step="1" value="5" style="width:72px" />
+                    <span class="hint">days</span>
+                </label>
+            </h2>
+            <div id="results" class="result empty">Enter a balance and at least one change to see your runway…</div>
+            <svg id="chart" class="chart" role="img" aria-label="Balance over time"></svg>
+        </section>
+
+        <section class="card col-12" aria-labelledby="changes-h">
+            <h2 id="payments-h">Payments</h2>
+
+            <div class="row" style="margin-bottom:10px">
+                <div class="col-6">
+                    <label for="chgLabel">Label</label>
+                    <input id="chgLabel" placeholder="e.g. txid / reference" />
+                </div>
+                <div class="col-3">
+                    <label for="chgAmount">Amount</label>
+                    <input id="chgAmount" inputmode="decimal" placeholder="e.g. -0.01" />
+                </div>
+                <div class="col-3">
+                    <label for="chgWhen">When</label>
+                    <input id="chgWhen" type="datetime-local" />
+                </div>
+                <div class="col-12 stack" style="align-items:flex-end">
+                    <button id="addChange" class="btn primary">Add payment</button>
+                </div>
+            </div>
+
+            <div id="changesWrap"></div>
+        </section>
+    </main>
+
+    <footer class="container footer">
+        Import the module exports under <span class="mono">window.BalanceForecast</span>.
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
